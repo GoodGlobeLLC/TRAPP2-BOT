@@ -1,0 +1,47 @@
+name: Validate bot training data
+
+# Sanity-checks data/bot_training_data.json on every push so a malformed export
+# can't silently corrupt the bot's training source. Pure validation — it never
+# writes anything back.
+
+on:
+  push:
+    paths:
+      - 'data/bot_training_data.json'
+  workflow_dispatch: {}
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JSON shape
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          p = "data/bot_training_data.json"
+          with open(p) as f:
+              d = json.load(f)   # fails loudly if not valid JSON
+          # Required top-level keys
+          required = ["schema", "generatedAt", "bankroll", "counts",
+                      "performance", "trades", "signalScores", "styleScores"]
+          missing = [k for k in required if k not in d]
+          if missing:
+              print("MISSING KEYS:", missing); sys.exit(1)
+          if not str(d["schema"]).startswith("valuatio-bot-training"):
+              print("Unexpected schema:", d["schema"]); sys.exit(1)
+          if not isinstance(d["trades"], list):
+              print("trades is not a list"); sys.exit(1)
+          # Spot-check trade records
+          for i, t in enumerate(d["trades"][:50]):
+              for k in ["ticker", "direction", "pnl"]:
+                  if k not in t:
+                      print(f"trade {i} missing {k}"); sys.exit(1)
+          c = d["counts"]
+          print(f"OK — {c.get('closed',0)} closed trades, "
+                f"{c.get('wins',0)} wins / {c.get('losses',0)} losses, "
+                f"bankroll {d['bankroll']}")
+          PY

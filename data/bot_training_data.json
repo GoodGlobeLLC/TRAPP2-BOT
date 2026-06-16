@@ -1,16 +1,134 @@
 {
   "schema": "valuatio-bot-training/v1",
-  "generatedAt": "2026-06-15T00:00:00.000Z",
+  "generatedAt": "2026-06-16T02:21:07.940Z",
   "bankroll": 100000,
   "startingBankroll": 100000,
   "allTimeReturnPct": 0,
-  "counts": { "total": 0, "open": 0, "closed": 0, "wins": 0, "losses": 0 },
-  "performance": { "winRate": null, "totalPnl": 0, "avgWin": null, "avgLoss": null, "profitFactor": null },
+  "counts": {
+    "total": 12,
+    "open": 12,
+    "closed": 0,
+    "wins": 0,
+    "losses": 0
+  },
+  "performance": {
+    "winRate": null,
+    "totalPnl": 0,
+    "avgWin": null,
+    "avgLoss": null,
+    "profitFactor": null
+  },
   "learnedWeights": {},
   "signalScores": [],
   "styleScores": [],
-  "takeaways": ["No trades yet — this is the seed file. Replace it by exporting from the app's Bot Bets tab (⤓ Export Training) and committing the result here."],
+  "takeaways": [],
   "trades": [],
-  "openPositions": [],
-  "equityCurve": []
+  "openPositions": [
+    {
+      "ticker": "UMC",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-15",
+      "entryPrice": 23.08,
+      "conviction": 0.408
+    },
+    {
+      "ticker": "MRVL",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-15",
+      "entryPrice": 308.880005,
+      "conviction": 0.396
+    },
+    {
+      "ticker": "LNVGY",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-15",
+      "entryPrice": 57.25,
+      "conviction": 0.394
+    },
+    {
+      "ticker": "ARM",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-15",
+      "entryPrice": 412.549988,
+      "conviction": 0.394
+    },
+    {
+      "ticker": "4938.TW",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-15",
+      "entryPrice": 2.649111815,
+      "conviction": 0.385
+    },
+    {
+      "ticker": "000725.SZ",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-15",
+      "entryPrice": 0.8761933296,
+      "conviction": 0.364
+    },
+    {
+      "ticker": "000725.SZ",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-16",
+      "entryPrice": 0.8749630944,
+      "conviction": 0.417
+    },
+    {
+      "ticker": "TOELY",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-16",
+      "entryPrice": 217.649994,
+      "conviction": 0.413
+    },
+    {
+      "ticker": "UMC",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-16",
+      "entryPrice": 23.08,
+      "conviction": 0.399
+    },
+    {
+      "ticker": "DELL",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-16",
+      "entryPrice": 409.070007,
+      "conviction": 0.391
+    },
+    {
+      "ticker": "LNVGY",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-16",
+      "entryPrice": 57.25,
+      "conviction": 0.38
+    },
+    {
+      "ticker": "MRVL",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-16",
+      "entryPrice": 308.880005,
+      "conviction": 0.355
+    }
+  ],
+  "equityCurve": [
+    {
+      "date": "2026-06-15",
+      "value": 100000
+    },
+    {
+      "date": "2026-06-16",
+      "value": 99999.97
+    }
+  ]
 }

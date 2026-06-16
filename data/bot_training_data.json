@@ -1,0 +1,16 @@
+{
+  "schema": "valuatio-bot-training/v1",
+  "generatedAt": "2026-06-15T00:00:00.000Z",
+  "bankroll": 100000,
+  "startingBankroll": 100000,
+  "allTimeReturnPct": 0,
+  "counts": { "total": 0, "open": 0, "closed": 0, "wins": 0, "losses": 0 },
+  "performance": { "winRate": null, "totalPnl": 0, "avgWin": null, "avgLoss": null, "profitFactor": null },
+  "learnedWeights": {},
+  "signalScores": [],
+  "styleScores": [],
+  "takeaways": ["No trades yet — this is the seed file. Replace it by exporting from the app's Bot Bets tab (⤓ Export Training) and committing the result here."],
+  "trades": [],
+  "openPositions": [],
+  "equityCurve": []
+}

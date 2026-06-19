@@ -1,12 +1,12 @@
 {
   "schema": "valuatio-bot-training/v1",
-  "generatedAt": "2026-06-18T03:34:19.204Z",
+  "generatedAt": "2026-06-19T05:19:09.891Z",
   "bankroll": 102752.29,
   "startingBankroll": 100000,
   "allTimeReturnPct": 2.75,
   "counts": {
-    "total": 10,
-    "open": 10,
+    "total": 11,
+    "open": 11,
     "closed": 0,
     "wins": 0,
     "losses": 0
@@ -33,25 +33,34 @@
       "optionType": null,
       "leveragedEtf": null,
       "style": "long",
-      "horizonType": null,
+      "horizonType": "swing",
       "horizonDays": 10,
-      "dalioEnv": null,
-      "longTermTrend": null,
+      "dalioEnv": "unclassified",
+      "longTermTrend": "unknown",
       "soldStillStrong": false,
-      "exitMomentum": null,
+      "exitMomentum": 0,
       "rolledForMomentum": 0,
       "entryDate": "2026-06-14",
       "exitDate": null,
       "entryPrice": 1416.4415000000001,
       "exitPrice": null,
-      "holdDays": null,
-      "pnl": 3112.2,
-      "returnPct": 16.76,
-      "won": true,
-      "exitReason": null,
+      "shares": 0,
+      "notional": 0,
+      "dollars": 0,
+      "allocationPct": 0,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": null,
+      "targetPrice": null,
+      "holdDays": 0,
+      "pnl": 0,
+      "returnPct": 23.22,
+      "won": false,
+      "exitReason": "open",
       "conviction": 0.461,
       "confidence": 0.461,
-      "regimeAtEntry": null,
+      "regimeAtEntry": "unclassified",
+      "status": "open",
       "topDrivers": [
         {
           "signal": "crossAsset",
@@ -80,18 +89,14 @@
       "cashAfter": null,
       "decisionReceipt": null,
       "signalsThatHelped": [
-        "crossAsset",
-        "momentum",
-        "trend",
-        "health",
-        "fed",
-        "fundamentals"
+        "meanReversion"
       ],
       "signalsThatHurt": [
-        "meanReversion",
-        "supplyChain"
+        "crossAsset",
+        "momentum",
+        "trend"
       ],
-      "couldHaveWorked": null
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "000725.SZ-2026-06-16-1781573221723-0",
@@ -103,25 +108,34 @@
       "optionType": null,
       "leveragedEtf": null,
       "style": "long",
-      "horizonType": null,
+      "horizonType": "swing",
       "horizonDays": 10,
-      "dalioEnv": null,
-      "longTermTrend": null,
+      "dalioEnv": "unclassified",
+      "longTermTrend": "unknown",
       "soldStillStrong": false,
-      "exitMomentum": null,
+      "exitMomentum": 0,
       "rolledForMomentum": 0,
       "entryDate": "2026-06-16",
       "exitDate": null,
       "entryPrice": 0.8749630944,
       "exitPrice": null,
-      "holdDays": null,
-      "pnl": 4673.54,
-      "returnPct": 13.35,
-      "won": true,
-      "exitReason": null,
+      "shares": 0,
+      "notional": 0,
+      "dollars": 0,
+      "allocationPct": 0,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": null,
+      "targetPrice": null,
+      "holdDays": 0,
+      "pnl": 0,
+      "returnPct": 10.62,
+      "won": false,
+      "exitReason": "open",
       "conviction": 0.453,
       "confidence": 0.453,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
+      "status": "open",
       "topDrivers": [
         {
           "signal": "crossAsset",
@@ -153,22 +167,14 @@
       ],
       "cashAfter": null,
       "decisionReceipt": null,
-      "signalsThatHelped": [
+      "signalsThatHelped": [],
+      "signalsThatHurt": [
         "crossAsset",
         "momentumGrade",
         "trend",
-        "momentum",
-        "meanReversion",
-        "peerGrade",
-        "regimeGrade",
-        "health",
-        "fundamentals",
-        "fed",
-        "researchGrade",
-        "supplyChain"
+        "momentum"
       ],
-      "signalsThatHurt": [],
-      "couldHaveWorked": null
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "TOELY-2026-06-16-1781573221723-1",
@@ -180,25 +186,34 @@
       "optionType": null,
       "leveragedEtf": null,
       "style": "long",
-      "horizonType": null,
+      "horizonType": "swing",
       "horizonDays": 10,
-      "dalioEnv": null,
-      "longTermTrend": null,
+      "dalioEnv": "unclassified",
+      "longTermTrend": "unknown",
       "soldStillStrong": false,
-      "exitMomentum": null,
+      "exitMomentum": 0,
       "rolledForMomentum": 0,
       "entryDate": "2026-06-16",
       "exitDate": null,
       "entryPrice": 217.649994,
       "exitPrice": null,
-      "holdDays": null,
-      "pnl": 106.81,
-      "returnPct": 0.59,
-      "won": true,
-      "exitReason": null,
+      "shares": 0,
+      "notional": 0,
+      "dollars": 0,
+      "allocationPct": 0,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": null,
+      "targetPrice": null,
+      "holdDays": 0,
+      "pnl": 0,
+      "returnPct": 12.79,
+      "won": false,
+      "exitReason": "open",
       "conviction": 0.451,
       "confidence": 0.451,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
+      "status": "open",
       "topDrivers": [
         {
           "signal": "crossAsset",
@@ -230,23 +245,14 @@
       ],
       "cashAfter": null,
       "decisionReceipt": null,
-      "signalsThatHelped": [
+      "signalsThatHelped": [],
+      "signalsThatHurt": [
         "crossAsset",
         "momentumGrade",
         "peerGrade",
-        "momentum",
-        "researchGrade",
-        "trend",
-        "regimeGrade",
-        "fed",
-        "health",
-        "fundamentals",
-        "supplyChain"
+        "momentum"
       ],
-      "signalsThatHurt": [
-        "meanReversion"
-      ],
-      "couldHaveWorked": null
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "UMC-2026-06-16-1781573221723-2",
@@ -258,25 +264,34 @@
       "optionType": null,
       "leveragedEtf": null,
       "style": "long",
-      "horizonType": null,
+      "horizonType": "swing",
       "horizonDays": 10,
-      "dalioEnv": null,
-      "longTermTrend": null,
+      "dalioEnv": "unclassified",
+      "longTermTrend": "unknown",
       "soldStillStrong": false,
-      "exitMomentum": null,
+      "exitMomentum": 0,
       "rolledForMomentum": 0,
       "entryDate": "2026-06-16",
       "exitDate": null,
       "entryPrice": 23.08,
       "exitPrice": null,
-      "holdDays": null,
-      "pnl": -587.93,
-      "returnPct": -5.72,
+      "shares": 0,
+      "notional": 0,
+      "dollars": 0,
+      "allocationPct": 0,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": null,
+      "targetPrice": null,
+      "holdDays": 0,
+      "pnl": 0,
+      "returnPct": 4.33,
       "won": false,
-      "exitReason": null,
+      "exitReason": "open",
       "conviction": 0.439,
       "confidence": 0.439,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
+      "status": "open",
       "topDrivers": [
         {
           "signal": "crossAsset",
@@ -310,25 +325,14 @@
       ],
       "cashAfter": null,
       "decisionReceipt": null,
-      "signalsThatHelped": [
-        "meanReversion"
-      ],
+      "signalsThatHelped": [],
       "signalsThatHurt": [
         "crossAsset",
         "peerGrade",
         "momentum",
-        "trend",
-        "momentumGrade",
-        "researchGrade",
-        "regimeGrade",
-        "fed",
-        "institutional",
-        "health",
-        "earningsRecency",
-        "fundamentals",
-        "supplyChain"
+        "trend"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "DELL-2026-06-16-1781573221723-3",
@@ -340,25 +344,34 @@
       "optionType": null,
       "leveragedEtf": null,
       "style": "momentum-long",
-      "horizonType": null,
+      "horizonType": "swing",
       "horizonDays": 10,
-      "dalioEnv": null,
-      "longTermTrend": null,
+      "dalioEnv": "unclassified",
+      "longTermTrend": "unknown",
       "soldStillStrong": false,
-      "exitMomentum": null,
+      "exitMomentum": 0,
       "rolledForMomentum": 0,
       "entryDate": "2026-06-16",
       "exitDate": null,
       "entryPrice": 409.070007,
       "exitPrice": null,
-      "holdDays": null,
-      "pnl": 106.68,
-      "returnPct": 2.51,
-      "won": true,
-      "exitReason": null,
+      "shares": 0,
+      "notional": 0,
+      "dollars": 0,
+      "allocationPct": 0,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": null,
+      "targetPrice": null,
+      "holdDays": 0,
+      "pnl": 0,
+      "returnPct": 0.11,
+      "won": false,
+      "exitReason": "open",
       "conviction": 0.43,
       "confidence": 0.43,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
+      "status": "open",
       "topDrivers": [
         {
           "signal": "trend",
@@ -392,25 +405,14 @@
       ],
       "cashAfter": null,
       "decisionReceipt": null,
-      "signalsThatHelped": [
+      "signalsThatHelped": [],
+      "signalsThatHurt": [
         "trend",
         "crossAsset",
         "momentum",
-        "peerGrade",
-        "momentumGrade",
-        "regimeGrade",
-        "researchGrade",
-        "fed",
-        "health",
-        "earningsRecency",
-        "institutional",
-        "fundamentals",
-        "supplyChain"
+        "peerGrade"
       ],
-      "signalsThatHurt": [
-        "meanReversion"
-      ],
-      "couldHaveWorked": null
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "MU-2026-06-16-1781573221723-4",
@@ -422,25 +424,34 @@
       "optionType": null,
       "leveragedEtf": null,
       "style": "long",
-      "horizonType": null,
+      "horizonType": "swing",
       "horizonDays": 10,
-      "dalioEnv": null,
-      "longTermTrend": null,
+      "dalioEnv": "unclassified",
+      "longTermTrend": "unknown",
       "soldStillStrong": false,
-      "exitMomentum": null,
+      "exitMomentum": 0,
       "rolledForMomentum": 0,
       "entryDate": "2026-06-16",
       "exitDate": null,
       "entryPrice": 1087.98999,
       "exitPrice": null,
-      "holdDays": null,
-      "pnl": -89.91,
-      "returnPct": -4.12,
+      "shares": 0,
+      "notional": 0,
+      "dollars": 0,
+      "allocationPct": 0,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": null,
+      "targetPrice": null,
+      "holdDays": 0,
+      "pnl": 0,
+      "returnPct": 4.23,
       "won": false,
-      "exitReason": null,
+      "exitReason": "open",
       "conviction": 0.423,
       "confidence": 0.423,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
+      "status": "open",
       "topDrivers": [
         {
           "signal": "crossAsset",
@@ -474,25 +485,14 @@
       ],
       "cashAfter": null,
       "decisionReceipt": null,
-      "signalsThatHelped": [
-        "meanReversion"
-      ],
+      "signalsThatHelped": [],
       "signalsThatHurt": [
         "crossAsset",
         "momentum",
         "peerGrade",
-        "trend",
-        "momentumGrade",
-        "researchGrade",
-        "regimeGrade",
-        "fed",
-        "health",
-        "earningsRecency",
-        "fundamentals",
-        "institutional",
-        "supplyChain"
+        "trend"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "LNVGY-2026-06-16-1781573221723-5",
@@ -504,25 +504,34 @@
       "optionType": null,
       "leveragedEtf": null,
       "style": "momentum-long",
-      "horizonType": null,
+      "horizonType": "swing",
       "horizonDays": 10,
-      "dalioEnv": null,
-      "longTermTrend": null,
+      "dalioEnv": "unclassified",
+      "longTermTrend": "unknown",
       "soldStillStrong": false,
-      "exitMomentum": null,
+      "exitMomentum": 0,
       "rolledForMomentum": 0,
       "entryDate": "2026-06-16",
       "exitDate": null,
       "entryPrice": 57.25,
       "exitPrice": null,
-      "holdDays": null,
-      "pnl": 220.37,
-      "returnPct": 13.08,
-      "won": true,
-      "exitReason": null,
+      "shares": 0,
+      "notional": 0,
+      "dollars": 0,
+      "allocationPct": 0,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": null,
+      "targetPrice": null,
+      "holdDays": 0,
+      "pnl": 0,
+      "returnPct": 6.46,
+      "won": false,
+      "exitReason": "open",
       "conviction": 0.417,
       "confidence": 0.417,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
+      "status": "open",
       "topDrivers": [
         {
           "signal": "trend",
@@ -554,23 +563,14 @@
       ],
       "cashAfter": null,
       "decisionReceipt": null,
-      "signalsThatHelped": [
+      "signalsThatHelped": [],
+      "signalsThatHurt": [
         "trend",
         "crossAsset",
         "momentum",
-        "peerGrade",
-        "momentumGrade",
-        "regimeGrade",
-        "researchGrade",
-        "fed",
-        "health",
-        "supplyChain"
+        "peerGrade"
       ],
-      "signalsThatHurt": [
-        "meanReversion",
-        "fundamentals"
-      ],
-      "couldHaveWorked": null
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "MU-2026-06-18-1781751939570-0",
@@ -587,20 +587,29 @@
       "dalioEnv": "growth-up",
       "longTermTrend": "strong-up",
       "soldStillStrong": false,
-      "exitMomentum": null,
+      "exitMomentum": 0,
       "rolledForMomentum": 0,
       "entryDate": "2026-06-18",
       "exitDate": null,
       "entryPrice": 1043.189941,
       "exitPrice": null,
-      "holdDays": null,
+      "shares": 0,
+      "notional": 0,
+      "dollars": 0,
+      "allocationPct": 0,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": null,
+      "targetPrice": null,
+      "holdDays": 0,
       "pnl": 0,
-      "returnPct": 0,
+      "returnPct": 8.7,
       "won": false,
-      "exitReason": null,
+      "exitReason": "open",
       "conviction": 0.449,
       "confidence": 0.449,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
+      "status": "open",
       "topDrivers": [
         {
           "signal": "crossAsset",
@@ -711,26 +720,14 @@
         "learned": null,
         "couldHaveDoneBetter": null
       },
-      "signalsThatHelped": [
-        "meanReversion"
-      ],
+      "signalsThatHelped": [],
       "signalsThatHurt": [
         "crossAsset",
         "momentum",
         "peerGrade",
-        "trendEngine",
-        "trend",
-        "momentumGrade",
-        "researchGrade",
-        "regimeGrade",
-        "fed",
-        "health",
-        "earningsRecency",
-        "institutional",
-        "fundamentals",
-        "supplyChain"
+        "trendEngine"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "ZR=F-2026-06-18-1781751939570-1",
@@ -747,20 +744,29 @@
       "dalioEnv": "growth-up",
       "longTermTrend": "flat",
       "soldStillStrong": false,
-      "exitMomentum": null,
+      "exitMomentum": 0,
       "rolledForMomentum": 0,
       "entryDate": "2026-06-18",
       "exitDate": null,
       "entryPrice": 12.305,
       "exitPrice": null,
-      "holdDays": null,
+      "shares": 0,
+      "notional": 0,
+      "dollars": 0,
+      "allocationPct": 0,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": null,
+      "targetPrice": null,
+      "holdDays": 0,
       "pnl": 0,
-      "returnPct": 0,
+      "returnPct": 2.44,
       "won": false,
-      "exitReason": null,
+      "exitReason": "open",
       "conviction": 0.445,
       "confidence": 0.445,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
+      "status": "open",
       "topDrivers": [
         {
           "signal": "momentumGrade",
@@ -862,13 +868,9 @@
         "momentumGrade",
         "momentum",
         "trendEngine",
-        "crossAsset",
-        "meanReversion",
-        "fundamentals",
-        "trend",
-        "health"
+        "crossAsset"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "ARM-2026-06-18-1781751939570-2",
@@ -885,20 +887,29 @@
       "dalioEnv": "growth-up",
       "longTermTrend": "strong-up",
       "soldStillStrong": false,
-      "exitMomentum": null,
+      "exitMomentum": 0,
       "rolledForMomentum": 0,
       "entryDate": "2026-06-18",
       "exitDate": null,
       "entryPrice": 418.880005,
       "exitPrice": null,
-      "holdDays": null,
+      "shares": 0,
+      "notional": 0,
+      "dollars": 0,
+      "allocationPct": 0,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": null,
+      "targetPrice": null,
+      "holdDays": 0,
       "pnl": 0,
-      "returnPct": 0,
+      "returnPct": 4.91,
       "won": false,
-      "exitReason": null,
+      "exitReason": "open",
       "conviction": 0.44,
       "confidence": 0.44,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
+      "status": "open",
       "topDrivers": [
         {
           "signal": "crossAsset",
@@ -1007,30 +1018,168 @@
         "learned": null,
         "couldHaveDoneBetter": null
       },
-      "signalsThatHelped": [
-        "meanReversion",
-        "researchGrade",
-        "fundamentals"
-      ],
+      "signalsThatHelped": [],
       "signalsThatHurt": [
         "crossAsset",
         "momentum",
         "trend",
-        "trendEngine",
+        "trendEngine"
+      ],
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+    },
+    {
+      "id": "ZR=F-2026-06-18-1781752006376-0",
+      "ticker": "ZR=F",
+      "name": "Rough Rice Futures,Jul-2026",
+      "sector": "Commodities & Futures",
+      "direction": "long",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "momentum-long",
+      "horizonType": "short-term",
+      "horizonDays": 8,
+      "dalioEnv": "growth-up",
+      "longTermTrend": "flat",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-18",
+      "exitDate": null,
+      "entryPrice": 12.305,
+      "exitPrice": null,
+      "shares": 2559.935,
+      "notional": 31500,
+      "dollars": 31500,
+      "allocationPct": 35,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 10.85,
+      "targetPrice": 15.21,
+      "holdDays": 0,
+      "pnl": 767.98,
+      "returnPct": 2.44,
+      "won": true,
+      "exitReason": "open",
+      "conviction": 0.445,
+      "confidence": 0.445,
+      "regimeAtEntry": "risk-on",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "momentumGrade",
+          "lean": 1
+        },
+        {
+          "signal": "momentum",
+          "lean": 0.63
+        },
+        {
+          "signal": "trendEngine",
+          "lean": 0.62
+        },
+        {
+          "signal": "crossAsset",
+          "lean": 0.6
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Solid fundamentals; watch the weakest step below. (conviction 68)",
+        "Uptrend (R²=0.86)",
+        "Sector cross-asset: bull",
+        "Regime grade C+ (risk-on regime)",
+        "Momentum A+ (+24.4% 3mo · 2.05× avg vol · Clean, well-supported up-momentum)",
+        "Trend healthy-uptrend (q54, mom 81)"
+      ],
+      "cashAfter": 68500,
+      "decisionReceipt": {
+        "style": "momentum-long",
+        "action": "LONG shares",
+        "regime": "risk-on — pipeline: expansion (conf 0.981)",
+        "sizing": "$31500 (35.0% of deployable)",
+        "horizon": "short-term (~8 trading days)",
+        "learned": null,
+        "outcome": null,
+        "dalioEnv": "growth-up",
+        "placedAt": "2026-06-18T03:06:46.376Z",
+        "cashAfter": 68500,
+        "rationale": [
+          "Fundamentals: Solid fundamentals; watch the weakest step below. (conviction 68)",
+          "Uptrend (R²=0.86)",
+          "Sector cross-asset: bull",
+          "Regime grade C+ (risk-on regime)",
+          "Momentum A+ (+24.4% 3mo · 2.05× avg vol · Clean, well-supported up-momentum)",
+          "Trend healthy-uptrend (q54, mom 81)"
+        ],
+        "confidence": 44,
+        "conviction": 0.44,
+        "topDrivers": [
+          {
+            "lean": 1,
+            "favors": "long",
+            "signal": "momentumGrade"
+          },
+          {
+            "lean": 0.63,
+            "favors": "long",
+            "signal": "momentum"
+          },
+          {
+            "lean": 0.62,
+            "favors": "long",
+            "signal": "trendEngine"
+          },
+          {
+            "lean": 0.6,
+            "favors": "long",
+            "signal": "crossAsset"
+          },
+          {
+            "lean": 0.5,
+            "favors": "long",
+            "signal": "meanReversion"
+          },
+          {
+            "lean": 0.36,
+            "favors": "long",
+            "signal": "fundamentals"
+          }
+        ],
+        "decisionPath": [
+          "regime:risk-on (pipeline: expansion (conf 0.981))",
+          "fundamentals:+0.36",
+          "health:+0.31",
+          "trend:+0.32 ×1.3 (regime)",
+          "momentum:+0.63 ×1.3 (regime)",
+          "meanReversion:+0.50 ×0.7 (regime)",
+          "crossAsset:+0.60 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.4 (regime)",
+          "momentumGrade:+1.00 ×1.4 (regime)",
+          "trendEngine:+0.62",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [
         "momentumGrade",
-        "peerGrade",
-        "regimeGrade",
-        "fed",
-        "earningsRecency",
+        "momentum",
+        "trendEngine",
+        "crossAsset",
+        "meanReversion",
+        "fundamentals",
+        "trend",
         "health"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
+      "signalsThatHurt": [],
+      "couldHaveWorked": "Position still open — outcome pending."
     }
   ],
   "openPositions": [
     {
       "ticker": "000660.KS",
       "direction": "long",
+      "instrument": "shares",
       "entryDate": "2026-06-14",
       "entryPrice": 1416.4415000000001,
       "conviction": 0.461
@@ -1106,16 +1255,20 @@
       "entryDate": "2026-06-18",
       "entryPrice": 418.880005,
       "conviction": 0.44
+    },
+    {
+      "ticker": "ZR=F",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-18",
+      "entryPrice": 12.305,
+      "conviction": 0.445
     }
   ],
   "equityCurve": [
     {
-      "date": "2026-06-16",
-      "value": 102360.02
-    },
-    {
-      "date": "2026-06-18",
-      "value": 107541.76
+      "date": "2026-06-19",
+      "value": 100767.98
     }
   ]
 }

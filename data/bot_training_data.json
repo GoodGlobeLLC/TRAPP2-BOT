@@ -1,6 +1,6 @@
 {
   "schema": "valuatio-bot-training/v1",
-  "generatedAt": "2026-06-19T05:19:09.891Z",
+  "generatedAt": "2026-06-20T02:21:11.970Z",
   "bankroll": 102752.29,
   "startingBankroll": 100000,
   "allTimeReturnPct": 2.75,
@@ -44,18 +44,18 @@
       "exitDate": null,
       "entryPrice": 1416.4415000000001,
       "exitPrice": null,
-      "shares": 0,
-      "notional": 0,
-      "dollars": 0,
-      "allocationPct": 0,
+      "shares": 13.1132,
+      "notional": 18574.02,
+      "dollars": 18574.02,
+      "allocationPct": 18.57,
       "leverage": 1,
       "hedge": false,
-      "stopPrice": null,
-      "targetPrice": null,
+      "stopPrice": 1168.56,
+      "targetPrice": 1912.2,
       "holdDays": 0,
-      "pnl": 0,
-      "returnPct": 23.22,
-      "won": false,
+      "pnl": 5117.01,
+      "returnPct": 27.55,
+      "won": true,
       "exitReason": "open",
       "conviction": 0.461,
       "confidence": 0.461,
@@ -89,14 +89,18 @@
       "cashAfter": null,
       "decisionReceipt": null,
       "signalsThatHelped": [
-        "meanReversion"
-      ],
-      "signalsThatHurt": [
         "crossAsset",
         "momentum",
-        "trend"
+        "trend",
+        "health",
+        "fed",
+        "fundamentals"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+      "signalsThatHurt": [
+        "meanReversion",
+        "supplyChain"
+      ],
+      "couldHaveWorked": "Position still open â outcome pending."
     },
     {
       "id": "000725.SZ-2026-06-16-1781573221723-0",
@@ -119,22 +123,22 @@
       "exitDate": null,
       "entryPrice": 0.8749630944,
       "exitPrice": null,
-      "shares": 0,
-      "notional": 0,
-      "dollars": 0,
-      "allocationPct": 0,
+      "shares": 4965.1706,
+      "notional": 4344.34,
+      "dollars": 4344.34,
+      "allocationPct": 4.34,
       "leverage": 1,
-      "hedge": false,
-      "stopPrice": null,
-      "targetPrice": null,
+      "hedge": true,
+      "stopPrice": 0.73,
+      "targetPrice": 1.17,
       "holdDays": 0,
-      "pnl": 0,
-      "returnPct": 10.62,
-      "won": false,
+      "pnl": 460.83,
+      "returnPct": 10.61,
+      "won": true,
       "exitReason": "open",
       "conviction": 0.453,
       "confidence": 0.453,
-      "regimeAtEntry": "unclassified",
+      "regimeAtEntry": "risk-on",
       "status": "open",
       "topDrivers": [
         {
@@ -167,14 +171,22 @@
       ],
       "cashAfter": null,
       "decisionReceipt": null,
-      "signalsThatHelped": [],
-      "signalsThatHurt": [
+      "signalsThatHelped": [
         "crossAsset",
         "momentumGrade",
         "trend",
-        "momentum"
+        "momentum",
+        "meanReversion",
+        "peerGrade",
+        "regimeGrade",
+        "health",
+        "fundamentals",
+        "fed",
+        "researchGrade",
+        "supplyChain"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+      "signalsThatHurt": [],
+      "couldHaveWorked": "Position still open â outcome pending."
     },
     {
       "id": "TOELY-2026-06-16-1781573221723-1",
@@ -197,22 +209,22 @@
       "exitDate": null,
       "entryPrice": 217.649994,
       "exitPrice": null,
-      "shares": 0,
-      "notional": 0,
-      "dollars": 0,
-      "allocationPct": 0,
+      "shares": 82.7963,
+      "notional": 18020.61,
+      "dollars": 18020.61,
+      "allocationPct": 18,
       "leverage": 1,
       "hedge": false,
-      "stopPrice": null,
-      "targetPrice": null,
+      "stopPrice": 163.24,
+      "targetPrice": 326.47,
       "holdDays": 0,
-      "pnl": 0,
+      "pnl": 2305.05,
       "returnPct": 12.79,
-      "won": false,
+      "won": true,
       "exitReason": "open",
       "conviction": 0.451,
       "confidence": 0.451,
-      "regimeAtEntry": "unclassified",
+      "regimeAtEntry": "risk-on",
       "status": "open",
       "topDrivers": [
         {
@@ -245,14 +257,23 @@
       ],
       "cashAfter": null,
       "decisionReceipt": null,
-      "signalsThatHelped": [],
-      "signalsThatHurt": [
+      "signalsThatHelped": [
         "crossAsset",
         "momentumGrade",
         "peerGrade",
-        "momentum"
+        "momentum",
+        "researchGrade",
+        "trend",
+        "regimeGrade",
+        "fed",
+        "health",
+        "fundamentals",
+        "supplyChain"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+      "signalsThatHurt": [
+        "meanReversion"
+      ],
+      "couldHaveWorked": "Position still open â outcome pending."
     },
     {
       "id": "UMC-2026-06-16-1781573221723-2",
@@ -275,22 +296,22 @@
       "exitDate": null,
       "entryPrice": 23.08,
       "exitPrice": null,
-      "shares": 0,
-      "notional": 0,
-      "dollars": 0,
-      "allocationPct": 0,
+      "shares": 445.3997,
+      "notional": 10279.83,
+      "dollars": 10279.83,
+      "allocationPct": 10.3,
       "leverage": 1,
       "hedge": false,
-      "stopPrice": null,
-      "targetPrice": null,
+      "stopPrice": 17.31,
+      "targetPrice": 34.62,
       "holdDays": 0,
-      "pnl": 0,
+      "pnl": 445.4,
       "returnPct": 4.33,
-      "won": false,
+      "won": true,
       "exitReason": "open",
       "conviction": 0.439,
       "confidence": 0.439,
-      "regimeAtEntry": "unclassified",
+      "regimeAtEntry": "risk-on",
       "status": "open",
       "topDrivers": [
         {
@@ -325,14 +346,25 @@
       ],
       "cashAfter": null,
       "decisionReceipt": null,
-      "signalsThatHelped": [],
-      "signalsThatHurt": [
+      "signalsThatHelped": [
         "crossAsset",
         "peerGrade",
         "momentum",
-        "trend"
+        "trend",
+        "momentumGrade",
+        "researchGrade",
+        "regimeGrade",
+        "fed",
+        "institutional",
+        "health",
+        "earningsRecency",
+        "fundamentals",
+        "supplyChain"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+      "signalsThatHurt": [
+        "meanReversion"
+      ],
+      "couldHaveWorked": "Position still open â outcome pending."
     },
     {
       "id": "DELL-2026-06-16-1781573221723-3",
@@ -355,22 +387,22 @@
       "exitDate": null,
       "entryPrice": 409.070007,
       "exitPrice": null,
-      "shares": 0,
-      "notional": 0,
-      "dollars": 0,
-      "allocationPct": 0,
+      "shares": 10.4078,
+      "notional": 4257.52,
+      "dollars": 4257.52,
+      "allocationPct": 4.3,
       "leverage": 1,
-      "hedge": false,
-      "stopPrice": null,
-      "targetPrice": null,
+      "hedge": true,
+      "stopPrice": 306.8,
+      "targetPrice": 613.61,
       "holdDays": 0,
-      "pnl": 0,
+      "pnl": 4.48,
       "returnPct": 0.11,
-      "won": false,
+      "won": true,
       "exitReason": "open",
       "conviction": 0.43,
       "confidence": 0.43,
-      "regimeAtEntry": "unclassified",
+      "regimeAtEntry": "risk-on",
       "status": "open",
       "topDrivers": [
         {
@@ -405,14 +437,25 @@
       ],
       "cashAfter": null,
       "decisionReceipt": null,
-      "signalsThatHelped": [],
-      "signalsThatHurt": [
+      "signalsThatHelped": [
         "trend",
         "crossAsset",
         "momentum",
-        "peerGrade"
+        "peerGrade",
+        "momentumGrade",
+        "regimeGrade",
+        "researchGrade",
+        "fed",
+        "health",
+        "earningsRecency",
+        "institutional",
+        "fundamentals",
+        "supplyChain"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+      "signalsThatHurt": [
+        "meanReversion"
+      ],
+      "couldHaveWorked": "Position still open â outcome pending."
     },
     {
       "id": "MU-2026-06-16-1781573221723-4",
@@ -435,22 +478,22 @@
       "exitDate": null,
       "entryPrice": 1087.98999,
       "exitPrice": null,
-      "shares": 0,
-      "notional": 0,
-      "dollars": 0,
-      "allocationPct": 0,
+      "shares": 2.007,
+      "notional": 2183.58,
+      "dollars": 2183.58,
+      "allocationPct": 2.2,
       "leverage": 1,
       "hedge": false,
-      "stopPrice": null,
-      "targetPrice": null,
+      "stopPrice": 815.99,
+      "targetPrice": 1631.98,
       "holdDays": 0,
-      "pnl": 0,
+      "pnl": 92.32,
       "returnPct": 4.23,
-      "won": false,
+      "won": true,
       "exitReason": "open",
       "conviction": 0.423,
       "confidence": 0.423,
-      "regimeAtEntry": "unclassified",
+      "regimeAtEntry": "risk-on",
       "status": "open",
       "topDrivers": [
         {
@@ -485,14 +528,25 @@
       ],
       "cashAfter": null,
       "decisionReceipt": null,
-      "signalsThatHelped": [],
-      "signalsThatHurt": [
+      "signalsThatHelped": [
         "crossAsset",
         "momentum",
         "peerGrade",
-        "trend"
+        "trend",
+        "momentumGrade",
+        "researchGrade",
+        "regimeGrade",
+        "fed",
+        "health",
+        "earningsRecency",
+        "fundamentals",
+        "institutional",
+        "supplyChain"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+      "signalsThatHurt": [
+        "meanReversion"
+      ],
+      "couldHaveWorked": "Position still open â outcome pending."
     },
     {
       "id": "LNVGY-2026-06-16-1781573221723-5",
@@ -515,22 +569,22 @@
       "exitDate": null,
       "entryPrice": 57.25,
       "exitPrice": null,
-      "shares": 0,
-      "notional": 0,
-      "dollars": 0,
-      "allocationPct": 0,
+      "shares": 29.4226,
+      "notional": 1684.44,
+      "dollars": 1684.44,
+      "allocationPct": 1.7,
       "leverage": 1,
-      "hedge": false,
-      "stopPrice": null,
-      "targetPrice": null,
+      "hedge": true,
+      "stopPrice": 43.42,
+      "targetPrice": 84.91,
       "holdDays": 0,
-      "pnl": 0,
+      "pnl": 108.86,
       "returnPct": 6.46,
-      "won": false,
+      "won": true,
       "exitReason": "open",
       "conviction": 0.417,
       "confidence": 0.417,
-      "regimeAtEntry": "unclassified",
+      "regimeAtEntry": "risk-on",
       "status": "open",
       "topDrivers": [
         {
@@ -563,14 +617,23 @@
       ],
       "cashAfter": null,
       "decisionReceipt": null,
-      "signalsThatHelped": [],
-      "signalsThatHurt": [
+      "signalsThatHelped": [
         "trend",
         "crossAsset",
         "momentum",
-        "peerGrade"
+        "peerGrade",
+        "momentumGrade",
+        "regimeGrade",
+        "researchGrade",
+        "fed",
+        "health",
+        "supplyChain"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+      "signalsThatHurt": [
+        "meanReversion",
+        "fundamentals"
+      ],
+      "couldHaveWorked": "Position still open â outcome pending."
     },
     {
       "id": "MU-2026-06-18-1781751939570-0",
@@ -593,22 +656,22 @@
       "exitDate": null,
       "entryPrice": 1043.189941,
       "exitPrice": null,
-      "shares": 0,
-      "notional": 0,
-      "dollars": 0,
-      "allocationPct": 0,
+      "shares": 0.4749,
+      "notional": 495.37,
+      "dollars": 495.37,
+      "allocationPct": 20,
       "leverage": 1,
       "hedge": false,
-      "stopPrice": null,
-      "targetPrice": null,
+      "stopPrice": 782.39,
+      "targetPrice": 1564.78,
       "holdDays": 0,
-      "pnl": 0,
+      "pnl": 43.12,
       "returnPct": 8.7,
-      "won": false,
+      "won": true,
       "exitReason": "open",
       "conviction": 0.449,
       "confidence": 0.449,
-      "regimeAtEntry": "unclassified",
+      "regimeAtEntry": "risk-on",
       "status": "open",
       "topDrivers": [
         {
@@ -720,14 +783,26 @@
         "learned": null,
         "couldHaveDoneBetter": null
       },
-      "signalsThatHelped": [],
-      "signalsThatHurt": [
+      "signalsThatHelped": [
         "crossAsset",
         "momentum",
         "peerGrade",
-        "trendEngine"
+        "trendEngine",
+        "trend",
+        "momentumGrade",
+        "researchGrade",
+        "regimeGrade",
+        "fed",
+        "health",
+        "earningsRecency",
+        "institutional",
+        "fundamentals",
+        "supplyChain"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+      "signalsThatHurt": [
+        "meanReversion"
+      ],
+      "couldHaveWorked": "Position still open â outcome pending."
     },
     {
       "id": "ZR=F-2026-06-18-1781751939570-1",
@@ -750,22 +825,22 @@
       "exitDate": null,
       "entryPrice": 12.305,
       "exitPrice": null,
-      "shares": 0,
-      "notional": 0,
-      "dollars": 0,
-      "allocationPct": 0,
+      "shares": 70.4568,
+      "notional": 866.97,
+      "dollars": 866.97,
+      "allocationPct": 35,
       "leverage": 1,
       "hedge": false,
-      "stopPrice": null,
-      "targetPrice": null,
+      "stopPrice": 10.85,
+      "targetPrice": 15.21,
       "holdDays": 0,
-      "pnl": 0,
-      "returnPct": 2.44,
+      "pnl": -7.05,
+      "returnPct": -0.81,
       "won": false,
       "exitReason": "open",
       "conviction": 0.445,
       "confidence": 0.445,
-      "regimeAtEntry": "unclassified",
+      "regimeAtEntry": "risk-on",
       "status": "open",
       "topDrivers": [
         {
@@ -868,9 +943,13 @@
         "momentumGrade",
         "momentum",
         "trendEngine",
-        "crossAsset"
+        "crossAsset",
+        "meanReversion",
+        "fundamentals",
+        "trend",
+        "health"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "ARM-2026-06-18-1781751939570-2",
@@ -893,22 +972,22 @@
       "exitDate": null,
       "entryPrice": 418.880005,
       "exitPrice": null,
-      "shares": 0,
-      "notional": 0,
-      "dollars": 0,
-      "allocationPct": 0,
+      "shares": 0.6455,
+      "notional": 270.38,
+      "dollars": 270.38,
+      "allocationPct": 10.9,
       "leverage": 1,
       "hedge": false,
-      "stopPrice": null,
-      "targetPrice": null,
+      "stopPrice": 314.16,
+      "targetPrice": 628.32,
       "holdDays": 0,
-      "pnl": 0,
+      "pnl": 13.28,
       "returnPct": 4.91,
-      "won": false,
+      "won": true,
       "exitReason": "open",
       "conviction": 0.44,
       "confidence": 0.44,
-      "regimeAtEntry": "unclassified",
+      "regimeAtEntry": "risk-on",
       "status": "open",
       "topDrivers": [
         {
@@ -1018,14 +1097,24 @@
         "learned": null,
         "couldHaveDoneBetter": null
       },
-      "signalsThatHelped": [],
-      "signalsThatHurt": [
+      "signalsThatHelped": [
         "crossAsset",
         "momentum",
         "trend",
-        "trendEngine"
+        "trendEngine",
+        "momentumGrade",
+        "peerGrade",
+        "regimeGrade",
+        "fed",
+        "earningsRecency",
+        "health"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+      "signalsThatHurt": [
+        "meanReversion",
+        "researchGrade",
+        "fundamentals"
+      ],
+      "couldHaveWorked": "Position still open â outcome pending."
     },
     {
       "id": "ZR=F-2026-06-18-1781752006376-0",
@@ -1057,13 +1146,13 @@
       "stopPrice": 10.85,
       "targetPrice": 15.21,
       "holdDays": 0,
-      "pnl": 767.98,
-      "returnPct": 2.44,
-      "won": true,
+      "pnl": -255.99,
+      "returnPct": -0.81,
+      "won": false,
       "exitReason": "open",
       "conviction": 0.445,
       "confidence": 0.445,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
       "status": "open",
       "topDrivers": [
         {
@@ -1085,17 +1174,17 @@
       ],
       "rationale": [
         "Fundamentals: Solid fundamentals; watch the weakest step below. (conviction 68)",
-        "Uptrend (R²=0.86)",
+        "Uptrend (RÂ²=0.86)",
         "Sector cross-asset: bull",
         "Regime grade C+ (risk-on regime)",
-        "Momentum A+ (+24.4% 3mo · 2.05× avg vol · Clean, well-supported up-momentum)",
+        "Momentum A+ (+24.4% 3mo Â· 2.05Ã avg vol Â· Clean, well-supported up-momentum)",
         "Trend healthy-uptrend (q54, mom 81)"
       ],
       "cashAfter": 68500,
       "decisionReceipt": {
         "style": "momentum-long",
         "action": "LONG shares",
-        "regime": "risk-on — pipeline: expansion (conf 0.981)",
+        "regime": "risk-on â pipeline: expansion (conf 0.981)",
         "sizing": "$31500 (35.0% of deployable)",
         "horizon": "short-term (~8 trading days)",
         "learned": null,
@@ -1105,10 +1194,10 @@
         "cashAfter": 68500,
         "rationale": [
           "Fundamentals: Solid fundamentals; watch the weakest step below. (conviction 68)",
-          "Uptrend (R²=0.86)",
+          "Uptrend (RÂ²=0.86)",
           "Sector cross-asset: bull",
           "Regime grade C+ (risk-on regime)",
-          "Momentum A+ (+24.4% 3mo · 2.05× avg vol · Clean, well-supported up-momentum)",
+          "Momentum A+ (+24.4% 3mo Â· 2.05Ã avg vol Â· Clean, well-supported up-momentum)",
           "Trend healthy-uptrend (q54, mom 81)"
         ],
         "confidence": 44,
@@ -1149,37 +1238,32 @@
           "regime:risk-on (pipeline: expansion (conf 0.981))",
           "fundamentals:+0.36",
           "health:+0.31",
-          "trend:+0.32 ×1.3 (regime)",
-          "momentum:+0.63 ×1.3 (regime)",
-          "meanReversion:+0.50 ×0.7 (regime)",
-          "crossAsset:+0.60 ×1.1 (regime)",
-          "regimeGrade:0.00 ×1.4 (regime)",
-          "momentumGrade:+1.00 ×1.4 (regime)",
+          "trend:+0.32 Ã1.3 (regime)",
+          "momentum:+0.63 Ã1.3 (regime)",
+          "meanReversion:+0.50 Ã0.7 (regime)",
+          "crossAsset:+0.60 Ã1.1 (regime)",
+          "regimeGrade:0.00 Ã1.4 (regime)",
+          "momentumGrade:+1.00 Ã1.4 (regime)",
           "trendEngine:+0.62",
           "leverage:1x",
           "instrument:shares"
         ],
         "couldHaveDoneBetter": null
       },
-      "signalsThatHelped": [
+      "signalsThatHelped": [],
+      "signalsThatHurt": [
         "momentumGrade",
         "momentum",
         "trendEngine",
-        "crossAsset",
-        "meanReversion",
-        "fundamentals",
-        "trend",
-        "health"
+        "crossAsset"
       ],
-      "signalsThatHurt": [],
-      "couldHaveWorked": "Position still open — outcome pending."
+      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
     }
   ],
   "openPositions": [
     {
       "ticker": "000660.KS",
       "direction": "long",
-      "instrument": "shares",
       "entryDate": "2026-06-14",
       "entryPrice": 1416.4415000000001,
       "conviction": 0.461
@@ -1267,8 +1351,20 @@
   ],
   "equityCurve": [
     {
+      "date": "2026-06-16",
+      "value": 102360.02
+    },
+    {
+      "date": "2026-06-18",
+      "value": 106301.8
+    },
+    {
       "date": "2026-06-19",
-      "value": 100767.98
+      "value": 108327.31
+    },
+    {
+      "date": "2026-06-20",
+      "value": 108327.31
     }
   ]
 }

@@ -1,8 +1,15 @@
 name: Validate bot training data
 
 # Sanity-checks data/bot_training_data.json on every push so a malformed export
-# can't silently corrupt the bot's training source. Pure validation — it never
-# writes anything back.
+# can't silently corrupt the bot's training source. Pure validation — never writes.
+#
+# Accepts BOTH valid Valuatio export shapes that can land here:
+#   1. Standalone bot-training export
+#        {schema:'valuatio-bot-training…', bankroll, counts, performance,
+#         trades, signalScores, styleScores, ...}
+#   2. XTRAPP-style universal dump (the app's full backup), which carries bot
+#        state NESTED under 'bot' (bankroll/bets/equityCurve) + 'botWeights',
+#        alongside lexicon/posts/portfolio/etc.
 
 on:
   push:
@@ -25,23 +32,51 @@ jobs:
           p = "data/bot_training_data.json"
           with open(p) as f:
               d = json.load(f)   # fails loudly if not valid JSON
-          # Required top-level keys
-          required = ["schema", "generatedAt", "bankroll", "counts",
-                      "performance", "trades", "signalScores", "styleScores"]
-          missing = [k for k in required if k not in d]
-          if missing:
-              print("MISSING KEYS:", missing); sys.exit(1)
-          if not str(d["schema"]).startswith("valuatio-bot-training"):
-              print("Unexpected schema:", d["schema"]); sys.exit(1)
-          if not isinstance(d["trades"], list):
-              print("trades is not a list"); sys.exit(1)
-          # Spot-check trade records
-          for i, t in enumerate(d["trades"][:50]):
-              for k in ["ticker", "direction", "pnl"]:
-                  if k not in t:
-                      print(f"trade {i} missing {k}"); sys.exit(1)
-          c = d["counts"]
-          print(f"OK — {c.get('closed',0)} closed trades, "
-                f"{c.get('wins',0)} wins / {c.get('losses',0)} losses, "
-                f"bankroll {d['bankroll']}")
+
+          if not isinstance(d, dict):
+              print("bot_training_data.json must be a JSON object"); sys.exit(1)
+
+          # ---- Shape 1: standalone bot-training export ----
+          if str(d.get("schema", "")).startswith("valuatio-bot-training"):
+              required = ["bankroll", "counts", "performance",
+                          "trades", "signalScores", "styleScores"]
+              missing = [k for k in required if k not in d]
+              if missing:
+                  print("bot-training export MISSING KEYS:", missing); sys.exit(1)
+              if not isinstance(d["trades"], list):
+                  print("trades is not a list"); sys.exit(1)
+              for i, t in enumerate(d["trades"][:50]):
+                  for k in ["ticker", "direction", "pnl"]:
+                      if k not in t:
+                          print(f"trade {i} missing {k}"); sys.exit(1)
+              c = d.get("counts", {})
+              print(f"OK (bot-training) — {c.get('closed',0)} closed, "
+                    f"{c.get('wins',0)} wins / {c.get('losses',0)} losses, "
+                    f"bankroll {d.get('bankroll')}")
+              sys.exit(0)
+
+          # ---- Shape 2: XTRAPP-style universal dump with nested bot state ----
+          bot = d.get("bot")
+          if isinstance(bot, dict):
+              if "bankroll" not in bot:
+                  print("nested 'bot' object missing 'bankroll'"); sys.exit(1)
+              bets = bot.get("bets")
+              if bets is not None and not isinstance(bets, list):
+                  print("nested 'bot.bets' is not a list"); sys.exit(1)
+              # Spot-check a few bets for the core fields, if present.
+              for i, t in enumerate((bets or [])[:50]):
+                  if isinstance(t, dict):
+                      for k in ["ticker", "direction"]:
+                          if k not in t:
+                              print(f"bot.bets[{i}] missing {k}"); sys.exit(1)
+              n = len(bets or [])
+              print(f"OK (xtrapp dump) — nested bot with {n} bets, "
+                    f"bankroll {bot.get('bankroll')}")
+              sys.exit(0)
+
+          # Neither shape matched.
+          print("Unrecognized shape — expected either a 'valuatio-bot-training' "
+                "export or an XTRAPP dump with a nested 'bot' object.")
+          print("Top-level keys present:", list(d.keys())[:20])
+          sys.exit(1)
           PY

@@ -1,6 +1,6 @@
 {
   "schema": "valuatio-bot-training/v1",
-  "generatedAt": "2026-06-22T05:21:30.710Z",
+  "generatedAt": "2026-06-22T23:14:39.141Z",
   "bankroll": 110369.24,
   "startingBankroll": 100000,
   "allTimeReturnPct": 10.37,
@@ -22,61 +22,7 @@
   "signalScores": [
     {
       "signal": "fundamentals",
-      "trades": 7,
-      "winRateWhenLeaning": 0,
-      "currentWeight": 1
-    },
-    {
-      "signal": "health",
-      "trades": 7,
-      "winRateWhenLeaning": 0,
-      "currentWeight": 1
-    },
-    {
-      "signal": "trend",
-      "trades": 4,
-      "winRateWhenLeaning": 0,
-      "currentWeight": 1
-    },
-    {
-      "signal": "momentum",
-      "trades": 5,
-      "winRateWhenLeaning": 0,
-      "currentWeight": 1
-    },
-    {
-      "signal": "meanReversion",
-      "trades": 4,
-      "winRateWhenLeaning": 0,
-      "currentWeight": 1
-    },
-    {
-      "signal": "crossAsset",
-      "trades": 5,
-      "winRateWhenLeaning": 0,
-      "currentWeight": 1
-    },
-    {
-      "signal": "fed",
-      "trades": 2,
-      "winRateWhenLeaning": 0,
-      "currentWeight": 1
-    },
-    {
-      "signal": "supplyChain",
-      "trades": 2,
-      "winRateWhenLeaning": 0,
-      "currentWeight": 1
-    },
-    {
-      "signal": "momentumGrade",
-      "trades": 7,
-      "winRateWhenLeaning": 0,
-      "currentWeight": 1
-    },
-    {
-      "signal": "trendEngine",
-      "trades": 2,
+      "trades": 6,
       "winRateWhenLeaning": 0,
       "currentWeight": 1
     },
@@ -87,8 +33,26 @@
       "currentWeight": 1
     },
     {
-      "signal": "peerGrade",
+      "signal": "health",
       "trades": 6,
+      "winRateWhenLeaning": 0,
+      "currentWeight": 1
+    },
+    {
+      "signal": "peerGrade",
+      "trades": 7,
+      "winRateWhenLeaning": 0,
+      "currentWeight": 1
+    },
+    {
+      "signal": "momentumGrade",
+      "trades": 8,
+      "winRateWhenLeaning": 0,
+      "currentWeight": 1
+    },
+    {
+      "signal": "crossAsset",
+      "trades": 5,
       "winRateWhenLeaning": 0,
       "currentWeight": 1
     },
@@ -103,12 +67,48 @@
       "trades": 1,
       "winRateWhenLeaning": 0,
       "currentWeight": 1
+    },
+    {
+      "signal": "momentum",
+      "trades": 5,
+      "winRateWhenLeaning": 0,
+      "currentWeight": 1
+    },
+    {
+      "signal": "trendEngine",
+      "trades": 2,
+      "winRateWhenLeaning": 0,
+      "currentWeight": 1
+    },
+    {
+      "signal": "trend",
+      "trades": 3,
+      "winRateWhenLeaning": 0,
+      "currentWeight": 1
+    },
+    {
+      "signal": "meanReversion",
+      "trades": 3,
+      "winRateWhenLeaning": 0,
+      "currentWeight": 1
+    },
+    {
+      "signal": "fed",
+      "trades": 1,
+      "winRateWhenLeaning": 0,
+      "currentWeight": 1
+    },
+    {
+      "signal": "supplyChain",
+      "trades": 1,
+      "winRateWhenLeaning": 0,
+      "currentWeight": 1
     }
   ],
   "styleScores": [
     {
-      "style": "long",
-      "trades": 1,
+      "style": "short",
+      "trades": 4,
       "winRate": 0,
       "totalPnl": 0
     },
@@ -119,8 +119,8 @@
       "totalPnl": 0
     },
     {
-      "style": "short",
-      "trades": 4,
+      "style": "long",
+      "trades": 1,
       "winRate": 0,
       "totalPnl": 0
     },
@@ -133,31 +133,31 @@
   ],
   "takeaways": [
     "Win rate 0% over 8 settled trades; net P&L +$0.",
-    "Most reliable signal: fundamentals (0% win when it leans, 7 trades) â trust it more.",
-    "Least reliable signal: peerGrade (0% win when it leans) â consider down-weighting.",
-    "Best-performing style: long (+$0 over 1 trades)."
+    "Most reliable signal: fundamentals (0% win when it leans, 6 trades) — trust it more.",
+    "Least reliable signal: meanReversion (0% win when it leans) — consider down-weighting.",
+    "Best-performing style: short (+$0 over 4 trades)."
   ],
   "trades": [
     {
-      "id": "000660.KS-2026-06-14-1781410953493-0",
-      "ticker": "000660.KS",
-      "name": "SK hynix Inc.",
-      "sector": "Technology",
-      "direction": "long",
+      "id": "PLCE-2026-06-22-1782098049706-0",
+      "ticker": "PLCE",
+      "name": "The Children's Place, Inc.",
+      "sector": "Consumer Cyclical",
+      "direction": "short",
       "instrument": "shares",
       "optionType": null,
       "leveragedEtf": null,
-      "style": "long",
-      "horizonType": "swing",
-      "horizonDays": 10,
-      "dalioEnv": "unclassified",
+      "style": "short",
+      "horizonType": "short-term",
+      "horizonDays": 11,
+      "dalioEnv": "growth-down",
       "longTermTrend": "unknown",
       "soldStillStrong": false,
       "exitMomentum": 0,
       "rolledForMomentum": 0,
-      "entryDate": "2026-06-14",
+      "entryDate": "2026-06-22",
       "exitDate": "2026-06-22",
-      "entryPrice": 1416.4415000000001,
+      "entryPrice": 3.44,
       "exitPrice": null,
       "shares": 0,
       "notional": 0,
@@ -165,230 +165,1690 @@
       "allocationPct": 0,
       "leverage": 1,
       "hedge": false,
-      "stopPrice": 1168.56,
-      "targetPrice": 1912.2,
-      "holdDays": 8,
+      "stopPrice": 4.04,
+      "targetPrice": 2.24,
+      "holdDays": 0,
       "pnl": 0,
-      "returnPct": 26.98,
+      "returnPct": 11.34,
       "won": false,
       "exitReason": "rebalance-cash",
-      "conviction": 0.461,
-      "confidence": 0.461,
-      "regimeAtEntry": "unclassified",
+      "conviction": -0.576,
+      "confidence": 0.526,
+      "regimeAtEntry": "choppy",
+      "status": "closed",
+      "topDrivers": [
+        {
+          "signal": "momentumGrade",
+          "lean": -1
+        },
+        {
+          "signal": "researchGrade",
+          "lean": -0.47
+        },
+        {
+          "signal": "peerGrade",
+          "lean": -0.33
+        },
+        {
+          "signal": "fundamentals",
+          "lean": -0.13
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 44)",
+        "Research grade D+ (27/100 percentile)",
+        "Sector cross-asset: flat",
+        "Peer grade C- (#89 of 98 in Consumer Cyclical · XLY +8.7% 3mo)",
+        "Regime grade C+ (choppy regime)",
+        "Momentum F (0.40× avg vol)"
+      ],
+      "cashAfter": 84126.71,
+      "decisionReceipt": {
+        "placedAt": "2026-06-22T03:14:09.706Z",
+        "action": "SHORT shares",
+        "regime": "choppy — pipeline: neutral (conf 0.981)",
+        "conviction": -0.58,
+        "confidence": 53,
+        "sizing": "$15873 (17.6% of deployable)",
+        "cashAfter": 84126.71,
+        "style": "short",
+        "horizon": "short-term (~11 trading days)",
+        "dalioEnv": "growth-down",
+        "topDrivers": [
+          {
+            "signal": "momentumGrade",
+            "lean": -1,
+            "favors": "short"
+          },
+          {
+            "signal": "researchGrade",
+            "lean": -0.47,
+            "favors": "short"
+          },
+          {
+            "signal": "peerGrade",
+            "lean": -0.33,
+            "favors": "short"
+          },
+          {
+            "signal": "fundamentals",
+            "lean": -0.13,
+            "favors": "short"
+          },
+          {
+            "signal": "health",
+            "lean": -0.12,
+            "favors": "short"
+          }
+        ],
+        "rationale": [
+          "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 44)",
+          "Research grade D+ (27/100 percentile)",
+          "Sector cross-asset: flat",
+          "Peer grade C- (#89 of 98 in Consumer Cyclical · XLY +8.7% 3mo)",
+          "Regime grade C+ (choppy regime)",
+          "Momentum F (0.40× avg vol)"
+        ],
+        "decisionPath": [
+          "regime:choppy (pipeline: neutral (conf 0.981))",
+          "fundamentals:-0.13 ×1.1 (regime)",
+          "researchGrade:-0.47",
+          "health:-0.12 ×1.1 (regime)",
+          "crossAsset:0.00",
+          "peerGrade:-0.33 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
+          "momentumGrade:-1.00",
+          "agreement:100% one-sided → conviction boosted to -0.58",
+          "short in choppy: confidence -0.05 bar",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "outcome": null,
+        "learned": null,
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [],
+      "signalsThatHurt": [
+        "momentumGrade",
+        "researchGrade",
+        "peerGrade",
+        "fundamentals",
+        "health"
+      ],
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+    },
+    {
+      "id": "CCJ-2026-06-22-1782098049708-1",
+      "ticker": "CCJ",
+      "name": "Cameco Corporation",
+      "sector": "Energy",
+      "direction": "short",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "short",
+      "horizonType": "short-term",
+      "horizonDays": 11,
+      "dalioEnv": "inflation-down",
+      "longTermTrend": "unknown",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-22",
+      "exitDate": "2026-06-22",
+      "entryPrice": 106.489998,
+      "exitPrice": null,
+      "shares": 0,
+      "notional": 0,
+      "dollars": 0,
+      "allocationPct": 0,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 125.13,
+      "targetPrice": 69.22,
+      "holdDays": 0,
+      "pnl": 0,
+      "returnPct": -0.54,
+      "won": false,
+      "exitReason": "rebalance-cash",
+      "conviction": -0.57,
+      "confidence": 0.52,
+      "regimeAtEntry": "choppy",
       "status": "closed",
       "topDrivers": [
         {
           "signal": "crossAsset",
-          "lean": 1
+          "lean": -1
         },
         {
-          "signal": "momentum",
-          "lean": 0.78
-        },
-        {
-          "signal": "trend",
-          "lean": 0.74
-        },
-        {
-          "signal": "meanReversion",
-          "lean": -0.45
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Solid fundamentals; watch the weakest step below. (conviction 60)",
-        "Uptrend (backend, RÂ²=0.88)",
-        "Sector cross-asset: bull",
-        "Fed easing (-31bps)",
-        "Supply-chain peers -0.0% (5 peers in Consumer Electronics & Mobile)"
-      ],
-      "cashAfter": null,
-      "decisionReceipt": null,
-      "signalsThatHelped": [
-        "meanReversion",
-        "supplyChain"
-      ],
-      "signalsThatHurt": [
-        "crossAsset",
-        "momentum",
-        "trend",
-        "health",
-        "fed",
-        "fundamentals"
-      ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
-    },
-    {
-      "id": "000725.SZ-2026-06-16-1781573221723-0",
-      "ticker": "000725.SZ",
-      "name": "BOE Technology Group Company Limited",
-      "sector": "Technology",
-      "direction": "long",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "long",
-      "horizonType": "swing",
-      "horizonDays": 10,
-      "dalioEnv": "unclassified",
-      "longTermTrend": "unknown",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-16",
-      "exitDate": null,
-      "entryPrice": 0.8749630944,
-      "exitPrice": null,
-      "shares": 4965.1706,
-      "notional": 4344.34,
-      "dollars": 4344.34,
-      "allocationPct": 4.34,
-      "leverage": 1,
-      "hedge": true,
-      "stopPrice": 0.73,
-      "targetPrice": 1.17,
-      "holdDays": 0,
-      "pnl": 466.8,
-      "returnPct": 10.75,
-      "won": true,
-      "exitReason": "open",
-      "conviction": 0.453,
-      "confidence": 0.453,
-      "regimeAtEntry": "risk-on",
-      "status": "open",
-      "topDrivers": [
-        {
-          "signal": "crossAsset",
-          "lean": 1
+          "signal": "peerGrade",
+          "lean": -0.72
         },
         {
           "signal": "momentumGrade",
-          "lean": 1
+          "lean": -0.36
         },
         {
-          "signal": "trend",
-          "lean": 0.67
-        },
-        {
-          "signal": "momentum",
-          "lean": 0.63
+          "signal": "institutional",
+          "lean": -0.18
         }
       ],
       "rationale": [
-        "Fundamentals: Solid fundamentals; watch the weakest step below. (conviction 61)",
-        "Research grade B- (55/100 percentile)",
-        "Uptrend (RÂ²=0.81)",
-        "Sector cross-asset: bull",
-        "Peer grade B+ (#54 of 130 in Technology Â· XLK +37.4% 3mo)",
-        "Regime grade B (Risk-on favors cyclicals/high-beta)",
-        "Momentum A+ (+32.8% 3mo Â· 2.00Ã avg vol)",
-        "Fed easing (-31bps)",
-        "Supply-chain peers +0.0% (12 peers in Consumer Electronics & Mobile)"
+        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 48)",
+        "Research grade C (43/100 percentile)",
+        "Sector cross-asset: bear",
+        "Peer grade F (#32 of 36 in Energy · XLE -9.3% 3mo)",
+        "Regime grade C+ (choppy regime)",
+        "Momentum C- (0.98× avg vol)",
+        "13F: 3 institutions hold · 1 adding / 3 trimming · 1 PUT · 1 CALL"
       ],
-      "cashAfter": null,
-      "decisionReceipt": null,
+      "cashAfter": 68426.32,
+      "decisionReceipt": {
+        "placedAt": "2026-06-22T03:14:09.708Z",
+        "action": "SHORT shares",
+        "regime": "choppy — pipeline: neutral (conf 0.981)",
+        "conviction": -0.57,
+        "confidence": 52,
+        "sizing": "$15700 (17.4% of deployable)",
+        "cashAfter": 68426.32,
+        "style": "short",
+        "horizon": "short-term (~11 trading days)",
+        "dalioEnv": "inflation-down",
+        "topDrivers": [
+          {
+            "signal": "crossAsset",
+            "lean": -1,
+            "favors": "short"
+          },
+          {
+            "signal": "peerGrade",
+            "lean": -0.72,
+            "favors": "short"
+          },
+          {
+            "signal": "momentumGrade",
+            "lean": -0.36,
+            "favors": "short"
+          },
+          {
+            "signal": "institutional",
+            "lean": -0.18,
+            "favors": "short"
+          },
+          {
+            "signal": "researchGrade",
+            "lean": -0.13,
+            "favors": "short"
+          },
+          {
+            "signal": "fundamentals",
+            "lean": -0.04,
+            "favors": "short"
+          }
+        ],
+        "rationale": [
+          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 48)",
+          "Research grade C (43/100 percentile)",
+          "Sector cross-asset: bear",
+          "Peer grade F (#32 of 36 in Energy · XLE -9.3% 3mo)",
+          "Regime grade C+ (choppy regime)",
+          "Momentum C- (0.98× avg vol)",
+          "13F: 3 institutions hold · 1 adding / 3 trimming · 1 PUT · 1 CALL"
+        ],
+        "decisionPath": [
+          "regime:choppy (pipeline: neutral (conf 0.981))",
+          "fundamentals:-0.04 ×1.1 (regime)",
+          "researchGrade:-0.13",
+          "health:+0.00 ×1.1 (regime)",
+          "crossAsset:-1.00",
+          "peerGrade:-0.72 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
+          "momentumGrade:-0.36",
+          "institutional:-0.18",
+          "agreement:100% one-sided → conviction boosted to -0.57",
+          "short in choppy: confidence -0.05 bar",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "outcome": null,
+        "learned": null,
+        "couldHaveDoneBetter": null
+      },
       "signalsThatHelped": [
-        "crossAsset",
-        "momentumGrade",
-        "trend",
-        "momentum",
-        "meanReversion",
-        "peerGrade",
-        "regimeGrade",
-        "health",
-        "fundamentals",
-        "fed",
-        "researchGrade",
-        "supplyChain"
+        "health"
       ],
-      "signalsThatHurt": [],
-      "couldHaveWorked": "Position still open â outcome pending."
+      "signalsThatHurt": [
+        "crossAsset",
+        "peerGrade",
+        "momentumGrade",
+        "institutional",
+        "researchGrade",
+        "fundamentals"
+      ],
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
-      "id": "TOELY-2026-06-16-1781573221723-1",
-      "ticker": "TOELY",
-      "name": "Tokyo Electron Limited",
-      "sector": "Technology",
+      "id": "UPS-2026-06-22-1782098049710-2",
+      "ticker": "UPS",
+      "name": "United Parcel Service, Inc.",
+      "sector": "Industrials",
       "direction": "long",
       "instrument": "shares",
       "optionType": null,
       "leveragedEtf": null,
-      "style": "long",
-      "horizonType": "swing",
-      "horizonDays": 10,
-      "dalioEnv": "unclassified",
+      "style": "momentum-long",
+      "horizonType": "short-term",
+      "horizonDays": 9,
+      "dalioEnv": "growth-up",
       "longTermTrend": "unknown",
       "soldStillStrong": false,
       "exitMomentum": 0,
       "rolledForMomentum": 0,
-      "entryDate": "2026-06-16",
-      "exitDate": null,
-      "entryPrice": 217.649994,
+      "entryDate": "2026-06-22",
+      "exitDate": "2026-06-22",
+      "entryPrice": 104.860001,
       "exitPrice": null,
-      "shares": 16.7967,
-      "notional": 3655.79,
-      "dollars": 3655.79,
-      "allocationPct": 3.65,
+      "shares": 0,
+      "notional": 0,
+      "dollars": 0,
+      "allocationPct": 0,
       "leverage": 1,
       "hedge": false,
-      "stopPrice": 163.24,
-      "targetPrice": 326.47,
+      "stopPrice": 86.51,
+      "targetPrice": 141.56,
       "holdDays": 0,
-      "pnl": 467.62,
-      "returnPct": 12.79,
-      "won": true,
-      "exitReason": "open",
-      "conviction": 0.451,
-      "confidence": 0.451,
-      "regimeAtEntry": "risk-on",
-      "status": "open",
+      "pnl": 0,
+      "returnPct": 2.27,
+      "won": false,
+      "exitReason": "rebalance-cash",
+      "conviction": 0.564,
+      "confidence": 0.514,
+      "regimeAtEntry": "choppy",
+      "status": "closed",
       "topDrivers": [
-        {
-          "signal": "crossAsset",
-          "lean": 1
-        },
         {
           "signal": "momentumGrade",
           "lean": 1
         },
         {
           "signal": "peerGrade",
-          "lean": 0.97
+          "lean": 0.63
         },
         {
-          "signal": "momentum",
-          "lean": 0.93
+          "signal": "researchGrade",
+          "lean": 0.23
+        },
+        {
+          "signal": "institutional",
+          "lean": 0.2
         }
       ],
       "rationale": [
-        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 52)",
-        "Research grade B+ (73/100 percentile)",
-        "Uptrend (RÂ²=0.56)",
-        "Sector cross-asset: bull",
-        "Peer grade A+ (#4 of 130 in Technology Â· XLK +37.4% 3mo)",
-        "Regime grade B (Risk-on favors cyclicals/high-beta)",
-        "Momentum A+ (+73.8% 3mo Â· 2.71Ã avg vol)",
-        "Fed easing (-31bps)",
-        "Supply-chain peers +0.0% (17 peers in Semiconductors & AI Compute)"
+        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 55)",
+        "Research grade B- (61/100 percentile)",
+        "Sector cross-asset: flat",
+        "Peer grade A- (#19 of 78 in Industrials · XLI +11.9% 3mo)",
+        "Regime grade C+ (choppy regime)",
+        "Momentum A+ (2.32× avg vol)",
+        "Supply-chain peers +0.0% (21 peers in Crude Oil & Refined Products, E-commerce & Payments)",
+        "13F: 48 institutions hold · 38 adding / 32 trimming · 17 PUT · 22 CALL",
+        "SEC: Last 10-Q 47d ago"
       ],
-      "cashAfter": null,
-      "decisionReceipt": null,
-      "signalsThatHelped": [
-        "crossAsset",
+      "cashAfter": 52902.06,
+      "decisionReceipt": {
+        "placedAt": "2026-06-22T03:14:09.711Z",
+        "action": "LONG shares",
+        "regime": "choppy — pipeline: neutral (conf 0.981)",
+        "conviction": 0.56,
+        "confidence": 51,
+        "sizing": "$15524 (17.2% of deployable)",
+        "cashAfter": 52902.06,
+        "style": "momentum-long",
+        "horizon": "short-term (~9 trading days)",
+        "dalioEnv": "growth-up",
+        "topDrivers": [
+          {
+            "signal": "momentumGrade",
+            "lean": 1,
+            "favors": "long"
+          },
+          {
+            "signal": "peerGrade",
+            "lean": 0.63,
+            "favors": "long"
+          },
+          {
+            "signal": "researchGrade",
+            "lean": 0.23,
+            "favors": "long"
+          },
+          {
+            "signal": "institutional",
+            "lean": 0.2,
+            "favors": "long"
+          },
+          {
+            "signal": "earningsRecency",
+            "lean": 0.15,
+            "favors": "long"
+          },
+          {
+            "signal": "health",
+            "lean": 0.12,
+            "favors": "long"
+          }
+        ],
+        "rationale": [
+          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 55)",
+          "Research grade B- (61/100 percentile)",
+          "Sector cross-asset: flat",
+          "Peer grade A- (#19 of 78 in Industrials · XLI +11.9% 3mo)",
+          "Regime grade C+ (choppy regime)",
+          "Momentum A+ (2.32× avg vol)",
+          "Supply-chain peers +0.0% (21 peers in Crude Oil & Refined Products, E-commerce & Payments)",
+          "13F: 48 institutions hold · 38 adding / 32 trimming · 17 PUT · 22 CALL"
+        ],
+        "decisionPath": [
+          "regime:choppy (pipeline: neutral (conf 0.981))",
+          "fundamentals:+0.10 ×1.1 (regime)",
+          "researchGrade:+0.23",
+          "health:+0.12 ×1.1 (regime)",
+          "crossAsset:0.00",
+          "peerGrade:+0.63 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
+          "momentumGrade:+1.00",
+          "supplyChain:+0.00",
+          "institutional:+0.20",
+          "earningsRecency:+0.15",
+          "agreement:100% one-sided → conviction boosted to 0.56",
+          "long in choppy: confidence -0.05 bar",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "outcome": null,
+        "learned": null,
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [],
+      "signalsThatHurt": [
         "momentumGrade",
         "peerGrade",
-        "momentum",
         "researchGrade",
-        "trend",
-        "regimeGrade",
-        "fed",
+        "institutional",
+        "earningsRecency",
         "health",
+        "fundamentals"
+      ],
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+    },
+    {
+      "id": "BZFD-2026-06-22-1782098049711-3",
+      "ticker": "BZFD",
+      "name": "BuzzFeed, Inc.",
+      "sector": "Communication Services",
+      "direction": "short",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "short",
+      "horizonType": "short-term",
+      "horizonDays": 11,
+      "dalioEnv": "growth-down",
+      "longTermTrend": "unknown",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-22",
+      "exitDate": null,
+      "entryPrice": 1.5,
+      "exitPrice": null,
+      "shares": 7107.4379,
+      "notional": 10661.16,
+      "dollars": 10661.16,
+      "allocationPct": 11.82,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 1.76,
+      "targetPrice": 0.98,
+      "holdDays": 0,
+      "pnl": 568.6,
+      "returnPct": 5.33,
+      "won": true,
+      "exitReason": "open",
+      "conviction": -0.555,
+      "confidence": 0.505,
+      "regimeAtEntry": "choppy",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "momentumGrade",
+          "lean": -1
+        },
+        {
+          "signal": "researchGrade",
+          "lean": -0.55
+        },
+        {
+          "signal": "crossAsset",
+          "lean": -0.46
+        },
+        {
+          "signal": "peerGrade",
+          "lean": -0.3
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 44)",
+        "Research grade D+ (22/100 percentile)",
+        "Sector cross-asset: warn",
+        "Peer grade C- (#45 of 45 in Communication Services · XLK +41.5% 3mo)",
+        "Regime grade C+ (choppy regime)",
+        "Momentum F (0.28× avg vol)",
+        "SEC: Last 10-Q 42d ago"
+      ],
+      "cashAfter": 37664.29,
+      "decisionReceipt": {
+        "placedAt": "2026-06-22T03:14:09.712Z",
+        "action": "SHORT shares",
+        "regime": "choppy — pipeline: neutral (conf 0.981)",
+        "conviction": -0.55,
+        "confidence": 50,
+        "sizing": "$15238 (16.9% of deployable)",
+        "cashAfter": 37664.29,
+        "style": "short",
+        "horizon": "short-term (~11 trading days)",
+        "dalioEnv": "growth-down",
+        "topDrivers": [
+          {
+            "signal": "momentumGrade",
+            "lean": -1,
+            "favors": "short"
+          },
+          {
+            "signal": "researchGrade",
+            "lean": -0.55,
+            "favors": "short"
+          },
+          {
+            "signal": "crossAsset",
+            "lean": -0.46,
+            "favors": "short"
+          },
+          {
+            "signal": "peerGrade",
+            "lean": -0.3,
+            "favors": "short"
+          },
+          {
+            "signal": "earningsRecency",
+            "lean": 0.15,
+            "favors": "long"
+          },
+          {
+            "signal": "health",
+            "lean": -0.14,
+            "favors": "short"
+          }
+        ],
+        "rationale": [
+          "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 44)",
+          "Research grade D+ (22/100 percentile)",
+          "Sector cross-asset: warn",
+          "Peer grade C- (#45 of 45 in Communication Services · XLK +41.5% 3mo)",
+          "Regime grade C+ (choppy regime)",
+          "Momentum F (0.28× avg vol)",
+          "SEC: Last 10-Q 42d ago"
+        ],
+        "decisionPath": [
+          "regime:choppy (pipeline: neutral (conf 0.981))",
+          "fundamentals:-0.13 ×1.1 (regime)",
+          "researchGrade:-0.55",
+          "health:-0.14 ×1.1 (regime)",
+          "crossAsset:-0.46",
+          "peerGrade:-0.30 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
+          "momentumGrade:-1.00",
+          "earningsRecency:+0.15",
+          "agreement:94% one-sided → conviction boosted to -0.55",
+          "short in choppy: confidence -0.05 bar",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "outcome": null,
+        "learned": null,
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [
+        "momentumGrade",
+        "researchGrade",
+        "crossAsset",
+        "peerGrade",
+        "health",
+        "fundamentals"
+      ],
+      "signalsThatHurt": [
+        "earningsRecency"
+      ],
+      "couldHaveWorked": "Position still open — outcome pending."
+    },
+    {
+      "id": "NOC-2026-06-22-1782098049713-4",
+      "ticker": "NOC",
+      "name": "Northrop Grumman Corporation",
+      "sector": "Industrials",
+      "direction": "long",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "momentum-long",
+      "horizonType": "short-term",
+      "horizonDays": 5,
+      "dalioEnv": "growth-up",
+      "longTermTrend": "unknown",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-22",
+      "exitDate": null,
+      "entryPrice": 521.5,
+      "exitPrice": null,
+      "shares": 15.7734,
+      "notional": 8225.82,
+      "dollars": 8225.82,
+      "allocationPct": 9.1,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 430.24,
+      "targetPrice": 704.03,
+      "holdDays": 0,
+      "pnl": -223.51,
+      "returnPct": -2.72,
+      "won": false,
+      "exitReason": "open",
+      "conviction": 0.545,
+      "confidence": 0.495,
+      "regimeAtEntry": "choppy",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "momentumGrade",
+          "lean": 1
+        },
+        {
+          "signal": "peerGrade",
+          "lean": 0.75
+        },
+        {
+          "signal": "institutional",
+          "lean": 0.25
+        },
+        {
+          "signal": "researchGrade",
+          "lean": 0.2
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 49)",
+        "Research grade B- (60/100 percentile)",
+        "Sector cross-asset: flat",
+        "Peer grade A (#12 of 78 in Industrials · XLI +11.9% 3mo)",
+        "Regime grade C+ (choppy regime)",
+        "Momentum A+ (2.76× avg vol)",
+        "Supply-chain peers -0.0% (9 peers in Defense & Aerospace)",
+        "13F: 3 institutions hold · 3 adding / 2 trimming · 1 PUT · 2 CALL",
+        "SEC: Last 10-Q 62d ago"
+      ],
+      "cashAfter": 29438.47,
+      "decisionReceipt": {
+        "placedAt": "2026-06-22T03:14:09.713Z",
+        "action": "LONG shares",
+        "regime": "choppy — pipeline: neutral (conf 0.981)",
+        "conviction": 0.55,
+        "confidence": 50,
+        "sizing": "$8226 (9.1% of deployable)",
+        "cashAfter": 29438.47,
+        "style": "momentum-long",
+        "horizon": "short-term (~5 trading days)",
+        "dalioEnv": "growth-up",
+        "topDrivers": [
+          {
+            "signal": "momentumGrade",
+            "lean": 1,
+            "favors": "long"
+          },
+          {
+            "signal": "peerGrade",
+            "lean": 0.75,
+            "favors": "long"
+          },
+          {
+            "signal": "institutional",
+            "lean": 0.25,
+            "favors": "long"
+          },
+          {
+            "signal": "researchGrade",
+            "lean": 0.2,
+            "favors": "long"
+          },
+          {
+            "signal": "earningsRecency",
+            "lean": 0.15,
+            "favors": "long"
+          },
+          {
+            "signal": "health",
+            "lean": 0.04,
+            "favors": "long"
+          }
+        ],
+        "rationale": [
+          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 49)",
+          "Research grade B- (60/100 percentile)",
+          "Sector cross-asset: flat",
+          "Peer grade A (#12 of 78 in Industrials · XLI +11.9% 3mo)",
+          "Regime grade C+ (choppy regime)",
+          "Momentum A+ (2.76× avg vol)",
+          "Supply-chain peers -0.0% (9 peers in Defense & Aerospace)",
+          "13F: 3 institutions hold · 3 adding / 2 trimming · 1 PUT · 2 CALL"
+        ],
+        "decisionPath": [
+          "regime:choppy (pipeline: neutral (conf 0.981))",
+          "fundamentals:-0.02 ×1.1 (regime)",
+          "researchGrade:+0.20",
+          "health:+0.04 ×1.1 (regime)",
+          "crossAsset:0.00",
+          "peerGrade:+0.75 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
+          "momentumGrade:+1.00",
+          "supplyChain:-0.00",
+          "institutional:+0.25",
+          "earningsRecency:+0.15",
+          "agreement:99% one-sided → conviction boosted to 0.55",
+          "long in choppy: confidence -0.05 bar",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "outcome": null,
+        "learned": null,
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [
         "fundamentals",
         "supplyChain"
       ],
       "signalsThatHurt": [
+        "momentumGrade",
+        "peerGrade",
+        "institutional",
+        "researchGrade",
+        "earningsRecency",
+        "health"
+      ],
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+    },
+    {
+      "id": "PEG-2026-06-22-1782098049714-5",
+      "ticker": "PEG",
+      "name": "Public Service Enterprise Group Incorporated",
+      "sector": "Utilities",
+      "direction": "long",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "momentum-long",
+      "horizonType": "short-term",
+      "horizonDays": 5,
+      "dalioEnv": "growth-down",
+      "longTermTrend": "unknown",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-22",
+      "exitDate": null,
+      "entryPrice": 79.889999,
+      "exitPrice": null,
+      "shares": 186.9881,
+      "notional": 14938.48,
+      "dollars": 14938.48,
+      "allocationPct": 16.6,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 65.91,
+      "targetPrice": 107.85,
+      "holdDays": 0,
+      "pnl": 134.63,
+      "returnPct": 0.9,
+      "won": true,
+      "exitReason": "open",
+      "conviction": 0.545,
+      "confidence": 0.495,
+      "regimeAtEntry": "choppy",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "momentumGrade",
+          "lean": 1
+        },
+        {
+          "signal": "peerGrade",
+          "lean": 0.51
+        },
+        {
+          "signal": "fed",
+          "lean": 0.4
+        },
+        {
+          "signal": "institutional",
+          "lean": 0.27
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 50)",
+        "Research grade C+ (52/100 percentile)",
+        "Sector cross-asset: flat",
+        "Peer grade B+ (#3 of 19 in Utilities · XLU +0.2% 3mo)",
+        "Regime grade C+ (choppy regime)",
+        "Momentum A+ (2.29× avg vol)",
+        "Fed easing (-30bps)",
+        "13F: 14 institutions hold · 11 adding / 6 trimming · 3 PUT · 3 CALL",
+        "SEC: Last 10-Q 48d ago"
+      ],
+      "cashAfter": 14499.99,
+      "decisionReceipt": {
+        "placedAt": "2026-06-22T03:14:09.714Z",
+        "action": "LONG shares",
+        "regime": "choppy — pipeline: neutral (conf 0.981)",
+        "conviction": 0.54,
+        "confidence": 49,
+        "sizing": "$14938 (16.6% of deployable)",
+        "cashAfter": 14499.99,
+        "style": "momentum-long",
+        "horizon": "short-term (~5 trading days)",
+        "dalioEnv": "growth-down",
+        "topDrivers": [
+          {
+            "signal": "momentumGrade",
+            "lean": 1,
+            "favors": "long"
+          },
+          {
+            "signal": "peerGrade",
+            "lean": 0.51,
+            "favors": "long"
+          },
+          {
+            "signal": "fed",
+            "lean": 0.4,
+            "favors": "long"
+          },
+          {
+            "signal": "institutional",
+            "lean": 0.27,
+            "favors": "long"
+          },
+          {
+            "signal": "earningsRecency",
+            "lean": 0.15,
+            "favors": "long"
+          },
+          {
+            "signal": "health",
+            "lean": 0.06,
+            "favors": "long"
+          }
+        ],
+        "rationale": [
+          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 50)",
+          "Research grade C+ (52/100 percentile)",
+          "Sector cross-asset: flat",
+          "Peer grade B+ (#3 of 19 in Utilities · XLU +0.2% 3mo)",
+          "Regime grade C+ (choppy regime)",
+          "Momentum A+ (2.29× avg vol)",
+          "Fed easing (-30bps)",
+          "13F: 14 institutions hold · 11 adding / 6 trimming · 3 PUT · 3 CALL"
+        ],
+        "decisionPath": [
+          "regime:choppy (pipeline: neutral (conf 0.981))",
+          "fundamentals:+0.01 ×1.1 (regime)",
+          "researchGrade:+0.05",
+          "health:+0.06 ×1.1 (regime)",
+          "crossAsset:0.00",
+          "peerGrade:+0.51 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
+          "momentumGrade:+1.00",
+          "fed:+0.40",
+          "institutional:+0.27",
+          "earningsRecency:+0.15",
+          "agreement:100% one-sided → conviction boosted to 0.54",
+          "long in choppy: confidence -0.05 bar",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "outcome": null,
+        "learned": null,
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [
+        "momentumGrade",
+        "peerGrade",
+        "fed",
+        "institutional",
+        "earningsRecency",
+        "health",
+        "researchGrade",
+        "fundamentals"
+      ],
+      "signalsThatHurt": [],
+      "couldHaveWorked": "Position still open — outcome pending."
+    },
+    {
+      "id": "ZF=F-2026-06-21-1782018714968-1",
+      "ticker": "ZF=F",
+      "name": "5-Year T-Note Futures,Sep-2026",
+      "sector": "Commodities & Futures",
+      "direction": "short",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "short",
+      "horizonType": "short-term",
+      "horizonDays": 11,
+      "dalioEnv": "growth-down",
+      "longTermTrend": "flat",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-21",
+      "exitDate": null,
+      "entryPrice": 106.671875,
+      "exitPrice": null,
+      "shares": 9.62,
+      "notional": 1026.18,
+      "dollars": 1026.18,
+      "allocationPct": 32.9,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 125.34,
+      "targetPrice": 69.34,
+      "holdDays": 0,
+      "pnl": 0.83,
+      "returnPct": 0.08,
+      "won": true,
+      "exitReason": "open",
+      "conviction": -0.583,
+      "confidence": 0.533,
+      "regimeAtEntry": "choppy",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "momentumGrade",
+          "lean": -1
+        },
+        {
+          "signal": "momentum",
+          "lean": -0.87
+        },
+        {
+          "signal": "fundamentals",
+          "lean": -0.36
+        },
+        {
+          "signal": "health",
+          "lean": -0.22
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 32)",
+        "Downtrend (backend, R²=0.67)",
+        "Sector cross-asset: flat",
+        "Regime grade C+ (choppy regime)",
+        "Momentum F (0.22× avg vol)"
+      ],
+      "cashAfter": 11940.43,
+      "decisionReceipt": {
+        "style": "short",
+        "action": "SHORT shares",
+        "regime": "choppy — pipeline: neutral (conf 0.981)",
+        "sizing": "$1026 (32.9% of deployable)",
+        "horizon": "short-term (~11 trading days)",
+        "learned": null,
+        "outcome": null,
+        "dalioEnv": "growth-down",
+        "placedAt": "2026-06-21T05:11:54.968Z",
+        "cashAfter": 11940.43,
+        "rationale": [
+          "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 32)",
+          "Downtrend (backend, R²=0.67)",
+          "Sector cross-asset: flat",
+          "Regime grade C+ (choppy regime)",
+          "Momentum F (0.22× avg vol)"
+        ],
+        "confidence": 53,
+        "conviction": -0.58,
+        "topDrivers": [
+          {
+            "lean": -1,
+            "favors": "short",
+            "signal": "momentumGrade"
+          },
+          {
+            "lean": -0.87,
+            "favors": "short",
+            "signal": "momentum"
+          },
+          {
+            "lean": -0.36,
+            "favors": "short",
+            "signal": "fundamentals"
+          },
+          {
+            "lean": -0.22,
+            "favors": "short",
+            "signal": "health"
+          },
+          {
+            "lean": 0.03,
+            "favors": "long",
+            "signal": "meanReversion"
+          },
+          {
+            "lean": -0.01,
+            "favors": "short",
+            "signal": "trend"
+          }
+        ],
+        "decisionPath": [
+          "regime:choppy (pipeline: neutral (conf 0.981))",
+          "fundamentals:-0.36 ×1.1 (regime)",
+          "health:-0.22 ×1.1 (regime)",
+          "trend:-0.01 ×0.7 (regime)",
+          "momentum:-0.87 ×0.8 (regime)",
+          "meanReversion:+0.03 ×1.3 (regime)",
+          "tech:backend-precomputed",
+          "crossAsset:0.00",
+          "regimeGrade:0.00 ×1.2 (regime)",
+          "momentumGrade:-1.00",
+          "agreement:99% one-sided → conviction boosted to -0.58",
+          "short in choppy: confidence -0.05 bar",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [
+        "momentumGrade",
+        "momentum",
+        "fundamentals",
+        "health",
+        "trend"
+      ],
+      "signalsThatHurt": [
         "meanReversion"
       ],
-      "couldHaveWorked": "Position still open â outcome pending."
+      "couldHaveWorked": "Position still open — outcome pending."
+    },
+    {
+      "id": "FSLR-2026-06-21-1782018714970-2",
+      "ticker": "FSLR",
+      "name": "First Solar, Inc.",
+      "sector": "Technology",
+      "direction": "long",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "rotation/macro",
+      "horizonType": "short-term",
+      "horizonDays": 18,
+      "dalioEnv": "growth-up",
+      "longTermTrend": "unknown",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-21",
+      "exitDate": null,
+      "entryPrice": 257.700012,
+      "exitPrice": null,
+      "shares": 1.8023,
+      "notional": 464.44,
+      "dollars": 464.44,
+      "allocationPct": 14.9,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 212.6,
+      "targetPrice": 347.9,
+      "holdDays": 0,
+      "pnl": 9.75,
+      "returnPct": 2.1,
+      "won": true,
+      "exitReason": "open",
+      "conviction": 0.554,
+      "confidence": 0.504,
+      "regimeAtEntry": "choppy",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "peerGrade",
+          "lean": 0.97
+        },
+        {
+          "signal": "crossAsset",
+          "lean": 0.75
+        },
+        {
+          "signal": "meanReversion",
+          "lean": 0.59
+        },
+        {
+          "signal": "institutional",
+          "lean": 0.45
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 47)",
+        "Research grade B (64/100 percentile)",
+        "Uptrend (backend, R²=0.73)",
+        "Sector cross-asset: bull",
+        "Peer grade A+ (#4 of 130 in Technology · XLK +41.5% 3mo)",
+        "Regime grade C+ (choppy regime)",
+        "Momentum B (1.46× avg vol · Clean, well-supported up-momentum)",
+        "Trend healthy-uptrend (q76, mom 61)",
+        "Fed easing (-30bps)",
+        "Supply-chain peers +0.0% (12 peers in Solar & Renewable Energy)",
+        "13F: 286 institutions hold · 207 adding / 105 trimming · 20 PUT · 27 CALL",
+        "SEC: Last 10-Q 52d ago"
+      ],
+      "cashAfter": 11475.99,
+      "decisionReceipt": {
+        "style": "rotation/macro",
+        "action": "LONG shares",
+        "regime": "choppy — pipeline: neutral (conf 0.981)",
+        "sizing": "$464 (14.9% of deployable)",
+        "horizon": "short-term (~18 trading days)",
+        "learned": null,
+        "outcome": null,
+        "dalioEnv": "growth-up",
+        "placedAt": "2026-06-21T05:11:54.970Z",
+        "cashAfter": 11475.99,
+        "rationale": [
+          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 47)",
+          "Research grade B (64/100 percentile)",
+          "Uptrend (backend, R²=0.73)",
+          "Sector cross-asset: bull",
+          "Peer grade A+ (#4 of 130 in Technology · XLK +41.5% 3mo)",
+          "Regime grade C+ (choppy regime)",
+          "Momentum B (1.46× avg vol · Clean, well-supported up-momentum)",
+          "Trend healthy-uptrend (q76, mom 61)"
+        ],
+        "confidence": 50,
+        "conviction": 0.55,
+        "topDrivers": [
+          {
+            "lean": 0.97,
+            "favors": "long",
+            "signal": "peerGrade"
+          },
+          {
+            "lean": 0.75,
+            "favors": "long",
+            "signal": "crossAsset"
+          },
+          {
+            "lean": 0.59,
+            "favors": "long",
+            "signal": "meanReversion"
+          },
+          {
+            "lean": 0.45,
+            "favors": "long",
+            "signal": "institutional"
+          },
+          {
+            "lean": 0.33,
+            "favors": "long",
+            "signal": "trend"
+          },
+          {
+            "lean": 0.29,
+            "favors": "long",
+            "signal": "researchGrade"
+          }
+        ],
+        "decisionPath": [
+          "regime:choppy (pipeline: neutral (conf 0.981))",
+          "fundamentals:-0.05 ×1.1 (regime)",
+          "researchGrade:+0.29",
+          "health:-0.04 ×1.1 (regime)",
+          "trend:+0.33 ×0.7 (regime)",
+          "momentum:+0.09 ×0.8 (regime)",
+          "meanReversion:+0.59 ×1.3 (regime)",
+          "tech:backend-precomputed",
+          "crossAsset:+0.75",
+          "peerGrade:+0.97 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
+          "momentumGrade:+0.28",
+          "trendEngine:+0.23",
+          "fed:+0.20",
+          "supplyChain:+0.00",
+          "institutional:+0.45",
+          "earningsRecency:+0.15",
+          "agreement:98% one-sided → conviction boosted to 0.55",
+          "long in choppy: confidence -0.05 bar",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [
+        "peerGrade",
+        "crossAsset",
+        "meanReversion",
+        "institutional",
+        "trend",
+        "researchGrade",
+        "momentumGrade",
+        "trendEngine",
+        "fed",
+        "earningsRecency",
+        "momentum",
+        "supplyChain"
+      ],
+      "signalsThatHurt": [
+        "fundamentals",
+        "health"
+      ],
+      "couldHaveWorked": "Position still open — outcome pending."
+    },
+    {
+      "id": "SBLK-2026-06-21-1782018714971-3",
+      "ticker": "SBLK",
+      "name": "Star Bulk Carriers Corp.",
+      "sector": "Industrials",
+      "direction": "long",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "rotation/macro",
+      "horizonType": "short-term",
+      "horizonDays": 10,
+      "dalioEnv": "growth-up",
+      "longTermTrend": "unknown",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-21",
+      "exitDate": null,
+      "entryPrice": 26.73,
+      "exitPrice": null,
+      "shares": 17.1955,
+      "notional": 459.64,
+      "dollars": 459.64,
+      "allocationPct": 14.7,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 22.05,
+      "targetPrice": 36.09,
+      "holdDays": 0,
+      "pnl": -3.61,
+      "returnPct": -0.79,
+      "won": false,
+      "exitReason": "open",
+      "conviction": 0.549,
+      "confidence": 0.499,
+      "regimeAtEntry": "choppy",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "peerGrade",
+          "lean": 0.93
+        },
+        {
+          "signal": "momentumGrade",
+          "lean": 0.64
+        },
+        {
+          "signal": "momentum",
+          "lean": 0.53
+        },
+        {
+          "signal": "institutional",
+          "lean": 0.24
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 51)",
+        "Research grade C+ (54/100 percentile)",
+        "Uptrend (backend, R²=0.82)",
+        "Sector cross-asset: flat",
+        "Peer grade A+ (#1 of 78 in Industrials · XLI +11.9% 3mo)",
+        "Regime grade C+ (choppy regime)",
+        "Momentum A- (1.73× avg vol)",
+        "Supply-chain peers -0.0% (3 peers in Shipping & Maritime Logistics)",
+        "13F: 59 institutions hold · 51 adding / 30 trimming · 22 PUT · 22 CALL"
+      ],
+      "cashAfter": 11016.35,
+      "decisionReceipt": {
+        "style": "rotation/macro",
+        "action": "LONG shares",
+        "regime": "choppy — pipeline: neutral (conf 0.981)",
+        "sizing": "$460 (14.7% of deployable)",
+        "horizon": "short-term (~10 trading days)",
+        "learned": null,
+        "outcome": null,
+        "dalioEnv": "growth-up",
+        "placedAt": "2026-06-21T05:11:54.971Z",
+        "cashAfter": 11016.35,
+        "rationale": [
+          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 51)",
+          "Research grade C+ (54/100 percentile)",
+          "Uptrend (backend, R²=0.82)",
+          "Sector cross-asset: flat",
+          "Peer grade A+ (#1 of 78 in Industrials · XLI +11.9% 3mo)",
+          "Regime grade C+ (choppy regime)",
+          "Momentum A- (1.73× avg vol)",
+          "Supply-chain peers -0.0% (3 peers in Shipping & Maritime Logistics)"
+        ],
+        "confidence": 50,
+        "conviction": 0.55,
+        "topDrivers": [
+          {
+            "lean": 0.93,
+            "favors": "long",
+            "signal": "peerGrade"
+          },
+          {
+            "lean": 0.64,
+            "favors": "long",
+            "signal": "momentumGrade"
+          },
+          {
+            "lean": 0.53,
+            "favors": "long",
+            "signal": "momentum"
+          },
+          {
+            "lean": 0.24,
+            "favors": "long",
+            "signal": "institutional"
+          },
+          {
+            "lean": 0.13,
+            "favors": "long",
+            "signal": "trend"
+          },
+          {
+            "lean": 0.09,
+            "favors": "long",
+            "signal": "meanReversion"
+          }
+        ],
+        "decisionPath": [
+          "regime:choppy (pipeline: neutral (conf 0.981))",
+          "fundamentals:+0.03 ×1.1 (regime)",
+          "researchGrade:+0.07",
+          "health:+0.06 ×1.1 (regime)",
+          "trend:+0.13 ×0.7 (regime)",
+          "momentum:+0.53 ×0.8 (regime)",
+          "meanReversion:+0.09 ×1.3 (regime)",
+          "tech:backend-precomputed",
+          "crossAsset:0.00",
+          "peerGrade:+0.93 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
+          "momentumGrade:+0.64",
+          "supplyChain:-0.00",
+          "institutional:+0.24",
+          "agreement:100% one-sided → conviction boosted to 0.55",
+          "long in choppy: confidence -0.05 bar",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [
+        "supplyChain"
+      ],
+      "signalsThatHurt": [
+        "peerGrade",
+        "momentumGrade",
+        "momentum",
+        "institutional",
+        "trend",
+        "meanReversion",
+        "researchGrade",
+        "health",
+        "fundamentals"
+      ],
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+    },
+    {
+      "id": "EU-2026-06-21-1782018714972-4",
+      "ticker": "EU",
+      "name": "enCore Energy Corp.",
+      "sector": "Energy",
+      "direction": "short",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "short",
+      "horizonType": "short-term",
+      "horizonDays": 6,
+      "dalioEnv": "inflation-down",
+      "longTermTrend": "down",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-21",
+      "exitDate": null,
+      "entryPrice": 1.65,
+      "exitPrice": null,
+      "shares": 131.5493,
+      "notional": 217.06,
+      "dollars": 217.06,
+      "allocationPct": 7,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 2.06,
+      "targetPrice": 0.82,
+      "holdDays": 0,
+      "pnl": 15.79,
+      "returnPct": 7.27,
+      "won": true,
+      "exitReason": "open",
+      "conviction": -0.519,
+      "confidence": 0.469,
+      "regimeAtEntry": "choppy",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "crossAsset",
+          "lean": -1
+        },
+        {
+          "signal": "peerGrade",
+          "lean": -0.83
+        },
+        {
+          "signal": "researchGrade",
+          "lean": -0.59
+        },
+        {
+          "signal": "momentumGrade",
+          "lean": -0.52
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 44)",
+        "Research grade D (20/100 percentile)",
+        "Downtrend (R²=0.12)",
+        "Sector cross-asset: bear",
+        "Peer grade F (#35 of 36 in Energy · XLE -9.3% 3mo)",
+        "Regime grade C+ (choppy regime)",
+        "Momentum D+ (-4.1% 3mo · 4.23× avg vol · Mixed / no decisive trend)",
+        "Trend neutral (q49, mom 52)",
+        "13F: 3 institutions hold · 1 adding / 3 trimming · 2 PUT · 1 CALL",
+        "SEC: Last 10-Q 38d ago"
+      ],
+      "cashAfter": 10799.29,
+      "decisionReceipt": {
+        "style": "short",
+        "action": "SHORT shares",
+        "regime": "choppy — pipeline: neutral (conf 0.981)",
+        "sizing": "$217 (7.0% of deployable)",
+        "horizon": "short-term (~6 trading days)",
+        "learned": null,
+        "outcome": null,
+        "dalioEnv": "inflation-down",
+        "placedAt": "2026-06-21T05:11:54.972Z",
+        "cashAfter": 10799.29,
+        "rationale": [
+          "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 44)",
+          "Research grade D (20/100 percentile)",
+          "Downtrend (R²=0.12)",
+          "Sector cross-asset: bear",
+          "Peer grade F (#35 of 36 in Energy · XLE -9.3% 3mo)",
+          "Regime grade C+ (choppy regime)",
+          "Momentum D+ (-4.1% 3mo · 4.23× avg vol · Mixed / no decisive trend)",
+          "Trend neutral (q49, mom 52)"
+        ],
+        "confidence": 47,
+        "conviction": -0.52,
+        "topDrivers": [
+          {
+            "lean": -1,
+            "favors": "short",
+            "signal": "crossAsset"
+          },
+          {
+            "lean": -0.83,
+            "favors": "short",
+            "signal": "peerGrade"
+          },
+          {
+            "lean": -0.59,
+            "favors": "short",
+            "signal": "researchGrade"
+          },
+          {
+            "lean": -0.52,
+            "favors": "short",
+            "signal": "momentumGrade"
+          },
+          {
+            "lean": -0.3,
+            "favors": "short",
+            "signal": "institutional"
+          },
+          {
+            "lean": -0.17,
+            "favors": "short",
+            "signal": "health"
+          }
+        ],
+        "decisionPath": [
+          "regime:choppy (pipeline: neutral (conf 0.981))",
+          "fundamentals:-0.13 ×1.1 (regime)",
+          "researchGrade:-0.59",
+          "health:-0.17 ×1.1 (regime)",
+          "trend:-0.02 ×0.7 (regime)",
+          "momentum:+0.01 ×0.8 (regime)",
+          "meanReversion:+0.08 ×1.3 (regime)",
+          "crossAsset:-1.00",
+          "peerGrade:-0.83 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
+          "momentumGrade:-0.52",
+          "trendEngine:+0.03",
+          "institutional:-0.30",
+          "earningsRecency:+0.15",
+          "agreement:93% one-sided → conviction boosted to -0.52",
+          "short in choppy: confidence -0.05 bar",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [
+        "crossAsset",
+        "peerGrade",
+        "researchGrade",
+        "momentumGrade",
+        "institutional",
+        "health",
+        "fundamentals",
+        "trend"
+      ],
+      "signalsThatHurt": [
+        "earningsRecency",
+        "meanReversion",
+        "trendEngine",
+        "momentum"
+      ],
+      "couldHaveWorked": "Position still open — outcome pending."
+    },
+    {
+      "id": "AAL-2026-06-21-1782018714974-5",
+      "ticker": "AAL",
+      "name": "American Airlines Group Inc.",
+      "sector": "Industrials",
+      "direction": "long",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "momentum-long",
+      "horizonType": "short-term",
+      "horizonDays": 5,
+      "dalioEnv": "growth-up",
+      "longTermTrend": "unknown",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-21",
+      "exitDate": null,
+      "entryPrice": 15.99,
+      "exitPrice": null,
+      "shares": 14.3811,
+      "notional": 229.95,
+      "dollars": 229.95,
+      "allocationPct": 7.4,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 13.19,
+      "targetPrice": 21.59,
+      "holdDays": 0,
+      "pnl": 1.29,
+      "returnPct": 0.56,
+      "won": true,
+      "exitReason": "open",
+      "conviction": 0.504,
+      "confidence": 0.454,
+      "regimeAtEntry": "choppy",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "momentumGrade",
+          "lean": 1
+        },
+        {
+          "signal": "peerGrade",
+          "lean": 0.94
+        },
+        {
+          "signal": "momentum",
+          "lean": 0.58
+        },
+        {
+          "signal": "trendEngine",
+          "lean": 0.49
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 57)",
+        "Research grade C+ (52/100 percentile)",
+        "Uptrend (R²=0.57)",
+        "Sector cross-asset: flat",
+        "Peer grade A+ (#3 of 78 in Industrials)",
+        "Regime grade C+ (choppy regime)",
+        "Momentum A+ (+53.3% 3mo · 1.74× avg vol · Clean, well-supported up-momentum)",
+        "Trend healthy-uptrend (q86, mom 75)",
+        "Supply-chain peers -0.0% (25 peers in Crude Oil & Refined Products, Airlines & Travel)",
+        "13F: 102 institutions hold · 81 adding / 44 trimming · 21 PUT · 24 CALL",
+        "SEC: Last 10-Q 59d ago"
+      ],
+      "cashAfter": 10569.34,
+      "decisionReceipt": {
+        "style": "momentum-long",
+        "action": "LONG shares",
+        "regime": "choppy — pipeline: neutral (conf 0.981)",
+        "sizing": "$230 (7.4% of deployable)",
+        "horizon": "short-term (~5 trading days)",
+        "learned": null,
+        "outcome": null,
+        "dalioEnv": "growth-up",
+        "placedAt": "2026-06-21T05:11:54.974Z",
+        "cashAfter": 10569.34,
+        "rationale": [
+          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 57)",
+          "Research grade C+ (52/100 percentile)",
+          "Uptrend (R²=0.57)",
+          "Sector cross-asset: flat",
+          "Peer grade A+ (#3 of 78 in Industrials)",
+          "Regime grade C+ (choppy regime)",
+          "Momentum A+ (+53.3% 3mo · 1.74× avg vol · Clean, well-supported up-momentum)",
+          "Trend healthy-uptrend (q86, mom 75)"
+        ],
+        "confidence": 45,
+        "conviction": 0.5,
+        "topDrivers": [
+          {
+            "lean": 1,
+            "favors": "long",
+            "signal": "momentumGrade"
+          },
+          {
+            "lean": 0.94,
+            "favors": "long",
+            "signal": "peerGrade"
+          },
+          {
+            "lean": 0.58,
+            "favors": "long",
+            "signal": "momentum"
+          },
+          {
+            "lean": 0.49,
+            "favors": "long",
+            "signal": "trendEngine"
+          },
+          {
+            "lean": -0.41,
+            "favors": "short",
+            "signal": "meanReversion"
+          },
+          {
+            "lean": 0.33,
+            "favors": "long",
+            "signal": "institutional"
+          }
+        ],
+        "decisionPath": [
+          "regime:choppy (pipeline: neutral (conf 0.981))",
+          "fundamentals:+0.14 ×1.1 (regime)",
+          "researchGrade:+0.05",
+          "health:+0.14 ×1.1 (regime)",
+          "trend:+0.23 ×0.7 (regime)",
+          "momentum:+0.58 ×0.8 (regime)",
+          "meanReversion:-0.40 ×1.3 (regime)",
+          "crossAsset:0.00",
+          "peerGrade:+0.94 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
+          "momentumGrade:+1.00",
+          "trendEngine:+0.49",
+          "supplyChain:-0.00",
+          "institutional:+0.33",
+          "earningsRecency:+0.15",
+          "agreement:91% one-sided → conviction boosted to 0.50",
+          "long in choppy: confidence -0.05 bar",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [
+        "momentumGrade",
+        "peerGrade",
+        "momentum",
+        "trendEngine",
+        "institutional",
+        "trend",
+        "earningsRecency",
+        "health",
+        "fundamentals",
+        "researchGrade"
+      ],
+      "signalsThatHurt": [
+        "meanReversion",
+        "supplyChain"
+      ],
+      "couldHaveWorked": "Position still open — outcome pending."
     },
     {
       "id": "UMC-2026-06-16-1781573221723-2",
@@ -420,13 +1880,13 @@
       "stopPrice": 17.31,
       "targetPrice": 34.62,
       "holdDays": 0,
-      "pnl": 445.4,
-      "returnPct": 4.33,
+      "pnl": 1968.67,
+      "returnPct": 19.15,
       "won": true,
       "exitReason": "open",
       "conviction": 0.439,
       "confidence": 0.439,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
       "status": "open",
       "topDrivers": [
         {
@@ -465,21 +1925,10 @@
         "crossAsset",
         "peerGrade",
         "momentum",
-        "trend",
-        "momentumGrade",
-        "researchGrade",
-        "regimeGrade",
-        "fed",
-        "institutional",
-        "health",
-        "earningsRecency",
-        "fundamentals",
-        "supplyChain"
+        "trend"
       ],
-      "signalsThatHurt": [
-        "meanReversion"
-      ],
-      "couldHaveWorked": "Position still open â outcome pending."
+      "signalsThatHurt": [],
+      "couldHaveWorked": "Position still open — outcome pending."
     },
     {
       "id": "DELL-2026-06-16-1781573221723-3",
@@ -511,13 +1960,13 @@
       "stopPrice": 306.8,
       "targetPrice": 613.61,
       "holdDays": 0,
-      "pnl": 4.48,
-      "returnPct": 0.11,
+      "pnl": 100.33,
+      "returnPct": 2.36,
       "won": true,
       "exitReason": "open",
       "conviction": 0.43,
       "confidence": 0.43,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
       "status": "open",
       "topDrivers": [
         {
@@ -556,21 +2005,241 @@
         "trend",
         "crossAsset",
         "momentum",
-        "peerGrade",
+        "peerGrade"
+      ],
+      "signalsThatHurt": [],
+      "couldHaveWorked": "Position still open — outcome pending."
+    },
+    {
+      "id": "TOELY-2026-06-16-1781573221723-1",
+      "ticker": "TOELY",
+      "name": "Tokyo Electron Limited",
+      "sector": "Technology",
+      "direction": "long",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "long",
+      "horizonType": "swing",
+      "horizonDays": 10,
+      "dalioEnv": "unclassified",
+      "longTermTrend": "unknown",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-16",
+      "exitDate": "2026-06-22",
+      "entryPrice": 217.649994,
+      "exitPrice": null,
+      "shares": 0,
+      "notional": 0,
+      "dollars": 0,
+      "allocationPct": 0,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 163.24,
+      "targetPrice": 326.47,
+      "holdDays": 6,
+      "pnl": 0,
+      "returnPct": 13.56,
+      "won": false,
+      "exitReason": "rebalance-cash",
+      "conviction": 0.451,
+      "confidence": 0.451,
+      "regimeAtEntry": "unclassified",
+      "status": "closed",
+      "topDrivers": [
+        {
+          "signal": "crossAsset",
+          "lean": 1
+        },
+        {
+          "signal": "momentumGrade",
+          "lean": 1
+        },
+        {
+          "signal": "peerGrade",
+          "lean": 0.97
+        },
+        {
+          "signal": "momentum",
+          "lean": 0.93
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 52)",
+        "Research grade B+ (73/100 percentile)",
+        "Uptrend (RÂ²=0.56)",
+        "Sector cross-asset: bull",
+        "Peer grade A+ (#4 of 130 in Technology Â· XLK +37.4% 3mo)",
+        "Regime grade B (Risk-on favors cyclicals/high-beta)",
+        "Momentum A+ (+73.8% 3mo Â· 2.71Ã avg vol)",
+        "Fed easing (-31bps)",
+        "Supply-chain peers +0.0% (17 peers in Semiconductors & AI Compute)"
+      ],
+      "cashAfter": null,
+      "decisionReceipt": null,
+      "signalsThatHelped": [],
+      "signalsThatHurt": [
+        "crossAsset",
         "momentumGrade",
-        "regimeGrade",
-        "researchGrade",
-        "fed",
-        "health",
-        "earningsRecency",
-        "institutional",
-        "fundamentals",
-        "supplyChain"
+        "peerGrade",
+        "momentum"
+      ],
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+    },
+    {
+      "id": "000660.KS-2026-06-14-1781410953493-0",
+      "ticker": "000660.KS",
+      "name": "SK hynix Inc.",
+      "sector": "Technology",
+      "direction": "long",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "long",
+      "horizonType": "swing",
+      "horizonDays": 10,
+      "dalioEnv": "unclassified",
+      "longTermTrend": "unknown",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-14",
+      "exitDate": null,
+      "entryPrice": 1416.4415000000001,
+      "exitPrice": null,
+      "shares": 0.8322,
+      "notional": 1178.73,
+      "dollars": 1178.73,
+      "allocationPct": 1.18,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 1168.56,
+      "targetPrice": 1912.2,
+      "holdDays": 0,
+      "pnl": 401.97,
+      "returnPct": 34.1,
+      "won": true,
+      "exitReason": "open",
+      "conviction": 0.461,
+      "confidence": 0.461,
+      "regimeAtEntry": "unclassified",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "crossAsset",
+          "lean": 1
+        },
+        {
+          "signal": "momentum",
+          "lean": 0.78
+        },
+        {
+          "signal": "trend",
+          "lean": 0.74
+        },
+        {
+          "signal": "meanReversion",
+          "lean": -0.45
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Solid fundamentals; watch the weakest step below. (conviction 60)",
+        "Uptrend (backend, RÂ²=0.88)",
+        "Sector cross-asset: bull",
+        "Fed easing (-31bps)",
+        "Supply-chain peers -0.0% (5 peers in Consumer Electronics & Mobile)"
+      ],
+      "cashAfter": null,
+      "decisionReceipt": null,
+      "signalsThatHelped": [
+        "crossAsset",
+        "momentum",
+        "trend"
       ],
       "signalsThatHurt": [
         "meanReversion"
       ],
-      "couldHaveWorked": "Position still open â outcome pending."
+      "couldHaveWorked": "Position still open — outcome pending."
+    },
+    {
+      "id": "000725.SZ-2026-06-16-1781573221723-0",
+      "ticker": "000725.SZ",
+      "name": "BOE Technology Group Company Limited",
+      "sector": "Technology",
+      "direction": "long",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "long",
+      "horizonType": "swing",
+      "horizonDays": 10,
+      "dalioEnv": "unclassified",
+      "longTermTrend": "unknown",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-16",
+      "exitDate": null,
+      "entryPrice": 0.8749630944,
+      "exitPrice": null,
+      "shares": 4965.1706,
+      "notional": 4344.34,
+      "dollars": 4344.34,
+      "allocationPct": 4.34,
+      "leverage": 1,
+      "hedge": true,
+      "stopPrice": 0.73,
+      "targetPrice": 1.17,
+      "holdDays": 0,
+      "pnl": 745.92,
+      "returnPct": 17.17,
+      "won": true,
+      "exitReason": "open",
+      "conviction": 0.453,
+      "confidence": 0.453,
+      "regimeAtEntry": "unclassified",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "crossAsset",
+          "lean": 1
+        },
+        {
+          "signal": "momentumGrade",
+          "lean": 1
+        },
+        {
+          "signal": "trend",
+          "lean": 0.67
+        },
+        {
+          "signal": "momentum",
+          "lean": 0.63
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Solid fundamentals; watch the weakest step below. (conviction 61)",
+        "Research grade B- (55/100 percentile)",
+        "Uptrend (RÂ²=0.81)",
+        "Sector cross-asset: bull",
+        "Peer grade B+ (#54 of 130 in Technology Â· XLK +37.4% 3mo)",
+        "Regime grade B (Risk-on favors cyclicals/high-beta)",
+        "Momentum A+ (+32.8% 3mo Â· 2.00Ã avg vol)",
+        "Fed easing (-31bps)",
+        "Supply-chain peers +0.0% (12 peers in Consumer Electronics & Mobile)"
+      ],
+      "cashAfter": null,
+      "decisionReceipt": null,
+      "signalsThatHelped": [
+        "crossAsset",
+        "momentumGrade",
+        "trend",
+        "momentum"
+      ],
+      "signalsThatHurt": [],
+      "couldHaveWorked": "Position still open — outcome pending."
     },
     {
       "id": "MU-2026-06-16-1781573221723-4",
@@ -602,13 +2271,13 @@
       "stopPrice": 815.99,
       "targetPrice": 1631.98,
       "holdDays": 0,
-      "pnl": 92.32,
-      "returnPct": 4.23,
+      "pnl": 247.64,
+      "returnPct": 11.34,
       "won": true,
       "exitReason": "open",
       "conviction": 0.423,
       "confidence": 0.423,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
       "status": "open",
       "topDrivers": [
         {
@@ -647,424 +2316,10 @@
         "crossAsset",
         "momentum",
         "peerGrade",
-        "trend",
-        "momentumGrade",
-        "researchGrade",
-        "regimeGrade",
-        "fed",
-        "health",
-        "earningsRecency",
-        "fundamentals",
-        "institutional",
-        "supplyChain"
-      ],
-      "signalsThatHurt": [
-        "meanReversion"
-      ],
-      "couldHaveWorked": "Position still open â outcome pending."
-    },
-    {
-      "id": "LNVGY-2026-06-16-1781573221723-5",
-      "ticker": "LNVGY",
-      "name": "Lenovo Group Limited",
-      "sector": "Technology",
-      "direction": "long",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "momentum-long",
-      "horizonType": "swing",
-      "horizonDays": 10,
-      "dalioEnv": "unclassified",
-      "longTermTrend": "unknown",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-16",
-      "exitDate": null,
-      "entryPrice": 57.25,
-      "exitPrice": null,
-      "shares": 29.4226,
-      "notional": 1684.44,
-      "dollars": 1684.44,
-      "allocationPct": 1.7,
-      "leverage": 1,
-      "hedge": true,
-      "stopPrice": 43.42,
-      "targetPrice": 84.91,
-      "holdDays": 0,
-      "pnl": 108.86,
-      "returnPct": 6.46,
-      "won": true,
-      "exitReason": "open",
-      "conviction": 0.417,
-      "confidence": 0.417,
-      "regimeAtEntry": "risk-on",
-      "status": "open",
-      "topDrivers": [
-        {
-          "signal": "trend",
-          "lean": 1
-        },
-        {
-          "signal": "crossAsset",
-          "lean": 1
-        },
-        {
-          "signal": "momentum",
-          "lean": 0.69
-        },
-        {
-          "signal": "peerGrade",
-          "lean": 0.68
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 49)",
-        "Research grade B- (62/100 percentile)",
-        "Uptrend (RÂ²=0.79)",
-        "Sector cross-asset: bull",
-        "Peer grade A- (#33 of 130 in Technology Â· XLK +37.4% 3mo)",
-        "Regime grade B (Risk-on favors cyclicals/high-beta)",
-        "Momentum B (+133.1% 3mo Â· 0.80Ã avg vol)",
-        "Fed easing (-31bps)",
-        "Supply-chain peers +0.0% (12 peers in Consumer Electronics & Mobile)"
-      ],
-      "cashAfter": null,
-      "decisionReceipt": null,
-      "signalsThatHelped": [
-        "trend",
-        "crossAsset",
-        "momentum",
-        "peerGrade",
-        "momentumGrade",
-        "regimeGrade",
-        "researchGrade",
-        "fed",
-        "health",
-        "supplyChain"
-      ],
-      "signalsThatHurt": [
-        "meanReversion",
-        "fundamentals"
-      ],
-      "couldHaveWorked": "Position still open â outcome pending."
-    },
-    {
-      "id": "MU-2026-06-18-1781751939570-0",
-      "ticker": "MU",
-      "name": "Micron Technology, Inc.",
-      "sector": "Technology",
-      "direction": "long",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "long",
-      "horizonType": "short-term",
-      "horizonDays": 15,
-      "dalioEnv": "growth-up",
-      "longTermTrend": "strong-up",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-18",
-      "exitDate": null,
-      "entryPrice": 1043.189941,
-      "exitPrice": null,
-      "shares": 0.4749,
-      "notional": 495.37,
-      "dollars": 495.37,
-      "allocationPct": 20,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 782.39,
-      "targetPrice": 1564.78,
-      "holdDays": 0,
-      "pnl": 43.12,
-      "returnPct": 8.7,
-      "won": true,
-      "exitReason": "open",
-      "conviction": 0.449,
-      "confidence": 0.449,
-      "regimeAtEntry": "risk-on",
-      "status": "open",
-      "topDrivers": [
-        {
-          "signal": "crossAsset",
-          "lean": 1
-        },
-        {
-          "signal": "momentum",
-          "lean": 0.92
-        },
-        {
-          "signal": "peerGrade",
-          "lean": 0.86
-        },
-        {
-          "signal": "trendEngine",
-          "lean": 0.82
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 52)",
-        "Research grade B (67/100 percentile)",
-        "Uptrend (RÂ²=0.71)",
-        "Sector cross-asset: bull",
-        "Peer grade A (#15 of 130 in Technology Â· XLK +37.4% 3mo)",
-        "Regime grade B (Risk-on favors cyclicals/high-beta)",
-        "Momentum B+ (+134.8% 3mo Â· 0.86Ã avg vol Â· Clean, well-supported up-momentum)",
-        "Trend healthy-uptrend (q93, mom 91)",
-        "Fed easing (-30bps)",
-        "Supply-chain peers +0.0% (8 peers in Consumer Electronics & Mobile)",
-        "13F: 4 institutions hold Â· 3 adding / 3 trimming Â· 2 PUT Â· 2 CALL",
-        "SEC: Last 10-Q 91d ago"
-      ],
-      "cashAfter": 12256.92,
-      "decisionReceipt": {
-        "placedAt": "2026-06-18T03:05:39.570Z",
-        "action": "LONG shares",
-        "regime": "risk-on â pipeline: expansion (conf 0.981)",
-        "conviction": 0.45,
-        "confidence": 45,
-        "sizing": "$495 (20.0% of deployable)",
-        "cashAfter": 12256.92,
-        "style": "long",
-        "horizon": "short-term (~15 trading days)",
-        "dalioEnv": "growth-up",
-        "topDrivers": [
-          {
-            "signal": "crossAsset",
-            "lean": 1,
-            "favors": "long"
-          },
-          {
-            "signal": "momentum",
-            "lean": 0.92,
-            "favors": "long"
-          },
-          {
-            "signal": "peerGrade",
-            "lean": 0.86,
-            "favors": "long"
-          },
-          {
-            "signal": "trendEngine",
-            "lean": 0.82,
-            "favors": "long"
-          },
-          {
-            "signal": "trend",
-            "lean": 0.6,
-            "favors": "long"
-          },
-          {
-            "signal": "momentumGrade",
-            "lean": 0.52,
-            "favors": "long"
-          }
-        ],
-        "rationale": [
-          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 52)",
-          "Research grade B (67/100 percentile)",
-          "Uptrend (RÂ²=0.71)",
-          "Sector cross-asset: bull",
-          "Peer grade A (#15 of 130 in Technology Â· XLK +37.4% 3mo)",
-          "Regime grade B (Risk-on favors cyclicals/high-beta)",
-          "Momentum B+ (+134.8% 3mo Â· 0.86Ã avg vol Â· Clean, well-supported up-momentum)",
-          "Trend healthy-uptrend (q93, mom 91)"
-        ],
-        "decisionPath": [
-          "regime:risk-on (pipeline: expansion (conf 0.981))",
-          "fundamentals:+0.03",
-          "researchGrade:+0.35",
-          "health:+0.15",
-          "trend:+0.60 Ã1.3 (regime)",
-          "momentum:+0.92 Ã1.3 (regime)",
-          "meanReversion:-0.33 Ã0.7 (regime)",
-          "crossAsset:+1.00 Ã1.1 (regime)",
-          "peerGrade:+0.86 Ã1.2 (regime)",
-          "regimeGrade:+0.28 Ã1.4 (regime)",
-          "momentumGrade:+0.52 Ã1.4 (regime)",
-          "trendEngine:+0.82",
-          "fed:+0.20",
-          "supplyChain:+0.00",
-          "institutional:+0.04",
-          "earningsRecency:+0.15",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "outcome": null,
-        "learned": null,
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [
-        "crossAsset",
-        "momentum",
-        "peerGrade",
-        "trendEngine",
-        "trend",
-        "momentumGrade",
-        "researchGrade",
-        "regimeGrade",
-        "fed",
-        "health",
-        "earningsRecency",
-        "institutional",
-        "fundamentals",
-        "supplyChain"
-      ],
-      "signalsThatHurt": [
-        "meanReversion"
-      ],
-      "couldHaveWorked": "Position still open â outcome pending."
-    },
-    {
-      "id": "ZR=F-2026-06-18-1781751939570-1",
-      "ticker": "ZR=F",
-      "name": "Rough Rice Futures,Jul-2026",
-      "sector": "Commodities & Futures",
-      "direction": "long",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "momentum-long",
-      "horizonType": "short-term",
-      "horizonDays": 8,
-      "dalioEnv": "growth-up",
-      "longTermTrend": "flat",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-18",
-      "exitDate": null,
-      "entryPrice": 12.305,
-      "exitPrice": null,
-      "shares": 70.4568,
-      "notional": 866.97,
-      "dollars": 866.97,
-      "allocationPct": 35,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 10.85,
-      "targetPrice": 15.21,
-      "holdDays": 0,
-      "pnl": 21.14,
-      "returnPct": 2.44,
-      "won": true,
-      "exitReason": "open",
-      "conviction": 0.445,
-      "confidence": 0.445,
-      "regimeAtEntry": "risk-on",
-      "status": "open",
-      "topDrivers": [
-        {
-          "signal": "momentumGrade",
-          "lean": 1
-        },
-        {
-          "signal": "momentum",
-          "lean": 0.63
-        },
-        {
-          "signal": "trendEngine",
-          "lean": 0.62
-        },
-        {
-          "signal": "crossAsset",
-          "lean": 0.6
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Solid fundamentals; watch the weakest step below. (conviction 68)",
-        "Uptrend (RÂ²=0.86)",
-        "Sector cross-asset: bull",
-        "Regime grade C+ (risk-on regime)",
-        "Momentum A+ (+24.4% 3mo Â· 2.05Ã avg vol Â· Clean, well-supported up-momentum)",
-        "Trend healthy-uptrend (q54, mom 81)"
-      ],
-      "cashAfter": 11389.95,
-      "decisionReceipt": {
-        "placedAt": "2026-06-18T03:05:39.570Z",
-        "action": "LONG shares",
-        "regime": "risk-on â pipeline: expansion (conf 0.981)",
-        "conviction": 0.44,
-        "confidence": 44,
-        "sizing": "$867 (35.0% of deployable)",
-        "cashAfter": 11389.95,
-        "style": "momentum-long",
-        "horizon": "short-term (~8 trading days)",
-        "dalioEnv": "growth-up",
-        "topDrivers": [
-          {
-            "signal": "momentumGrade",
-            "lean": 1,
-            "favors": "long"
-          },
-          {
-            "signal": "momentum",
-            "lean": 0.63,
-            "favors": "long"
-          },
-          {
-            "signal": "trendEngine",
-            "lean": 0.62,
-            "favors": "long"
-          },
-          {
-            "signal": "crossAsset",
-            "lean": 0.6,
-            "favors": "long"
-          },
-          {
-            "signal": "meanReversion",
-            "lean": 0.5,
-            "favors": "long"
-          },
-          {
-            "signal": "fundamentals",
-            "lean": 0.36,
-            "favors": "long"
-          }
-        ],
-        "rationale": [
-          "Fundamentals: Solid fundamentals; watch the weakest step below. (conviction 68)",
-          "Uptrend (RÂ²=0.86)",
-          "Sector cross-asset: bull",
-          "Regime grade C+ (risk-on regime)",
-          "Momentum A+ (+24.4% 3mo Â· 2.05Ã avg vol Â· Clean, well-supported up-momentum)",
-          "Trend healthy-uptrend (q54, mom 81)"
-        ],
-        "decisionPath": [
-          "regime:risk-on (pipeline: expansion (conf 0.981))",
-          "fundamentals:+0.36",
-          "health:+0.31",
-          "trend:+0.32 Ã1.3 (regime)",
-          "momentum:+0.63 Ã1.3 (regime)",
-          "meanReversion:+0.50 Ã0.7 (regime)",
-          "crossAsset:+0.60 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.4 (regime)",
-          "momentumGrade:+1.00 Ã1.4 (regime)",
-          "trendEngine:+0.62",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "outcome": null,
-        "learned": null,
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [
-        "momentumGrade",
-        "momentum",
-        "trendEngine",
-        "crossAsset",
-        "meanReversion",
-        "fundamentals",
-        "trend",
-        "health"
+        "trend"
       ],
       "signalsThatHurt": [],
-      "couldHaveWorked": "Position still open â outcome pending."
+      "couldHaveWorked": "Position still open — outcome pending."
     },
     {
       "id": "ARM-2026-06-18-1781751939570-2",
@@ -1096,13 +2351,13 @@
       "stopPrice": 314.16,
       "targetPrice": 628.32,
       "holdDays": 0,
-      "pnl": 13.28,
-      "returnPct": 4.91,
-      "won": true,
+      "pnl": -7.2,
+      "returnPct": -2.66,
+      "won": false,
       "exitReason": "open",
       "conviction": 0.44,
       "confidence": 0.44,
-      "regimeAtEntry": "risk-on",
+      "regimeAtEntry": "unclassified",
       "status": "open",
       "topDrivers": [
         {
@@ -1137,48 +2392,16 @@
       ],
       "cashAfter": 11119.57,
       "decisionReceipt": {
-        "placedAt": "2026-06-18T03:05:39.570Z",
+        "style": "long",
         "action": "LONG shares",
         "regime": "risk-on â pipeline: expansion (conf 0.981)",
-        "conviction": 0.44,
-        "confidence": 44,
         "sizing": "$270 (10.9% of deployable)",
-        "cashAfter": 11119.57,
-        "style": "long",
         "horizon": "short-term (~15 trading days)",
+        "learned": null,
+        "outcome": null,
         "dalioEnv": "growth-up",
-        "topDrivers": [
-          {
-            "signal": "crossAsset",
-            "lean": 1,
-            "favors": "long"
-          },
-          {
-            "signal": "momentum",
-            "lean": 0.99,
-            "favors": "long"
-          },
-          {
-            "signal": "trend",
-            "lean": 0.97,
-            "favors": "long"
-          },
-          {
-            "signal": "trendEngine",
-            "lean": 0.89,
-            "favors": "long"
-          },
-          {
-            "signal": "momentumGrade",
-            "lean": 0.62,
-            "favors": "long"
-          },
-          {
-            "signal": "meanReversion",
-            "lean": -0.38,
-            "favors": "short"
-          }
-        ],
+        "placedAt": "2026-06-18T03:05:39.570Z",
+        "cashAfter": 11119.57,
         "rationale": [
           "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 50)",
           "Research grade C+ (47/100 percentile)",
@@ -1188,6 +2411,40 @@
           "Regime grade B (Risk-on favors cyclicals/high-beta)",
           "Momentum A- (+222.7% 3mo Â· 1.05Ã avg vol Â· Clean, well-supported up-momentum)",
           "Trend healthy-uptrend (q91, mom 95)"
+        ],
+        "confidence": 44,
+        "conviction": 0.44,
+        "topDrivers": [
+          {
+            "lean": 1,
+            "favors": "long",
+            "signal": "crossAsset"
+          },
+          {
+            "lean": 0.99,
+            "favors": "long",
+            "signal": "momentum"
+          },
+          {
+            "lean": 0.97,
+            "favors": "long",
+            "signal": "trend"
+          },
+          {
+            "lean": 0.89,
+            "favors": "long",
+            "signal": "trendEngine"
+          },
+          {
+            "lean": 0.62,
+            "favors": "long",
+            "signal": "momentumGrade"
+          },
+          {
+            "lean": -0.38,
+            "favors": "short",
+            "signal": "meanReversion"
+          }
         ],
         "decisionPath": [
           "regime:risk-on (pipeline: expansion (conf 0.981))",
@@ -1208,28 +2465,170 @@
           "leverage:1x",
           "instrument:shares"
         ],
-        "outcome": null,
-        "learned": null,
         "couldHaveDoneBetter": null
       },
-      "signalsThatHelped": [
+      "signalsThatHelped": [],
+      "signalsThatHurt": [
         "crossAsset",
         "momentum",
         "trend",
-        "trendEngine",
-        "momentumGrade",
-        "peerGrade",
-        "regimeGrade",
-        "fed",
-        "earningsRecency",
-        "health"
+        "trendEngine"
+      ],
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
+    },
+    {
+      "id": "BCAB-2026-06-21-1782018714957-0",
+      "ticker": "BCAB",
+      "name": "BioAtla, Inc.",
+      "sector": "Healthcare",
+      "direction": "short",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "short",
+      "horizonType": "short-term",
+      "horizonDays": 11,
+      "dalioEnv": "growth-up",
+      "longTermTrend": "unknown",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-21",
+      "exitDate": null,
+      "entryPrice": 3.49,
+      "exitPrice": null,
+      "shares": 142.9916,
+      "notional": 499.04,
+      "dollars": 499.04,
+      "allocationPct": 16,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 4.1,
+      "targetPrice": 2.27,
+      "holdDays": 0,
+      "pnl": -18.59,
+      "returnPct": -3.72,
+      "won": false,
+      "exitReason": "open",
+      "conviction": -0.591,
+      "confidence": 0.541,
+      "regimeAtEntry": "choppy",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "momentumGrade",
+          "lean": -0.92
+        },
+        {
+          "signal": "momentum",
+          "lean": -0.91
+        },
+        {
+          "signal": "researchGrade",
+          "lean": -0.72
+        },
+        {
+          "signal": "trend",
+          "lean": -0.51
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 42)",
+        "Research grade F (14/100 percentile)",
+        "Downtrend (backend, R²=0.65)",
+        "Sector cross-asset: flat",
+        "Peer grade D+ (#71 of 82 in Healthcare · XLV +2.8% 3mo)",
+        "Regime grade C+ (choppy regime)",
+        "Momentum F (0.56× avg vol)"
+      ],
+      "cashAfter": 12966.61,
+      "decisionReceipt": {
+        "style": "short",
+        "action": "SHORT shares",
+        "regime": "choppy — pipeline: neutral (conf 0.981)",
+        "sizing": "$499 (16.0% of deployable)",
+        "horizon": "short-term (~11 trading days)",
+        "learned": null,
+        "outcome": null,
+        "dalioEnv": "growth-up",
+        "placedAt": "2026-06-21T05:11:54.958Z",
+        "cashAfter": 12966.61,
+        "rationale": [
+          "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 42)",
+          "Research grade F (14/100 percentile)",
+          "Downtrend (backend, R²=0.65)",
+          "Sector cross-asset: flat",
+          "Peer grade D+ (#71 of 82 in Healthcare · XLV +2.8% 3mo)",
+          "Regime grade C+ (choppy regime)",
+          "Momentum F (0.56× avg vol)"
+        ],
+        "confidence": 54,
+        "conviction": -0.59,
+        "topDrivers": [
+          {
+            "lean": -0.92,
+            "favors": "short",
+            "signal": "momentumGrade"
+          },
+          {
+            "lean": -0.91,
+            "favors": "short",
+            "signal": "momentum"
+          },
+          {
+            "lean": -0.72,
+            "favors": "short",
+            "signal": "researchGrade"
+          },
+          {
+            "lean": -0.51,
+            "favors": "short",
+            "signal": "trend"
+          },
+          {
+            "lean": -0.4,
+            "favors": "short",
+            "signal": "peerGrade"
+          },
+          {
+            "lean": -0.17,
+            "favors": "short",
+            "signal": "fundamentals"
+          }
+        ],
+        "decisionPath": [
+          "regime:choppy (pipeline: neutral (conf 0.981))",
+          "fundamentals:-0.17 ×1.1 (regime)",
+          "researchGrade:-0.72",
+          "health:-0.15 ×1.1 (regime)",
+          "trend:-0.51 ×0.7 (regime)",
+          "momentum:-0.91 ×0.8 (regime)",
+          "meanReversion:+0.14 ×1.3 (regime)",
+          "tech:backend-precomputed",
+          "crossAsset:0.00",
+          "peerGrade:-0.40 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
+          "momentumGrade:-0.92",
+          "agreement:96% one-sided → conviction boosted to -0.59",
+          "short in choppy: confidence -0.05 bar",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [
+        "meanReversion"
       ],
       "signalsThatHurt": [
-        "meanReversion",
+        "momentumGrade",
+        "momentum",
         "researchGrade",
-        "fundamentals"
+        "trend",
+        "peerGrade",
+        "fundamentals",
+        "health"
       ],
-      "couldHaveWorked": "Position still open â outcome pending."
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "ZR=F-2026-06-18-1781752006376-0",
@@ -1262,7 +2661,7 @@
       "targetPrice": 15.21,
       "holdDays": 4,
       "pnl": 0,
-      "returnPct": 2.44,
+      "returnPct": 4.51,
       "won": false,
       "exitReason": "rebalance-cash",
       "conviction": 0.445,
@@ -1372,1873 +2771,7 @@
         "trendEngine",
         "crossAsset"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
-    },
-    {
-      "id": "PLCE-2026-06-22-1782098049706-0",
-      "ticker": "PLCE",
-      "name": "The Children's Place, Inc.",
-      "sector": "Consumer Cyclical",
-      "direction": "short",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "short",
-      "horizonType": "short-term",
-      "horizonDays": 11,
-      "dalioEnv": "growth-down",
-      "longTermTrend": "unknown",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-22",
-      "exitDate": "2026-06-22",
-      "entryPrice": 3.44,
-      "exitPrice": null,
-      "shares": 0,
-      "notional": 0,
-      "dollars": 0,
-      "allocationPct": 0,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 4.04,
-      "targetPrice": 2.24,
-      "holdDays": 0,
-      "pnl": 0,
-      "returnPct": 0,
-      "won": false,
-      "exitReason": "rebalance-cash",
-      "conviction": -0.576,
-      "confidence": 0.526,
-      "regimeAtEntry": "choppy",
-      "status": "closed",
-      "topDrivers": [
-        {
-          "signal": "momentumGrade",
-          "lean": -1
-        },
-        {
-          "signal": "researchGrade",
-          "lean": -0.47
-        },
-        {
-          "signal": "peerGrade",
-          "lean": -0.33
-        },
-        {
-          "signal": "fundamentals",
-          "lean": -0.13
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 44)",
-        "Research grade D+ (27/100 percentile)",
-        "Sector cross-asset: flat",
-        "Peer grade C- (#89 of 98 in Consumer Cyclical Â· XLY +8.7% 3mo)",
-        "Regime grade C+ (choppy regime)",
-        "Momentum F (0.40Ã avg vol)"
-      ],
-      "cashAfter": 84126.71,
-      "decisionReceipt": {
-        "placedAt": "2026-06-22T03:14:09.706Z",
-        "action": "SHORT shares",
-        "regime": "choppy â pipeline: neutral (conf 0.981)",
-        "conviction": -0.58,
-        "confidence": 53,
-        "sizing": "$15873 (17.6% of deployable)",
-        "cashAfter": 84126.71,
-        "style": "short",
-        "horizon": "short-term (~11 trading days)",
-        "dalioEnv": "growth-down",
-        "topDrivers": [
-          {
-            "signal": "momentumGrade",
-            "lean": -1,
-            "favors": "short"
-          },
-          {
-            "signal": "researchGrade",
-            "lean": -0.47,
-            "favors": "short"
-          },
-          {
-            "signal": "peerGrade",
-            "lean": -0.33,
-            "favors": "short"
-          },
-          {
-            "signal": "fundamentals",
-            "lean": -0.13,
-            "favors": "short"
-          },
-          {
-            "signal": "health",
-            "lean": -0.12,
-            "favors": "short"
-          }
-        ],
-        "rationale": [
-          "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 44)",
-          "Research grade D+ (27/100 percentile)",
-          "Sector cross-asset: flat",
-          "Peer grade C- (#89 of 98 in Consumer Cyclical Â· XLY +8.7% 3mo)",
-          "Regime grade C+ (choppy regime)",
-          "Momentum F (0.40Ã avg vol)"
-        ],
-        "decisionPath": [
-          "regime:choppy (pipeline: neutral (conf 0.981))",
-          "fundamentals:-0.13 Ã1.1 (regime)",
-          "researchGrade:-0.47",
-          "health:-0.12 Ã1.1 (regime)",
-          "crossAsset:0.00",
-          "peerGrade:-0.33 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
-          "momentumGrade:-1.00",
-          "agreement:100% one-sided â conviction boosted to -0.58",
-          "short in choppy: confidence -0.05 bar",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "outcome": null,
-        "learned": null,
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [],
-      "signalsThatHurt": [
-        "momentumGrade",
-        "researchGrade",
-        "peerGrade",
-        "fundamentals",
-        "health"
-      ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
-    },
-    {
-      "id": "CCJ-2026-06-22-1782098049708-1",
-      "ticker": "CCJ",
-      "name": "Cameco Corporation",
-      "sector": "Energy",
-      "direction": "short",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "short",
-      "horizonType": "short-term",
-      "horizonDays": 11,
-      "dalioEnv": "inflation-down",
-      "longTermTrend": "unknown",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-22",
-      "exitDate": "2026-06-22",
-      "entryPrice": 106.489998,
-      "exitPrice": null,
-      "shares": 0,
-      "notional": 0,
-      "dollars": 0,
-      "allocationPct": 0,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 125.13,
-      "targetPrice": 69.22,
-      "holdDays": 0,
-      "pnl": 0,
-      "returnPct": 0,
-      "won": false,
-      "exitReason": "rebalance-cash",
-      "conviction": -0.57,
-      "confidence": 0.52,
-      "regimeAtEntry": "choppy",
-      "status": "closed",
-      "topDrivers": [
-        {
-          "signal": "crossAsset",
-          "lean": -1
-        },
-        {
-          "signal": "peerGrade",
-          "lean": -0.72
-        },
-        {
-          "signal": "momentumGrade",
-          "lean": -0.36
-        },
-        {
-          "signal": "institutional",
-          "lean": -0.18
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 48)",
-        "Research grade C (43/100 percentile)",
-        "Sector cross-asset: bear",
-        "Peer grade F (#32 of 36 in Energy Â· XLE -9.3% 3mo)",
-        "Regime grade C+ (choppy regime)",
-        "Momentum C- (0.98Ã avg vol)",
-        "13F: 3 institutions hold Â· 1 adding / 3 trimming Â· 1 PUT Â· 1 CALL"
-      ],
-      "cashAfter": 68426.32,
-      "decisionReceipt": {
-        "placedAt": "2026-06-22T03:14:09.708Z",
-        "action": "SHORT shares",
-        "regime": "choppy â pipeline: neutral (conf 0.981)",
-        "conviction": -0.57,
-        "confidence": 52,
-        "sizing": "$15700 (17.4% of deployable)",
-        "cashAfter": 68426.32,
-        "style": "short",
-        "horizon": "short-term (~11 trading days)",
-        "dalioEnv": "inflation-down",
-        "topDrivers": [
-          {
-            "signal": "crossAsset",
-            "lean": -1,
-            "favors": "short"
-          },
-          {
-            "signal": "peerGrade",
-            "lean": -0.72,
-            "favors": "short"
-          },
-          {
-            "signal": "momentumGrade",
-            "lean": -0.36,
-            "favors": "short"
-          },
-          {
-            "signal": "institutional",
-            "lean": -0.18,
-            "favors": "short"
-          },
-          {
-            "signal": "researchGrade",
-            "lean": -0.13,
-            "favors": "short"
-          },
-          {
-            "signal": "fundamentals",
-            "lean": -0.04,
-            "favors": "short"
-          }
-        ],
-        "rationale": [
-          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 48)",
-          "Research grade C (43/100 percentile)",
-          "Sector cross-asset: bear",
-          "Peer grade F (#32 of 36 in Energy Â· XLE -9.3% 3mo)",
-          "Regime grade C+ (choppy regime)",
-          "Momentum C- (0.98Ã avg vol)",
-          "13F: 3 institutions hold Â· 1 adding / 3 trimming Â· 1 PUT Â· 1 CALL"
-        ],
-        "decisionPath": [
-          "regime:choppy (pipeline: neutral (conf 0.981))",
-          "fundamentals:-0.04 Ã1.1 (regime)",
-          "researchGrade:-0.13",
-          "health:+0.00 Ã1.1 (regime)",
-          "crossAsset:-1.00",
-          "peerGrade:-0.72 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
-          "momentumGrade:-0.36",
-          "institutional:-0.18",
-          "agreement:100% one-sided â conviction boosted to -0.57",
-          "short in choppy: confidence -0.05 bar",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "outcome": null,
-        "learned": null,
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [
-        "health"
-      ],
-      "signalsThatHurt": [
-        "crossAsset",
-        "peerGrade",
-        "momentumGrade",
-        "institutional",
-        "researchGrade",
-        "fundamentals"
-      ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
-    },
-    {
-      "id": "UPS-2026-06-22-1782098049710-2",
-      "ticker": "UPS",
-      "name": "United Parcel Service, Inc.",
-      "sector": "Industrials",
-      "direction": "long",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "momentum-long",
-      "horizonType": "short-term",
-      "horizonDays": 9,
-      "dalioEnv": "growth-up",
-      "longTermTrend": "unknown",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-22",
-      "exitDate": "2026-06-22",
-      "entryPrice": 104.860001,
-      "exitPrice": null,
-      "shares": 0,
-      "notional": 0,
-      "dollars": 0,
-      "allocationPct": 0,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 86.51,
-      "targetPrice": 141.56,
-      "holdDays": 0,
-      "pnl": 0,
-      "returnPct": 0,
-      "won": false,
-      "exitReason": "rebalance-cash",
-      "conviction": 0.564,
-      "confidence": 0.514,
-      "regimeAtEntry": "choppy",
-      "status": "closed",
-      "topDrivers": [
-        {
-          "signal": "momentumGrade",
-          "lean": 1
-        },
-        {
-          "signal": "peerGrade",
-          "lean": 0.63
-        },
-        {
-          "signal": "researchGrade",
-          "lean": 0.23
-        },
-        {
-          "signal": "institutional",
-          "lean": 0.2
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 55)",
-        "Research grade B- (61/100 percentile)",
-        "Sector cross-asset: flat",
-        "Peer grade A- (#19 of 78 in Industrials Â· XLI +11.9% 3mo)",
-        "Regime grade C+ (choppy regime)",
-        "Momentum A+ (2.32Ã avg vol)",
-        "Supply-chain peers +0.0% (21 peers in Crude Oil & Refined Products, E-commerce & Payments)",
-        "13F: 48 institutions hold Â· 38 adding / 32 trimming Â· 17 PUT Â· 22 CALL",
-        "SEC: Last 10-Q 47d ago"
-      ],
-      "cashAfter": 52902.06,
-      "decisionReceipt": {
-        "placedAt": "2026-06-22T03:14:09.711Z",
-        "action": "LONG shares",
-        "regime": "choppy â pipeline: neutral (conf 0.981)",
-        "conviction": 0.56,
-        "confidence": 51,
-        "sizing": "$15524 (17.2% of deployable)",
-        "cashAfter": 52902.06,
-        "style": "momentum-long",
-        "horizon": "short-term (~9 trading days)",
-        "dalioEnv": "growth-up",
-        "topDrivers": [
-          {
-            "signal": "momentumGrade",
-            "lean": 1,
-            "favors": "long"
-          },
-          {
-            "signal": "peerGrade",
-            "lean": 0.63,
-            "favors": "long"
-          },
-          {
-            "signal": "researchGrade",
-            "lean": 0.23,
-            "favors": "long"
-          },
-          {
-            "signal": "institutional",
-            "lean": 0.2,
-            "favors": "long"
-          },
-          {
-            "signal": "earningsRecency",
-            "lean": 0.15,
-            "favors": "long"
-          },
-          {
-            "signal": "health",
-            "lean": 0.12,
-            "favors": "long"
-          }
-        ],
-        "rationale": [
-          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 55)",
-          "Research grade B- (61/100 percentile)",
-          "Sector cross-asset: flat",
-          "Peer grade A- (#19 of 78 in Industrials Â· XLI +11.9% 3mo)",
-          "Regime grade C+ (choppy regime)",
-          "Momentum A+ (2.32Ã avg vol)",
-          "Supply-chain peers +0.0% (21 peers in Crude Oil & Refined Products, E-commerce & Payments)",
-          "13F: 48 institutions hold Â· 38 adding / 32 trimming Â· 17 PUT Â· 22 CALL"
-        ],
-        "decisionPath": [
-          "regime:choppy (pipeline: neutral (conf 0.981))",
-          "fundamentals:+0.10 Ã1.1 (regime)",
-          "researchGrade:+0.23",
-          "health:+0.12 Ã1.1 (regime)",
-          "crossAsset:0.00",
-          "peerGrade:+0.63 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
-          "momentumGrade:+1.00",
-          "supplyChain:+0.00",
-          "institutional:+0.20",
-          "earningsRecency:+0.15",
-          "agreement:100% one-sided â conviction boosted to 0.56",
-          "long in choppy: confidence -0.05 bar",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "outcome": null,
-        "learned": null,
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [],
-      "signalsThatHurt": [
-        "momentumGrade",
-        "peerGrade",
-        "researchGrade",
-        "institutional",
-        "earningsRecency",
-        "health",
-        "fundamentals"
-      ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
-    },
-    {
-      "id": "BZFD-2026-06-22-1782098049711-3",
-      "ticker": "BZFD",
-      "name": "BuzzFeed, Inc.",
-      "sector": "Communication Services",
-      "direction": "short",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "short",
-      "horizonType": "short-term",
-      "horizonDays": 11,
-      "dalioEnv": "growth-down",
-      "longTermTrend": "unknown",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-22",
-      "exitDate": null,
-      "entryPrice": 1.5,
-      "exitPrice": null,
-      "shares": 7107.4379,
-      "notional": 10661.16,
-      "dollars": 10661.16,
-      "allocationPct": 11.82,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 1.76,
-      "targetPrice": 0.98,
-      "holdDays": 0,
-      "pnl": 0,
-      "returnPct": 0,
-      "won": false,
-      "exitReason": "open",
-      "conviction": -0.555,
-      "confidence": 0.505,
-      "regimeAtEntry": "choppy",
-      "status": "open",
-      "topDrivers": [
-        {
-          "signal": "momentumGrade",
-          "lean": -1
-        },
-        {
-          "signal": "researchGrade",
-          "lean": -0.55
-        },
-        {
-          "signal": "crossAsset",
-          "lean": -0.46
-        },
-        {
-          "signal": "peerGrade",
-          "lean": -0.3
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 44)",
-        "Research grade D+ (22/100 percentile)",
-        "Sector cross-asset: warn",
-        "Peer grade C- (#45 of 45 in Communication Services Â· XLK +41.5% 3mo)",
-        "Regime grade C+ (choppy regime)",
-        "Momentum F (0.28Ã avg vol)",
-        "SEC: Last 10-Q 42d ago"
-      ],
-      "cashAfter": 37664.29,
-      "decisionReceipt": {
-        "placedAt": "2026-06-22T03:14:09.712Z",
-        "action": "SHORT shares",
-        "regime": "choppy â pipeline: neutral (conf 0.981)",
-        "conviction": -0.55,
-        "confidence": 50,
-        "sizing": "$15238 (16.9% of deployable)",
-        "cashAfter": 37664.29,
-        "style": "short",
-        "horizon": "short-term (~11 trading days)",
-        "dalioEnv": "growth-down",
-        "topDrivers": [
-          {
-            "signal": "momentumGrade",
-            "lean": -1,
-            "favors": "short"
-          },
-          {
-            "signal": "researchGrade",
-            "lean": -0.55,
-            "favors": "short"
-          },
-          {
-            "signal": "crossAsset",
-            "lean": -0.46,
-            "favors": "short"
-          },
-          {
-            "signal": "peerGrade",
-            "lean": -0.3,
-            "favors": "short"
-          },
-          {
-            "signal": "earningsRecency",
-            "lean": 0.15,
-            "favors": "long"
-          },
-          {
-            "signal": "health",
-            "lean": -0.14,
-            "favors": "short"
-          }
-        ],
-        "rationale": [
-          "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 44)",
-          "Research grade D+ (22/100 percentile)",
-          "Sector cross-asset: warn",
-          "Peer grade C- (#45 of 45 in Communication Services Â· XLK +41.5% 3mo)",
-          "Regime grade C+ (choppy regime)",
-          "Momentum F (0.28Ã avg vol)",
-          "SEC: Last 10-Q 42d ago"
-        ],
-        "decisionPath": [
-          "regime:choppy (pipeline: neutral (conf 0.981))",
-          "fundamentals:-0.13 Ã1.1 (regime)",
-          "researchGrade:-0.55",
-          "health:-0.14 Ã1.1 (regime)",
-          "crossAsset:-0.46",
-          "peerGrade:-0.30 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
-          "momentumGrade:-1.00",
-          "earningsRecency:+0.15",
-          "agreement:94% one-sided â conviction boosted to -0.55",
-          "short in choppy: confidence -0.05 bar",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "outcome": null,
-        "learned": null,
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [
-        "earningsRecency"
-      ],
-      "signalsThatHurt": [
-        "momentumGrade",
-        "researchGrade",
-        "crossAsset",
-        "peerGrade",
-        "health",
-        "fundamentals"
-      ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
-    },
-    {
-      "id": "NOC-2026-06-22-1782098049713-4",
-      "ticker": "NOC",
-      "name": "Northrop Grumman Corporation",
-      "sector": "Industrials",
-      "direction": "long",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "momentum-long",
-      "horizonType": "short-term",
-      "horizonDays": 5,
-      "dalioEnv": "growth-up",
-      "longTermTrend": "unknown",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-22",
-      "exitDate": null,
-      "entryPrice": 521.5,
-      "exitPrice": null,
-      "shares": 15.7734,
-      "notional": 8225.82,
-      "dollars": 8225.82,
-      "allocationPct": 9.1,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 430.24,
-      "targetPrice": 704.03,
-      "holdDays": 0,
-      "pnl": 0,
-      "returnPct": 0,
-      "won": false,
-      "exitReason": "open",
-      "conviction": 0.545,
-      "confidence": 0.495,
-      "regimeAtEntry": "choppy",
-      "status": "open",
-      "topDrivers": [
-        {
-          "signal": "momentumGrade",
-          "lean": 1
-        },
-        {
-          "signal": "peerGrade",
-          "lean": 0.75
-        },
-        {
-          "signal": "institutional",
-          "lean": 0.25
-        },
-        {
-          "signal": "researchGrade",
-          "lean": 0.2
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 49)",
-        "Research grade B- (60/100 percentile)",
-        "Sector cross-asset: flat",
-        "Peer grade A (#12 of 78 in Industrials Â· XLI +11.9% 3mo)",
-        "Regime grade C+ (choppy regime)",
-        "Momentum A+ (2.76Ã avg vol)",
-        "Supply-chain peers -0.0% (9 peers in Defense & Aerospace)",
-        "13F: 3 institutions hold Â· 3 adding / 2 trimming Â· 1 PUT Â· 2 CALL",
-        "SEC: Last 10-Q 62d ago"
-      ],
-      "cashAfter": 29438.47,
-      "decisionReceipt": {
-        "placedAt": "2026-06-22T03:14:09.713Z",
-        "action": "LONG shares",
-        "regime": "choppy â pipeline: neutral (conf 0.981)",
-        "conviction": 0.55,
-        "confidence": 50,
-        "sizing": "$8226 (9.1% of deployable)",
-        "cashAfter": 29438.47,
-        "style": "momentum-long",
-        "horizon": "short-term (~5 trading days)",
-        "dalioEnv": "growth-up",
-        "topDrivers": [
-          {
-            "signal": "momentumGrade",
-            "lean": 1,
-            "favors": "long"
-          },
-          {
-            "signal": "peerGrade",
-            "lean": 0.75,
-            "favors": "long"
-          },
-          {
-            "signal": "institutional",
-            "lean": 0.25,
-            "favors": "long"
-          },
-          {
-            "signal": "researchGrade",
-            "lean": 0.2,
-            "favors": "long"
-          },
-          {
-            "signal": "earningsRecency",
-            "lean": 0.15,
-            "favors": "long"
-          },
-          {
-            "signal": "health",
-            "lean": 0.04,
-            "favors": "long"
-          }
-        ],
-        "rationale": [
-          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 49)",
-          "Research grade B- (60/100 percentile)",
-          "Sector cross-asset: flat",
-          "Peer grade A (#12 of 78 in Industrials Â· XLI +11.9% 3mo)",
-          "Regime grade C+ (choppy regime)",
-          "Momentum A+ (2.76Ã avg vol)",
-          "Supply-chain peers -0.0% (9 peers in Defense & Aerospace)",
-          "13F: 3 institutions hold Â· 3 adding / 2 trimming Â· 1 PUT Â· 2 CALL"
-        ],
-        "decisionPath": [
-          "regime:choppy (pipeline: neutral (conf 0.981))",
-          "fundamentals:-0.02 Ã1.1 (regime)",
-          "researchGrade:+0.20",
-          "health:+0.04 Ã1.1 (regime)",
-          "crossAsset:0.00",
-          "peerGrade:+0.75 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
-          "momentumGrade:+1.00",
-          "supplyChain:-0.00",
-          "institutional:+0.25",
-          "earningsRecency:+0.15",
-          "agreement:99% one-sided â conviction boosted to 0.55",
-          "long in choppy: confidence -0.05 bar",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "outcome": null,
-        "learned": null,
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [
-        "fundamentals",
-        "supplyChain"
-      ],
-      "signalsThatHurt": [
-        "momentumGrade",
-        "peerGrade",
-        "institutional",
-        "researchGrade",
-        "earningsRecency",
-        "health"
-      ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
-    },
-    {
-      "id": "PEG-2026-06-22-1782098049714-5",
-      "ticker": "PEG",
-      "name": "Public Service Enterprise Group Incorporated",
-      "sector": "Utilities",
-      "direction": "long",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "momentum-long",
-      "horizonType": "short-term",
-      "horizonDays": 5,
-      "dalioEnv": "growth-down",
-      "longTermTrend": "unknown",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-22",
-      "exitDate": null,
-      "entryPrice": 79.889999,
-      "exitPrice": null,
-      "shares": 186.9881,
-      "notional": 14938.48,
-      "dollars": 14938.48,
-      "allocationPct": 16.6,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 65.91,
-      "targetPrice": 107.85,
-      "holdDays": 0,
-      "pnl": 0,
-      "returnPct": 0,
-      "won": false,
-      "exitReason": "open",
-      "conviction": 0.545,
-      "confidence": 0.495,
-      "regimeAtEntry": "choppy",
-      "status": "open",
-      "topDrivers": [
-        {
-          "signal": "momentumGrade",
-          "lean": 1
-        },
-        {
-          "signal": "peerGrade",
-          "lean": 0.51
-        },
-        {
-          "signal": "fed",
-          "lean": 0.4
-        },
-        {
-          "signal": "institutional",
-          "lean": 0.27
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 50)",
-        "Research grade C+ (52/100 percentile)",
-        "Sector cross-asset: flat",
-        "Peer grade B+ (#3 of 19 in Utilities Â· XLU +0.2% 3mo)",
-        "Regime grade C+ (choppy regime)",
-        "Momentum A+ (2.29Ã avg vol)",
-        "Fed easing (-30bps)",
-        "13F: 14 institutions hold Â· 11 adding / 6 trimming Â· 3 PUT Â· 3 CALL",
-        "SEC: Last 10-Q 48d ago"
-      ],
-      "cashAfter": 14499.99,
-      "decisionReceipt": {
-        "placedAt": "2026-06-22T03:14:09.714Z",
-        "action": "LONG shares",
-        "regime": "choppy â pipeline: neutral (conf 0.981)",
-        "conviction": 0.54,
-        "confidence": 49,
-        "sizing": "$14938 (16.6% of deployable)",
-        "cashAfter": 14499.99,
-        "style": "momentum-long",
-        "horizon": "short-term (~5 trading days)",
-        "dalioEnv": "growth-down",
-        "topDrivers": [
-          {
-            "signal": "momentumGrade",
-            "lean": 1,
-            "favors": "long"
-          },
-          {
-            "signal": "peerGrade",
-            "lean": 0.51,
-            "favors": "long"
-          },
-          {
-            "signal": "fed",
-            "lean": 0.4,
-            "favors": "long"
-          },
-          {
-            "signal": "institutional",
-            "lean": 0.27,
-            "favors": "long"
-          },
-          {
-            "signal": "earningsRecency",
-            "lean": 0.15,
-            "favors": "long"
-          },
-          {
-            "signal": "health",
-            "lean": 0.06,
-            "favors": "long"
-          }
-        ],
-        "rationale": [
-          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 50)",
-          "Research grade C+ (52/100 percentile)",
-          "Sector cross-asset: flat",
-          "Peer grade B+ (#3 of 19 in Utilities Â· XLU +0.2% 3mo)",
-          "Regime grade C+ (choppy regime)",
-          "Momentum A+ (2.29Ã avg vol)",
-          "Fed easing (-30bps)",
-          "13F: 14 institutions hold Â· 11 adding / 6 trimming Â· 3 PUT Â· 3 CALL"
-        ],
-        "decisionPath": [
-          "regime:choppy (pipeline: neutral (conf 0.981))",
-          "fundamentals:+0.01 Ã1.1 (regime)",
-          "researchGrade:+0.05",
-          "health:+0.06 Ã1.1 (regime)",
-          "crossAsset:0.00",
-          "peerGrade:+0.51 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
-          "momentumGrade:+1.00",
-          "fed:+0.40",
-          "institutional:+0.27",
-          "earningsRecency:+0.15",
-          "agreement:100% one-sided â conviction boosted to 0.54",
-          "long in choppy: confidence -0.05 bar",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "outcome": null,
-        "learned": null,
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [],
-      "signalsThatHurt": [
-        "momentumGrade",
-        "peerGrade",
-        "fed",
-        "institutional",
-        "earningsRecency",
-        "health",
-        "researchGrade",
-        "fundamentals"
-      ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
-    },
-    {
-      "id": "ZF=F-2026-06-21-1782018714968-1",
-      "ticker": "ZF=F",
-      "name": "5-Year T-Note Futures,Sep-2026",
-      "sector": "Commodities & Futures",
-      "direction": "short",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "short",
-      "horizonType": "short-term",
-      "horizonDays": 11,
-      "dalioEnv": "growth-down",
-      "longTermTrend": "flat",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-21",
-      "exitDate": null,
-      "entryPrice": 106.671875,
-      "exitPrice": null,
-      "shares": 9.62,
-      "notional": 1026.18,
-      "dollars": 1026.18,
-      "allocationPct": 32.9,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 125.34,
-      "targetPrice": 69.34,
-      "holdDays": 0,
-      "pnl": -0.3,
-      "returnPct": -0.03,
-      "won": false,
-      "exitReason": "open",
-      "conviction": -0.583,
-      "confidence": 0.533,
-      "regimeAtEntry": "choppy",
-      "status": "open",
-      "topDrivers": [
-        {
-          "signal": "momentumGrade",
-          "lean": -1
-        },
-        {
-          "signal": "momentum",
-          "lean": -0.87
-        },
-        {
-          "signal": "fundamentals",
-          "lean": -0.36
-        },
-        {
-          "signal": "health",
-          "lean": -0.22
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 32)",
-        "Downtrend (backend, RÂ²=0.67)",
-        "Sector cross-asset: flat",
-        "Regime grade C+ (choppy regime)",
-        "Momentum F (0.22Ã avg vol)"
-      ],
-      "cashAfter": 11940.43,
-      "decisionReceipt": {
-        "style": "short",
-        "action": "SHORT shares",
-        "regime": "choppy â pipeline: neutral (conf 0.981)",
-        "sizing": "$1026 (32.9% of deployable)",
-        "horizon": "short-term (~11 trading days)",
-        "learned": null,
-        "outcome": null,
-        "dalioEnv": "growth-down",
-        "placedAt": "2026-06-21T05:11:54.968Z",
-        "cashAfter": 11940.43,
-        "rationale": [
-          "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 32)",
-          "Downtrend (backend, RÂ²=0.67)",
-          "Sector cross-asset: flat",
-          "Regime grade C+ (choppy regime)",
-          "Momentum F (0.22Ã avg vol)"
-        ],
-        "confidence": 53,
-        "conviction": -0.58,
-        "topDrivers": [
-          {
-            "lean": -1,
-            "favors": "short",
-            "signal": "momentumGrade"
-          },
-          {
-            "lean": -0.87,
-            "favors": "short",
-            "signal": "momentum"
-          },
-          {
-            "lean": -0.36,
-            "favors": "short",
-            "signal": "fundamentals"
-          },
-          {
-            "lean": -0.22,
-            "favors": "short",
-            "signal": "health"
-          },
-          {
-            "lean": 0.03,
-            "favors": "long",
-            "signal": "meanReversion"
-          },
-          {
-            "lean": -0.01,
-            "favors": "short",
-            "signal": "trend"
-          }
-        ],
-        "decisionPath": [
-          "regime:choppy (pipeline: neutral (conf 0.981))",
-          "fundamentals:-0.36 Ã1.1 (regime)",
-          "health:-0.22 Ã1.1 (regime)",
-          "trend:-0.01 Ã0.7 (regime)",
-          "momentum:-0.87 Ã0.8 (regime)",
-          "meanReversion:+0.03 Ã1.3 (regime)",
-          "tech:backend-precomputed",
-          "crossAsset:0.00",
-          "regimeGrade:0.00 Ã1.2 (regime)",
-          "momentumGrade:-1.00",
-          "agreement:99% one-sided â conviction boosted to -0.58",
-          "short in choppy: confidence -0.05 bar",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [
-        "meanReversion"
-      ],
-      "signalsThatHurt": [
-        "momentumGrade",
-        "momentum",
-        "fundamentals",
-        "health",
-        "trend"
-      ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
-    },
-    {
-      "id": "FSLR-2026-06-21-1782018714970-2",
-      "ticker": "FSLR",
-      "name": "First Solar, Inc.",
-      "sector": "Technology",
-      "direction": "long",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "rotation/macro",
-      "horizonType": "short-term",
-      "horizonDays": 18,
-      "dalioEnv": "growth-up",
-      "longTermTrend": "unknown",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-21",
-      "exitDate": null,
-      "entryPrice": 257.700012,
-      "exitPrice": null,
-      "shares": 1.8023,
-      "notional": 464.44,
-      "dollars": 464.44,
-      "allocationPct": 14.9,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 212.6,
-      "targetPrice": 347.9,
-      "holdDays": 0,
-      "pnl": 0,
-      "returnPct": 0,
-      "won": false,
-      "exitReason": "open",
-      "conviction": 0.554,
-      "confidence": 0.504,
-      "regimeAtEntry": "choppy",
-      "status": "open",
-      "topDrivers": [
-        {
-          "signal": "peerGrade",
-          "lean": 0.97
-        },
-        {
-          "signal": "crossAsset",
-          "lean": 0.75
-        },
-        {
-          "signal": "meanReversion",
-          "lean": 0.59
-        },
-        {
-          "signal": "institutional",
-          "lean": 0.45
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 47)",
-        "Research grade B (64/100 percentile)",
-        "Uptrend (backend, RÂ²=0.73)",
-        "Sector cross-asset: bull",
-        "Peer grade A+ (#4 of 130 in Technology Â· XLK +41.5% 3mo)",
-        "Regime grade C+ (choppy regime)",
-        "Momentum B (1.46Ã avg vol Â· Clean, well-supported up-momentum)",
-        "Trend healthy-uptrend (q76, mom 61)",
-        "Fed easing (-30bps)",
-        "Supply-chain peers +0.0% (12 peers in Solar & Renewable Energy)",
-        "13F: 286 institutions hold Â· 207 adding / 105 trimming Â· 20 PUT Â· 27 CALL",
-        "SEC: Last 10-Q 52d ago"
-      ],
-      "cashAfter": 11475.99,
-      "decisionReceipt": {
-        "style": "rotation/macro",
-        "action": "LONG shares",
-        "regime": "choppy â pipeline: neutral (conf 0.981)",
-        "sizing": "$464 (14.9% of deployable)",
-        "horizon": "short-term (~18 trading days)",
-        "learned": null,
-        "outcome": null,
-        "dalioEnv": "growth-up",
-        "placedAt": "2026-06-21T05:11:54.970Z",
-        "cashAfter": 11475.99,
-        "rationale": [
-          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 47)",
-          "Research grade B (64/100 percentile)",
-          "Uptrend (backend, RÂ²=0.73)",
-          "Sector cross-asset: bull",
-          "Peer grade A+ (#4 of 130 in Technology Â· XLK +41.5% 3mo)",
-          "Regime grade C+ (choppy regime)",
-          "Momentum B (1.46Ã avg vol Â· Clean, well-supported up-momentum)",
-          "Trend healthy-uptrend (q76, mom 61)"
-        ],
-        "confidence": 50,
-        "conviction": 0.55,
-        "topDrivers": [
-          {
-            "lean": 0.97,
-            "favors": "long",
-            "signal": "peerGrade"
-          },
-          {
-            "lean": 0.75,
-            "favors": "long",
-            "signal": "crossAsset"
-          },
-          {
-            "lean": 0.59,
-            "favors": "long",
-            "signal": "meanReversion"
-          },
-          {
-            "lean": 0.45,
-            "favors": "long",
-            "signal": "institutional"
-          },
-          {
-            "lean": 0.33,
-            "favors": "long",
-            "signal": "trend"
-          },
-          {
-            "lean": 0.29,
-            "favors": "long",
-            "signal": "researchGrade"
-          }
-        ],
-        "decisionPath": [
-          "regime:choppy (pipeline: neutral (conf 0.981))",
-          "fundamentals:-0.05 Ã1.1 (regime)",
-          "researchGrade:+0.29",
-          "health:-0.04 Ã1.1 (regime)",
-          "trend:+0.33 Ã0.7 (regime)",
-          "momentum:+0.09 Ã0.8 (regime)",
-          "meanReversion:+0.59 Ã1.3 (regime)",
-          "tech:backend-precomputed",
-          "crossAsset:+0.75",
-          "peerGrade:+0.97 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
-          "momentumGrade:+0.28",
-          "trendEngine:+0.23",
-          "fed:+0.20",
-          "supplyChain:+0.00",
-          "institutional:+0.45",
-          "earningsRecency:+0.15",
-          "agreement:98% one-sided â conviction boosted to 0.55",
-          "long in choppy: confidence -0.05 bar",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [
-        "fundamentals",
-        "health"
-      ],
-      "signalsThatHurt": [
-        "peerGrade",
-        "crossAsset",
-        "meanReversion",
-        "institutional",
-        "trend",
-        "researchGrade",
-        "momentumGrade",
-        "trendEngine",
-        "fed",
-        "earningsRecency",
-        "momentum",
-        "supplyChain"
-      ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
-    },
-    {
-      "id": "SBLK-2026-06-21-1782018714971-3",
-      "ticker": "SBLK",
-      "name": "Star Bulk Carriers Corp.",
-      "sector": "Industrials",
-      "direction": "long",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "rotation/macro",
-      "horizonType": "short-term",
-      "horizonDays": 10,
-      "dalioEnv": "growth-up",
-      "longTermTrend": "unknown",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-21",
-      "exitDate": null,
-      "entryPrice": 26.73,
-      "exitPrice": null,
-      "shares": 17.1955,
-      "notional": 459.64,
-      "dollars": 459.64,
-      "allocationPct": 14.7,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 22.05,
-      "targetPrice": 36.09,
-      "holdDays": 0,
-      "pnl": -15.82,
-      "returnPct": -3.44,
-      "won": false,
-      "exitReason": "open",
-      "conviction": 0.549,
-      "confidence": 0.499,
-      "regimeAtEntry": "choppy",
-      "status": "open",
-      "topDrivers": [
-        {
-          "signal": "peerGrade",
-          "lean": 0.93
-        },
-        {
-          "signal": "momentumGrade",
-          "lean": 0.64
-        },
-        {
-          "signal": "momentum",
-          "lean": 0.53
-        },
-        {
-          "signal": "institutional",
-          "lean": 0.24
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 51)",
-        "Research grade C+ (54/100 percentile)",
-        "Uptrend (backend, RÂ²=0.82)",
-        "Sector cross-asset: flat",
-        "Peer grade A+ (#1 of 78 in Industrials Â· XLI +11.9% 3mo)",
-        "Regime grade C+ (choppy regime)",
-        "Momentum A- (1.73Ã avg vol)",
-        "Supply-chain peers -0.0% (3 peers in Shipping & Maritime Logistics)",
-        "13F: 59 institutions hold Â· 51 adding / 30 trimming Â· 22 PUT Â· 22 CALL"
-      ],
-      "cashAfter": 11016.35,
-      "decisionReceipt": {
-        "style": "rotation/macro",
-        "action": "LONG shares",
-        "regime": "choppy â pipeline: neutral (conf 0.981)",
-        "sizing": "$460 (14.7% of deployable)",
-        "horizon": "short-term (~10 trading days)",
-        "learned": null,
-        "outcome": null,
-        "dalioEnv": "growth-up",
-        "placedAt": "2026-06-21T05:11:54.971Z",
-        "cashAfter": 11016.35,
-        "rationale": [
-          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 51)",
-          "Research grade C+ (54/100 percentile)",
-          "Uptrend (backend, RÂ²=0.82)",
-          "Sector cross-asset: flat",
-          "Peer grade A+ (#1 of 78 in Industrials Â· XLI +11.9% 3mo)",
-          "Regime grade C+ (choppy regime)",
-          "Momentum A- (1.73Ã avg vol)",
-          "Supply-chain peers -0.0% (3 peers in Shipping & Maritime Logistics)"
-        ],
-        "confidence": 50,
-        "conviction": 0.55,
-        "topDrivers": [
-          {
-            "lean": 0.93,
-            "favors": "long",
-            "signal": "peerGrade"
-          },
-          {
-            "lean": 0.64,
-            "favors": "long",
-            "signal": "momentumGrade"
-          },
-          {
-            "lean": 0.53,
-            "favors": "long",
-            "signal": "momentum"
-          },
-          {
-            "lean": 0.24,
-            "favors": "long",
-            "signal": "institutional"
-          },
-          {
-            "lean": 0.13,
-            "favors": "long",
-            "signal": "trend"
-          },
-          {
-            "lean": 0.09,
-            "favors": "long",
-            "signal": "meanReversion"
-          }
-        ],
-        "decisionPath": [
-          "regime:choppy (pipeline: neutral (conf 0.981))",
-          "fundamentals:+0.03 Ã1.1 (regime)",
-          "researchGrade:+0.07",
-          "health:+0.06 Ã1.1 (regime)",
-          "trend:+0.13 Ã0.7 (regime)",
-          "momentum:+0.53 Ã0.8 (regime)",
-          "meanReversion:+0.09 Ã1.3 (regime)",
-          "tech:backend-precomputed",
-          "crossAsset:0.00",
-          "peerGrade:+0.93 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
-          "momentumGrade:+0.64",
-          "supplyChain:-0.00",
-          "institutional:+0.24",
-          "agreement:100% one-sided â conviction boosted to 0.55",
-          "long in choppy: confidence -0.05 bar",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [
-        "supplyChain"
-      ],
-      "signalsThatHurt": [
-        "peerGrade",
-        "momentumGrade",
-        "momentum",
-        "institutional",
-        "trend",
-        "meanReversion",
-        "researchGrade",
-        "health",
-        "fundamentals"
-      ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
-    },
-    {
-      "id": "EU-2026-06-21-1782018714972-4",
-      "ticker": "EU",
-      "name": "enCore Energy Corp.",
-      "sector": "Energy",
-      "direction": "short",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "short",
-      "horizonType": "short-term",
-      "horizonDays": 6,
-      "dalioEnv": "inflation-down",
-      "longTermTrend": "down",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-21",
-      "exitDate": null,
-      "entryPrice": 1.65,
-      "exitPrice": null,
-      "shares": 131.5493,
-      "notional": 217.06,
-      "dollars": 217.06,
-      "allocationPct": 7,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 2.06,
-      "targetPrice": 0.82,
-      "holdDays": 0,
-      "pnl": 0,
-      "returnPct": 0,
-      "won": false,
-      "exitReason": "open",
-      "conviction": -0.519,
-      "confidence": 0.469,
-      "regimeAtEntry": "choppy",
-      "status": "open",
-      "topDrivers": [
-        {
-          "signal": "crossAsset",
-          "lean": -1
-        },
-        {
-          "signal": "peerGrade",
-          "lean": -0.83
-        },
-        {
-          "signal": "researchGrade",
-          "lean": -0.59
-        },
-        {
-          "signal": "momentumGrade",
-          "lean": -0.52
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 44)",
-        "Research grade D (20/100 percentile)",
-        "Downtrend (RÂ²=0.12)",
-        "Sector cross-asset: bear",
-        "Peer grade F (#35 of 36 in Energy Â· XLE -9.3% 3mo)",
-        "Regime grade C+ (choppy regime)",
-        "Momentum D+ (-4.1% 3mo Â· 4.23Ã avg vol Â· Mixed / no decisive trend)",
-        "Trend neutral (q49, mom 52)",
-        "13F: 3 institutions hold Â· 1 adding / 3 trimming Â· 2 PUT Â· 1 CALL",
-        "SEC: Last 10-Q 38d ago"
-      ],
-      "cashAfter": 10799.29,
-      "decisionReceipt": {
-        "style": "short",
-        "action": "SHORT shares",
-        "regime": "choppy â pipeline: neutral (conf 0.981)",
-        "sizing": "$217 (7.0% of deployable)",
-        "horizon": "short-term (~6 trading days)",
-        "learned": null,
-        "outcome": null,
-        "dalioEnv": "inflation-down",
-        "placedAt": "2026-06-21T05:11:54.972Z",
-        "cashAfter": 10799.29,
-        "rationale": [
-          "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 44)",
-          "Research grade D (20/100 percentile)",
-          "Downtrend (RÂ²=0.12)",
-          "Sector cross-asset: bear",
-          "Peer grade F (#35 of 36 in Energy Â· XLE -9.3% 3mo)",
-          "Regime grade C+ (choppy regime)",
-          "Momentum D+ (-4.1% 3mo Â· 4.23Ã avg vol Â· Mixed / no decisive trend)",
-          "Trend neutral (q49, mom 52)"
-        ],
-        "confidence": 47,
-        "conviction": -0.52,
-        "topDrivers": [
-          {
-            "lean": -1,
-            "favors": "short",
-            "signal": "crossAsset"
-          },
-          {
-            "lean": -0.83,
-            "favors": "short",
-            "signal": "peerGrade"
-          },
-          {
-            "lean": -0.59,
-            "favors": "short",
-            "signal": "researchGrade"
-          },
-          {
-            "lean": -0.52,
-            "favors": "short",
-            "signal": "momentumGrade"
-          },
-          {
-            "lean": -0.3,
-            "favors": "short",
-            "signal": "institutional"
-          },
-          {
-            "lean": -0.17,
-            "favors": "short",
-            "signal": "health"
-          }
-        ],
-        "decisionPath": [
-          "regime:choppy (pipeline: neutral (conf 0.981))",
-          "fundamentals:-0.13 Ã1.1 (regime)",
-          "researchGrade:-0.59",
-          "health:-0.17 Ã1.1 (regime)",
-          "trend:-0.02 Ã0.7 (regime)",
-          "momentum:+0.01 Ã0.8 (regime)",
-          "meanReversion:+0.08 Ã1.3 (regime)",
-          "crossAsset:-1.00",
-          "peerGrade:-0.83 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
-          "momentumGrade:-0.52",
-          "trendEngine:+0.03",
-          "institutional:-0.30",
-          "earningsRecency:+0.15",
-          "agreement:93% one-sided â conviction boosted to -0.52",
-          "short in choppy: confidence -0.05 bar",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [
-        "earningsRecency",
-        "meanReversion",
-        "trendEngine",
-        "momentum"
-      ],
-      "signalsThatHurt": [
-        "crossAsset",
-        "peerGrade",
-        "researchGrade",
-        "momentumGrade",
-        "institutional",
-        "health",
-        "fundamentals",
-        "trend"
-      ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
-    },
-    {
-      "id": "AAL-2026-06-21-1782018714974-5",
-      "ticker": "AAL",
-      "name": "American Airlines Group Inc.",
-      "sector": "Industrials",
-      "direction": "long",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "momentum-long",
-      "horizonType": "short-term",
-      "horizonDays": 5,
-      "dalioEnv": "growth-up",
-      "longTermTrend": "unknown",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-21",
-      "exitDate": null,
-      "entryPrice": 15.99,
-      "exitPrice": null,
-      "shares": 14.3811,
-      "notional": 229.95,
-      "dollars": 229.95,
-      "allocationPct": 7.4,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 13.19,
-      "targetPrice": 21.59,
-      "holdDays": 0,
-      "pnl": 0,
-      "returnPct": 0,
-      "won": false,
-      "exitReason": "open",
-      "conviction": 0.504,
-      "confidence": 0.454,
-      "regimeAtEntry": "choppy",
-      "status": "open",
-      "topDrivers": [
-        {
-          "signal": "momentumGrade",
-          "lean": 1
-        },
-        {
-          "signal": "peerGrade",
-          "lean": 0.94
-        },
-        {
-          "signal": "momentum",
-          "lean": 0.58
-        },
-        {
-          "signal": "trendEngine",
-          "lean": 0.49
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 57)",
-        "Research grade C+ (52/100 percentile)",
-        "Uptrend (RÂ²=0.57)",
-        "Sector cross-asset: flat",
-        "Peer grade A+ (#3 of 78 in Industrials)",
-        "Regime grade C+ (choppy regime)",
-        "Momentum A+ (+53.3% 3mo Â· 1.74Ã avg vol Â· Clean, well-supported up-momentum)",
-        "Trend healthy-uptrend (q86, mom 75)",
-        "Supply-chain peers -0.0% (25 peers in Crude Oil & Refined Products, Airlines & Travel)",
-        "13F: 102 institutions hold Â· 81 adding / 44 trimming Â· 21 PUT Â· 24 CALL",
-        "SEC: Last 10-Q 59d ago"
-      ],
-      "cashAfter": 10569.34,
-      "decisionReceipt": {
-        "style": "momentum-long",
-        "action": "LONG shares",
-        "regime": "choppy â pipeline: neutral (conf 0.981)",
-        "sizing": "$230 (7.4% of deployable)",
-        "horizon": "short-term (~5 trading days)",
-        "learned": null,
-        "outcome": null,
-        "dalioEnv": "growth-up",
-        "placedAt": "2026-06-21T05:11:54.974Z",
-        "cashAfter": 10569.34,
-        "rationale": [
-          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 57)",
-          "Research grade C+ (52/100 percentile)",
-          "Uptrend (RÂ²=0.57)",
-          "Sector cross-asset: flat",
-          "Peer grade A+ (#3 of 78 in Industrials)",
-          "Regime grade C+ (choppy regime)",
-          "Momentum A+ (+53.3% 3mo Â· 1.74Ã avg vol Â· Clean, well-supported up-momentum)",
-          "Trend healthy-uptrend (q86, mom 75)"
-        ],
-        "confidence": 45,
-        "conviction": 0.5,
-        "topDrivers": [
-          {
-            "lean": 1,
-            "favors": "long",
-            "signal": "momentumGrade"
-          },
-          {
-            "lean": 0.94,
-            "favors": "long",
-            "signal": "peerGrade"
-          },
-          {
-            "lean": 0.58,
-            "favors": "long",
-            "signal": "momentum"
-          },
-          {
-            "lean": 0.49,
-            "favors": "long",
-            "signal": "trendEngine"
-          },
-          {
-            "lean": -0.41,
-            "favors": "short",
-            "signal": "meanReversion"
-          },
-          {
-            "lean": 0.33,
-            "favors": "long",
-            "signal": "institutional"
-          }
-        ],
-        "decisionPath": [
-          "regime:choppy (pipeline: neutral (conf 0.981))",
-          "fundamentals:+0.14 Ã1.1 (regime)",
-          "researchGrade:+0.05",
-          "health:+0.14 Ã1.1 (regime)",
-          "trend:+0.23 Ã0.7 (regime)",
-          "momentum:+0.58 Ã0.8 (regime)",
-          "meanReversion:-0.40 Ã1.3 (regime)",
-          "crossAsset:0.00",
-          "peerGrade:+0.94 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
-          "momentumGrade:+1.00",
-          "trendEngine:+0.49",
-          "supplyChain:-0.00",
-          "institutional:+0.33",
-          "earningsRecency:+0.15",
-          "agreement:91% one-sided â conviction boosted to 0.50",
-          "long in choppy: confidence -0.05 bar",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [
-        "meanReversion",
-        "supplyChain"
-      ],
-      "signalsThatHurt": [
-        "momentumGrade",
-        "peerGrade",
-        "momentum",
-        "trendEngine",
-        "institutional",
-        "trend",
-        "earningsRecency",
-        "health",
-        "fundamentals",
-        "researchGrade"
-      ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
-    },
-    {
-      "id": "BCAB-2026-06-21-1782018714957-0",
-      "ticker": "BCAB",
-      "name": "BioAtla, Inc.",
-      "sector": "Healthcare",
-      "direction": "short",
-      "instrument": "shares",
-      "optionType": null,
-      "leveragedEtf": null,
-      "style": "short",
-      "horizonType": "short-term",
-      "horizonDays": 11,
-      "dalioEnv": "growth-up",
-      "longTermTrend": "unknown",
-      "soldStillStrong": false,
-      "exitMomentum": 0,
-      "rolledForMomentum": 0,
-      "entryDate": "2026-06-21",
-      "exitDate": null,
-      "entryPrice": 3.49,
-      "exitPrice": null,
-      "shares": 142.9916,
-      "notional": 499.04,
-      "dollars": 499.04,
-      "allocationPct": 16,
-      "leverage": 1,
-      "hedge": false,
-      "stopPrice": 4.1,
-      "targetPrice": 2.27,
-      "holdDays": 0,
-      "pnl": -23.59,
-      "returnPct": -4.73,
-      "won": false,
-      "exitReason": "open",
-      "conviction": -0.591,
-      "confidence": 0.541,
-      "regimeAtEntry": "choppy",
-      "status": "open",
-      "topDrivers": [
-        {
-          "signal": "momentumGrade",
-          "lean": -0.92
-        },
-        {
-          "signal": "momentum",
-          "lean": -0.91
-        },
-        {
-          "signal": "researchGrade",
-          "lean": -0.72
-        },
-        {
-          "signal": "trend",
-          "lean": -0.51
-        }
-      ],
-      "rationale": [
-        "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 42)",
-        "Research grade F (14/100 percentile)",
-        "Downtrend (backend, RÂ²=0.65)",
-        "Sector cross-asset: flat",
-        "Peer grade D+ (#71 of 82 in Healthcare Â· XLV +2.8% 3mo)",
-        "Regime grade C+ (choppy regime)",
-        "Momentum F (0.56Ã avg vol)"
-      ],
-      "cashAfter": 12966.61,
-      "decisionReceipt": {
-        "style": "short",
-        "action": "SHORT shares",
-        "regime": "choppy â pipeline: neutral (conf 0.981)",
-        "sizing": "$499 (16.0% of deployable)",
-        "horizon": "short-term (~11 trading days)",
-        "learned": null,
-        "outcome": null,
-        "dalioEnv": "growth-up",
-        "placedAt": "2026-06-21T05:11:54.958Z",
-        "cashAfter": 12966.61,
-        "rationale": [
-          "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 42)",
-          "Research grade F (14/100 percentile)",
-          "Downtrend (backend, RÂ²=0.65)",
-          "Sector cross-asset: flat",
-          "Peer grade D+ (#71 of 82 in Healthcare Â· XLV +2.8% 3mo)",
-          "Regime grade C+ (choppy regime)",
-          "Momentum F (0.56Ã avg vol)"
-        ],
-        "confidence": 54,
-        "conviction": -0.59,
-        "topDrivers": [
-          {
-            "lean": -0.92,
-            "favors": "short",
-            "signal": "momentumGrade"
-          },
-          {
-            "lean": -0.91,
-            "favors": "short",
-            "signal": "momentum"
-          },
-          {
-            "lean": -0.72,
-            "favors": "short",
-            "signal": "researchGrade"
-          },
-          {
-            "lean": -0.51,
-            "favors": "short",
-            "signal": "trend"
-          },
-          {
-            "lean": -0.4,
-            "favors": "short",
-            "signal": "peerGrade"
-          },
-          {
-            "lean": -0.17,
-            "favors": "short",
-            "signal": "fundamentals"
-          }
-        ],
-        "decisionPath": [
-          "regime:choppy (pipeline: neutral (conf 0.981))",
-          "fundamentals:-0.17 Ã1.1 (regime)",
-          "researchGrade:-0.72",
-          "health:-0.15 Ã1.1 (regime)",
-          "trend:-0.51 Ã0.7 (regime)",
-          "momentum:-0.91 Ã0.8 (regime)",
-          "meanReversion:+0.14 Ã1.3 (regime)",
-          "tech:backend-precomputed",
-          "crossAsset:0.00",
-          "peerGrade:-0.40 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
-          "momentumGrade:-0.92",
-          "agreement:96% one-sided â conviction boosted to -0.59",
-          "short in choppy: confidence -0.05 bar",
-          "leverage:1x",
-          "instrument:shares"
-        ],
-        "couldHaveDoneBetter": null
-      },
-      "signalsThatHelped": [
-        "meanReversion"
-      ],
-      "signalsThatHurt": [
-        "momentumGrade",
-        "momentum",
-        "researchGrade",
-        "trend",
-        "peerGrade",
-        "fundamentals",
-        "health"
-      ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "BCAB-2026-06-20-1781975171800-0",
@@ -3271,7 +2804,7 @@
       "targetPrice": 2.27,
       "holdDays": 2,
       "pnl": 0,
-      "returnPct": -4.73,
+      "returnPct": -3.72,
       "won": false,
       "exitReason": "rebalance-cash",
       "conviction": -0.599,
@@ -3299,17 +2832,17 @@
       "rationale": [
         "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 42)",
         "Research grade F (14/100 percentile)",
-        "Downtrend (backend, RÂ²=0.65)",
+        "Downtrend (backend, R²=0.65)",
         "Sector cross-asset: flat",
-        "Peer grade D+ (#71 of 82 in Healthcare Â· XLV +2.8% 3mo)",
+        "Peer grade D+ (#71 of 82 in Healthcare · XLV +2.8% 3mo)",
         "Regime grade C+ (choppy regime)",
-        "Momentum F (0.56Ã avg vol)"
+        "Momentum F (0.56× avg vol)"
       ],
       "cashAfter": 80334,
       "decisionReceipt": {
         "style": "short",
         "action": "SHORT shares",
-        "regime": "choppy â SPY: flat, vol 0.99%/d",
+        "regime": "choppy — SPY: flat, vol 0.99%/d",
         "sizing": "$19666 (21.9% of deployable)",
         "horizon": "short-term (~11 trading days)",
         "learned": null,
@@ -3320,11 +2853,11 @@
         "rationale": [
           "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 42)",
           "Research grade F (14/100 percentile)",
-          "Downtrend (backend, RÂ²=0.65)",
+          "Downtrend (backend, R²=0.65)",
           "Sector cross-asset: flat",
-          "Peer grade D+ (#71 of 82 in Healthcare Â· XLV +2.8% 3mo)",
+          "Peer grade D+ (#71 of 82 in Healthcare · XLV +2.8% 3mo)",
           "Regime grade C+ (choppy regime)",
-          "Momentum F (0.56Ã avg vol)"
+          "Momentum F (0.56× avg vol)"
         ],
         "confidence": 55,
         "conviction": -0.6,
@@ -3362,18 +2895,18 @@
         ],
         "decisionPath": [
           "regime:choppy (SPY: flat, vol 0.99%/d)",
-          "fundamentals:-0.17 Ã1.1 (regime)",
+          "fundamentals:-0.17 ×1.1 (regime)",
           "researchGrade:-0.72",
-          "health:-0.15 Ã1.1 (regime)",
-          "trend:-0.51 Ã0.7 (regime)",
-          "momentum:-0.91 Ã0.8 (regime)",
-          "meanReversion:+0.14 Ã1.3 (regime)",
+          "health:-0.15 ×1.1 (regime)",
+          "trend:-0.51 ×0.7 (regime)",
+          "momentum:-0.91 ×0.8 (regime)",
+          "meanReversion:+0.14 ×1.3 (regime)",
           "tech:backend-precomputed",
           "crossAsset:0.00",
-          "peerGrade:-0.40 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
+          "peerGrade:-0.40 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
           "momentumGrade:-0.92",
-          "agreement:96% one-sided â conviction boosted to -0.60",
+          "agreement:96% one-sided → conviction boosted to -0.60",
           "short in choppy: confidence -0.05 bar",
           "leverage:1x",
           "instrument:shares"
@@ -3392,7 +2925,7 @@
         "fundamentals",
         "health"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "INDO-2026-06-20-1781975171803-1",
@@ -3425,7 +2958,7 @@
       "targetPrice": 1.71,
       "holdDays": 2,
       "pnl": 0,
-      "returnPct": 0.38,
+      "returnPct": 0,
       "won": false,
       "exitReason": "rebalance-cash",
       "conviction": -0.592,
@@ -3453,17 +2986,17 @@
       "rationale": [
         "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 42)",
         "Research grade D (19/100 percentile)",
-        "Downtrend (backend, RÂ²=0.76)",
+        "Downtrend (backend, R²=0.76)",
         "Sector cross-asset: warn",
-        "Peer grade F (#36 of 36 in Energy Â· XLE -9.3% 3mo)",
+        "Peer grade F (#36 of 36 in Energy · XLE -9.3% 3mo)",
         "Regime grade C+ (choppy regime)",
-        "Momentum F (0.27Ã avg vol)"
+        "Momentum F (0.27× avg vol)"
       ],
       "cashAfter": 60918.24,
       "decisionReceipt": {
         "style": "short",
         "action": "SHORT shares",
-        "regime": "choppy â SPY: flat, vol 0.99%/d",
+        "regime": "choppy — SPY: flat, vol 0.99%/d",
         "sizing": "$19416 (21.6% of deployable)",
         "horizon": "short-term (~11 trading days)",
         "learned": null,
@@ -3474,11 +3007,11 @@
         "rationale": [
           "Fundamentals: Speculative with weak fundamentals - high risk of permanent loss. (conviction 42)",
           "Research grade D (19/100 percentile)",
-          "Downtrend (backend, RÂ²=0.76)",
+          "Downtrend (backend, R²=0.76)",
           "Sector cross-asset: warn",
-          "Peer grade F (#36 of 36 in Energy Â· XLE -9.3% 3mo)",
+          "Peer grade F (#36 of 36 in Energy · XLE -9.3% 3mo)",
           "Regime grade C+ (choppy regime)",
-          "Momentum F (0.27Ã avg vol)"
+          "Momentum F (0.27× avg vol)"
         ],
         "confidence": 54,
         "conviction": -0.59,
@@ -3516,18 +3049,18 @@
         ],
         "decisionPath": [
           "regime:choppy (SPY: flat, vol 0.99%/d)",
-          "fundamentals:-0.17 Ã1.1 (regime)",
+          "fundamentals:-0.17 ×1.1 (regime)",
           "researchGrade:-0.63",
-          "health:-0.11 Ã1.1 (regime)",
-          "trend:-0.22 Ã0.7 (regime)",
-          "momentum:-0.73 Ã0.8 (regime)",
-          "meanReversion:+0.38 Ã1.3 (regime)",
+          "health:-0.11 ×1.1 (regime)",
+          "trend:-0.22 ×0.7 (regime)",
+          "momentum:-0.73 ×0.8 (regime)",
+          "meanReversion:+0.38 ×1.3 (regime)",
           "tech:backend-precomputed",
           "crossAsset:-0.76",
-          "peerGrade:-0.87 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
+          "peerGrade:-0.87 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
           "momentumGrade:-1.00",
-          "agreement:92% one-sided â conviction boosted to -0.59",
+          "agreement:92% one-sided → conviction boosted to -0.59",
           "short in choppy: confidence -0.05 bar",
           "leverage:1x",
           "instrument:shares"
@@ -3547,7 +3080,7 @@
         "fundamentals",
         "health"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "3231.TW-2026-06-20-1781975171804-2",
@@ -3580,7 +3113,7 @@
       "targetPrice": 7.2,
       "holdDays": 2,
       "pnl": 0,
-      "returnPct": 0.19,
+      "returnPct": 0.81,
       "won": false,
       "exitReason": "rebalance-cash",
       "conviction": 0.569,
@@ -3608,11 +3141,11 @@
       "rationale": [
         "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 50)",
         "Research grade B (65/100 percentile)",
-        "Uptrend (RÂ²=0.40)",
+        "Uptrend (R²=0.40)",
         "Sector cross-asset: flat",
-        "Peer grade A+ (#7 of 130 in Technology Â· XLK +41.5% 3mo)",
+        "Peer grade A+ (#7 of 130 in Technology · XLK +41.5% 3mo)",
         "Regime grade C+ (choppy regime)",
-        "Momentum B+ (+26.7% 3mo Â· 0.86Ã avg vol Â· Clean, well-supported up-momentum)",
+        "Momentum B+ (+26.7% 3mo · 0.86× avg vol · Clean, well-supported up-momentum)",
         "Trend healthy-uptrend (q67, mom 71)",
         "Fed easing (-30bps)",
         "Supply-chain peers +0.0% (8 peers in Consumer Electronics & Mobile)"
@@ -3621,7 +3154,7 @@
       "decisionReceipt": {
         "style": "rotation/macro",
         "action": "LONG shares",
-        "regime": "choppy â SPY: flat, vol 0.99%/d",
+        "regime": "choppy — SPY: flat, vol 0.99%/d",
         "sizing": "$15805 (17.6% of deployable)",
         "horizon": "swing (~27 trading days)",
         "learned": null,
@@ -3632,11 +3165,11 @@
         "rationale": [
           "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 50)",
           "Research grade B (65/100 percentile)",
-          "Uptrend (RÂ²=0.40)",
+          "Uptrend (R²=0.40)",
           "Sector cross-asset: flat",
-          "Peer grade A+ (#7 of 130 in Technology Â· XLK +41.5% 3mo)",
+          "Peer grade A+ (#7 of 130 in Technology · XLK +41.5% 3mo)",
           "Regime grade C+ (choppy regime)",
-          "Momentum B+ (+26.7% 3mo Â· 0.86Ã avg vol Â· Clean, well-supported up-momentum)",
+          "Momentum B+ (+26.7% 3mo · 0.86× avg vol · Clean, well-supported up-momentum)",
           "Trend healthy-uptrend (q67, mom 71)"
         ],
         "confidence": 52,
@@ -3675,20 +3208,20 @@
         ],
         "decisionPath": [
           "regime:choppy (SPY: flat, vol 0.99%/d)",
-          "fundamentals:+0.01 Ã1.1 (regime)",
+          "fundamentals:+0.01 ×1.1 (regime)",
           "researchGrade:+0.30",
-          "health:+0.11 Ã1.1 (regime)",
-          "trend:+0.18 Ã0.7 (regime)",
-          "momentum:+0.61 Ã0.8 (regime)",
-          "meanReversion:+0.50 Ã1.3 (regime)",
+          "health:+0.11 ×1.1 (regime)",
+          "trend:+0.18 ×0.7 (regime)",
+          "momentum:+0.61 ×0.8 (regime)",
+          "meanReversion:+0.50 ×1.3 (regime)",
           "crossAsset:-0.06",
-          "peerGrade:+0.94 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
+          "peerGrade:+0.94 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
           "momentumGrade:+0.52",
           "trendEngine:+0.42",
           "fed:+0.20",
           "supplyChain:+0.00",
-          "agreement:99% one-sided â conviction boosted to 0.57",
+          "agreement:99% one-sided → conviction boosted to 0.57",
           "long in choppy: confidence -0.05 bar",
           "hedge:on (vol expanding)",
           "instrument:shares"
@@ -3711,7 +3244,7 @@
         "fundamentals",
         "supplyChain"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "SBLK-2026-06-20-1781975171805-3",
@@ -3743,8 +3276,8 @@
       "stopPrice": 22.05,
       "targetPrice": 36.09,
       "holdDays": 0,
-      "pnl": -520.74,
-      "returnPct": -3.44,
+      "pnl": -118.86,
+      "returnPct": -0.79,
       "won": false,
       "exitReason": "open",
       "conviction": 0.553,
@@ -3772,19 +3305,19 @@
       "rationale": [
         "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 51)",
         "Research grade C+ (54/100 percentile)",
-        "Uptrend (backend, RÂ²=0.82)",
+        "Uptrend (backend, R²=0.82)",
         "Sector cross-asset: flat",
-        "Peer grade A+ (#1 of 78 in Industrials Â· XLI +11.9% 3mo)",
+        "Peer grade A+ (#1 of 78 in Industrials · XLI +11.9% 3mo)",
         "Regime grade C+ (choppy regime)",
-        "Momentum A- (1.73Ã avg vol)",
+        "Momentum A- (1.73× avg vol)",
         "Supply-chain peers -0.0% (2 peers in Shipping & Maritime Logistics)",
-        "13F: 59 institutions hold Â· 51 adding / 30 trimming Â· 22 PUT Â· 22 CALL"
+        "13F: 59 institutions hold · 51 adding / 30 trimming · 22 PUT · 22 CALL"
       ],
       "cashAfter": 27087.44,
       "decisionReceipt": {
         "style": "rotation/macro",
         "action": "LONG shares",
-        "regime": "choppy â SPY: flat, vol 0.99%/d",
+        "regime": "choppy — SPY: flat, vol 0.99%/d",
         "sizing": "$18026 (20.0% of deployable)",
         "horizon": "short-term (~18 trading days)",
         "learned": null,
@@ -3795,11 +3328,11 @@
         "rationale": [
           "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 51)",
           "Research grade C+ (54/100 percentile)",
-          "Uptrend (backend, RÂ²=0.82)",
+          "Uptrend (backend, R²=0.82)",
           "Sector cross-asset: flat",
-          "Peer grade A+ (#1 of 78 in Industrials Â· XLI +11.9% 3mo)",
+          "Peer grade A+ (#1 of 78 in Industrials · XLI +11.9% 3mo)",
           "Regime grade C+ (choppy regime)",
-          "Momentum A- (1.73Ã avg vol)",
+          "Momentum A- (1.73× avg vol)",
           "Supply-chain peers -0.0% (2 peers in Shipping & Maritime Logistics)"
         ],
         "confidence": 50,
@@ -3838,20 +3371,20 @@
         ],
         "decisionPath": [
           "regime:choppy (SPY: flat, vol 0.99%/d)",
-          "fundamentals:+0.03 Ã1.1 (regime)",
+          "fundamentals:+0.03 ×1.1 (regime)",
           "researchGrade:+0.07",
-          "health:+0.06 Ã1.1 (regime)",
-          "trend:+0.13 Ã0.7 (regime)",
-          "momentum:+0.53 Ã0.8 (regime)",
-          "meanReversion:+0.09 Ã1.3 (regime)",
+          "health:+0.06 ×1.1 (regime)",
+          "trend:+0.13 ×0.7 (regime)",
+          "momentum:+0.53 ×0.8 (regime)",
+          "meanReversion:+0.09 ×1.3 (regime)",
           "tech:backend-precomputed",
           "crossAsset:0.00",
-          "peerGrade:+0.93 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
+          "peerGrade:+0.93 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
           "momentumGrade:+0.64",
           "supplyChain:-0.00",
           "institutional:+0.24",
-          "agreement:100% one-sided â conviction boosted to 0.55",
+          "agreement:100% one-sided → conviction boosted to 0.55",
           "long in choppy: confidence -0.05 bar",
           "leverage:1x",
           "instrument:shares"
@@ -3872,7 +3405,7 @@
         "health",
         "fundamentals"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
+      "couldHaveWorked": "Outcome went against the dominant signals — the signal mix may be miscalibrated for this setup."
     },
     {
       "id": "000660.KS-2026-06-20-1781975171806-4",
@@ -3904,9 +3437,9 @@
       "stopPrice": 1363.11,
       "targetPrice": 2693.77,
       "holdDays": 0,
-      "pnl": -31.36,
-      "returnPct": -0.45,
-      "won": false,
+      "pnl": 361.93,
+      "returnPct": 5.14,
+      "won": true,
       "exitReason": "open",
       "conviction": 0.551,
       "confidence": 0.501,
@@ -3932,11 +3465,11 @@
       ],
       "rationale": [
         "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 50)",
-        "Uptrend (RÂ²=0.66)",
+        "Uptrend (R²=0.66)",
         "Sector cross-asset: flat",
-        "Peer grade C (#115 of 130 in Technology Â· XLK +41.5% 3mo)",
+        "Peer grade C (#115 of 130 in Technology · XLK +41.5% 3mo)",
         "Regime grade C+ (choppy regime)",
-        "Momentum A+ (+172.9% 3mo Â· 1.52Ã avg vol Â· Clean, well-supported up-momentum)",
+        "Momentum A+ (+172.9% 3mo · 1.52× avg vol · Clean, well-supported up-momentum)",
         "Trend healthy-uptrend (q92, mom 98)",
         "Fed easing (-30bps)",
         "Supply-chain peers +0.0% (8 peers in Consumer Electronics & Mobile)"
@@ -3945,7 +3478,7 @@
       "decisionReceipt": {
         "style": "momentum-long",
         "action": "LONG shares",
-        "regime": "choppy â SPY: flat, vol 0.99%/d",
+        "regime": "choppy — SPY: flat, vol 0.99%/d",
         "sizing": "$7045 (7.8% of deployable)",
         "horizon": "short-term (~14 trading days)",
         "learned": null,
@@ -3955,11 +3488,11 @@
         "cashAfter": 20042.73,
         "rationale": [
           "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 50)",
-          "Uptrend (RÂ²=0.66)",
+          "Uptrend (R²=0.66)",
           "Sector cross-asset: flat",
-          "Peer grade C (#115 of 130 in Technology Â· XLK +41.5% 3mo)",
+          "Peer grade C (#115 of 130 in Technology · XLK +41.5% 3mo)",
           "Regime grade C+ (choppy regime)",
-          "Momentum A+ (+172.9% 3mo Â· 1.52Ã avg vol Â· Clean, well-supported up-momentum)",
+          "Momentum A+ (+172.9% 3mo · 1.52× avg vol · Clean, well-supported up-momentum)",
           "Trend healthy-uptrend (q92, mom 98)",
           "Fed easing (-30bps)"
         ],
@@ -3999,19 +3532,19 @@
         ],
         "decisionPath": [
           "regime:choppy (SPY: flat, vol 0.99%/d)",
-          "fundamentals:-0.01 Ã1.1 (regime)",
-          "health:+0.06 Ã1.1 (regime)",
-          "trend:+0.50 Ã0.7 (regime)",
-          "momentum:+0.97 Ã0.8 (regime)",
-          "meanReversion:+0.45 Ã1.3 (regime)",
+          "fundamentals:-0.01 ×1.1 (regime)",
+          "health:+0.06 ×1.1 (regime)",
+          "trend:+0.50 ×0.7 (regime)",
+          "momentum:+0.97 ×0.8 (regime)",
+          "meanReversion:+0.45 ×1.3 (regime)",
           "crossAsset:-0.06",
-          "peerGrade:-0.14 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
+          "peerGrade:-0.14 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
           "momentumGrade:+0.86",
           "trendEngine:+0.96",
           "fed:+0.20",
           "supplyChain:+0.00",
-          "agreement:95% one-sided â conviction boosted to 0.55",
+          "agreement:95% one-sided → conviction boosted to 0.55",
           "long in choppy: confidence -0.05 bar",
           "leverage:1x",
           "instrument:shares"
@@ -4019,11 +3552,6 @@
         "couldHaveDoneBetter": null
       },
       "signalsThatHelped": [
-        "peerGrade",
-        "crossAsset",
-        "fundamentals"
-      ],
-      "signalsThatHurt": [
         "momentum",
         "trendEngine",
         "momentumGrade",
@@ -4033,7 +3561,12 @@
         "health",
         "supplyChain"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
+      "signalsThatHurt": [
+        "peerGrade",
+        "crossAsset",
+        "fundamentals"
+      ],
+      "couldHaveWorked": "Position still open — outcome pending."
     },
     {
       "id": "TSM-2026-06-20-1781975171807-5",
@@ -4065,9 +3598,9 @@
       "stopPrice": 383.85,
       "targetPrice": 618.67,
       "holdDays": 0,
-      "pnl": 0,
-      "returnPct": 0,
-      "won": false,
+      "pnl": 66.57,
+      "returnPct": 1.2,
+      "won": true,
       "exitReason": "open",
       "conviction": 0.545,
       "confidence": 0.495,
@@ -4094,22 +3627,22 @@
       "rationale": [
         "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 52)",
         "Research grade A- (82/100 percentile)",
-        "Uptrend (RÂ²=0.48)",
+        "Uptrend (R²=0.48)",
         "Sector cross-asset: flat",
-        "Peer grade A+ (#1 of 130 in Technology Â· XLK +41.5% 3mo)",
+        "Peer grade A+ (#1 of 130 in Technology · XLK +41.5% 3mo)",
         "Regime grade C+ (choppy regime)",
-        "Momentum A+ (+40.4% 3mo Â· 1.90Ã avg vol Â· Clean, well-supported up-momentum)",
+        "Momentum A+ (+40.4% 3mo · 1.90× avg vol · Clean, well-supported up-momentum)",
         "Trend healthy-uptrend (q86, mom 86)",
         "Fed easing (-30bps)",
         "Supply-chain peers +0.0% (17 peers in Semiconductors & AI Compute)",
-        "13F: 5 institutions hold Â· 3 adding / 3 trimming Â· 1 PUT Â· 1 CALL",
+        "13F: 5 institutions hold · 3 adding / 3 trimming · 1 PUT · 1 CALL",
         "SEC: Last 6-K 11d ago"
       ],
       "cashAfter": 14500.01,
       "decisionReceipt": {
         "style": "rotation/macro",
         "action": "LONG shares",
-        "regime": "choppy â SPY: flat, vol 0.99%/d",
+        "regime": "choppy — SPY: flat, vol 0.99%/d",
         "sizing": "$5543 (6.2% of deployable)",
         "horizon": "short-term (~15 trading days)",
         "learned": null,
@@ -4120,11 +3653,11 @@
         "rationale": [
           "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 52)",
           "Research grade A- (82/100 percentile)",
-          "Uptrend (RÂ²=0.48)",
+          "Uptrend (R²=0.48)",
           "Sector cross-asset: flat",
-          "Peer grade A+ (#1 of 130 in Technology Â· XLK +41.5% 3mo)",
+          "Peer grade A+ (#1 of 130 in Technology · XLK +41.5% 3mo)",
           "Regime grade C+ (choppy regime)",
-          "Momentum A+ (+40.4% 3mo Â· 1.90Ã avg vol Â· Clean, well-supported up-momentum)",
+          "Momentum A+ (+40.4% 3mo · 1.90× avg vol · Clean, well-supported up-momentum)",
           "Trend healthy-uptrend (q86, mom 86)"
         ],
         "confidence": 49,
@@ -4163,22 +3696,22 @@
         ],
         "decisionPath": [
           "regime:choppy (SPY: flat, vol 0.99%/d)",
-          "fundamentals:+0.03 Ã1.1 (regime)",
+          "fundamentals:+0.03 ×1.1 (regime)",
           "researchGrade:+0.64",
-          "health:+0.12 Ã1.1 (regime)",
-          "trend:+0.09 Ã0.7 (regime)",
-          "momentum:+0.76 Ã0.8 (regime)",
-          "meanReversion:-0.38 Ã1.3 (regime)",
+          "health:+0.12 ×1.1 (regime)",
+          "trend:+0.09 ×0.7 (regime)",
+          "momentum:+0.76 ×0.8 (regime)",
+          "meanReversion:-0.38 ×1.3 (regime)",
           "crossAsset:-0.06",
-          "peerGrade:+1.00 Ã1.1 (regime)",
-          "regimeGrade:0.00 Ã1.2 (regime)",
+          "peerGrade:+1.00 ×1.1 (regime)",
+          "regimeGrade:0.00 ×1.2 (regime)",
           "momentumGrade:+1.00",
           "trendEngine:+0.72",
           "fed:+0.20",
           "supplyChain:+0.00",
           "institutional:+0.12",
           "earningsRecency:+0.15",
-          "agreement:92% one-sided â conviction boosted to 0.54",
+          "agreement:92% one-sided → conviction boosted to 0.54",
           "long in choppy: confidence -0.05 bar",
           "leverage:1x",
           "instrument:shares"
@@ -4186,10 +3719,6 @@
         "couldHaveDoneBetter": null
       },
       "signalsThatHelped": [
-        "meanReversion",
-        "crossAsset"
-      ],
-      "signalsThatHurt": [
         "peerGrade",
         "momentumGrade",
         "momentum",
@@ -4203,82 +3732,392 @@
         "fundamentals",
         "supplyChain"
       ],
-      "couldHaveWorked": "Outcome went against the dominant signals â the signal mix may be miscalibrated for this setup."
+      "signalsThatHurt": [
+        "meanReversion",
+        "crossAsset"
+      ],
+      "couldHaveWorked": "Position still open — outcome pending."
+    },
+    {
+      "id": "MU-2026-06-18-1781751939570-0",
+      "ticker": "MU",
+      "name": "Micron Technology, Inc.",
+      "sector": "Technology",
+      "direction": "long",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "long",
+      "horizonType": "short-term",
+      "horizonDays": 15,
+      "dalioEnv": "growth-up",
+      "longTermTrend": "strong-up",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-18",
+      "exitDate": null,
+      "entryPrice": 1043.189941,
+      "exitPrice": null,
+      "shares": 0.4749,
+      "notional": 495.37,
+      "dollars": 495.37,
+      "allocationPct": 20,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 782.39,
+      "targetPrice": 1564.78,
+      "holdDays": 0,
+      "pnl": 79.87,
+      "returnPct": 16.12,
+      "won": true,
+      "exitReason": "open",
+      "conviction": 0.449,
+      "confidence": 0.449,
+      "regimeAtEntry": "unclassified",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "crossAsset",
+          "lean": 1
+        },
+        {
+          "signal": "momentum",
+          "lean": 0.92
+        },
+        {
+          "signal": "peerGrade",
+          "lean": 0.86
+        },
+        {
+          "signal": "trendEngine",
+          "lean": 0.82
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 52)",
+        "Research grade B (67/100 percentile)",
+        "Uptrend (RÂ²=0.71)",
+        "Sector cross-asset: bull",
+        "Peer grade A (#15 of 130 in Technology Â· XLK +37.4% 3mo)",
+        "Regime grade B (Risk-on favors cyclicals/high-beta)",
+        "Momentum B+ (+134.8% 3mo Â· 0.86Ã avg vol Â· Clean, well-supported up-momentum)",
+        "Trend healthy-uptrend (q93, mom 91)",
+        "Fed easing (-30bps)",
+        "Supply-chain peers +0.0% (8 peers in Consumer Electronics & Mobile)",
+        "13F: 4 institutions hold Â· 3 adding / 3 trimming Â· 2 PUT Â· 2 CALL",
+        "SEC: Last 10-Q 91d ago"
+      ],
+      "cashAfter": 12256.92,
+      "decisionReceipt": {
+        "style": "long",
+        "action": "LONG shares",
+        "regime": "risk-on â pipeline: expansion (conf 0.981)",
+        "sizing": "$495 (20.0% of deployable)",
+        "horizon": "short-term (~15 trading days)",
+        "learned": null,
+        "outcome": null,
+        "dalioEnv": "growth-up",
+        "placedAt": "2026-06-18T03:05:39.570Z",
+        "cashAfter": 12256.92,
+        "rationale": [
+          "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 52)",
+          "Research grade B (67/100 percentile)",
+          "Uptrend (RÂ²=0.71)",
+          "Sector cross-asset: bull",
+          "Peer grade A (#15 of 130 in Technology Â· XLK +37.4% 3mo)",
+          "Regime grade B (Risk-on favors cyclicals/high-beta)",
+          "Momentum B+ (+134.8% 3mo Â· 0.86Ã avg vol Â· Clean, well-supported up-momentum)",
+          "Trend healthy-uptrend (q93, mom 91)"
+        ],
+        "confidence": 45,
+        "conviction": 0.45,
+        "topDrivers": [
+          {
+            "lean": 1,
+            "favors": "long",
+            "signal": "crossAsset"
+          },
+          {
+            "lean": 0.92,
+            "favors": "long",
+            "signal": "momentum"
+          },
+          {
+            "lean": 0.86,
+            "favors": "long",
+            "signal": "peerGrade"
+          },
+          {
+            "lean": 0.82,
+            "favors": "long",
+            "signal": "trendEngine"
+          },
+          {
+            "lean": 0.6,
+            "favors": "long",
+            "signal": "trend"
+          },
+          {
+            "lean": 0.52,
+            "favors": "long",
+            "signal": "momentumGrade"
+          }
+        ],
+        "decisionPath": [
+          "regime:risk-on (pipeline: expansion (conf 0.981))",
+          "fundamentals:+0.03",
+          "researchGrade:+0.35",
+          "health:+0.15",
+          "trend:+0.60 Ã1.3 (regime)",
+          "momentum:+0.92 Ã1.3 (regime)",
+          "meanReversion:-0.33 Ã0.7 (regime)",
+          "crossAsset:+1.00 Ã1.1 (regime)",
+          "peerGrade:+0.86 Ã1.2 (regime)",
+          "regimeGrade:+0.28 Ã1.4 (regime)",
+          "momentumGrade:+0.52 Ã1.4 (regime)",
+          "trendEngine:+0.82",
+          "fed:+0.20",
+          "supplyChain:+0.00",
+          "institutional:+0.04",
+          "earningsRecency:+0.15",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [
+        "crossAsset",
+        "momentum",
+        "peerGrade",
+        "trendEngine"
+      ],
+      "signalsThatHurt": [],
+      "couldHaveWorked": "Position still open — outcome pending."
+    },
+    {
+      "id": "ZR=F-2026-06-18-1781751939570-1",
+      "ticker": "ZR=F",
+      "name": "Rough Rice Futures,Jul-2026",
+      "sector": "Commodities & Futures",
+      "direction": "long",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "momentum-long",
+      "horizonType": "short-term",
+      "horizonDays": 8,
+      "dalioEnv": "growth-up",
+      "longTermTrend": "flat",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-18",
+      "exitDate": null,
+      "entryPrice": 12.305,
+      "exitPrice": null,
+      "shares": 70.4568,
+      "notional": 866.97,
+      "dollars": 866.97,
+      "allocationPct": 35,
+      "leverage": 1,
+      "hedge": false,
+      "stopPrice": 10.85,
+      "targetPrice": 15.21,
+      "holdDays": 0,
+      "pnl": 39.1,
+      "returnPct": 4.51,
+      "won": true,
+      "exitReason": "open",
+      "conviction": 0.445,
+      "confidence": 0.445,
+      "regimeAtEntry": "unclassified",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "momentumGrade",
+          "lean": 1
+        },
+        {
+          "signal": "momentum",
+          "lean": 0.63
+        },
+        {
+          "signal": "trendEngine",
+          "lean": 0.62
+        },
+        {
+          "signal": "crossAsset",
+          "lean": 0.6
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Solid fundamentals; watch the weakest step below. (conviction 68)",
+        "Uptrend (RÂ²=0.86)",
+        "Sector cross-asset: bull",
+        "Regime grade C+ (risk-on regime)",
+        "Momentum A+ (+24.4% 3mo Â· 2.05Ã avg vol Â· Clean, well-supported up-momentum)",
+        "Trend healthy-uptrend (q54, mom 81)"
+      ],
+      "cashAfter": 11389.95,
+      "decisionReceipt": {
+        "style": "momentum-long",
+        "action": "LONG shares",
+        "regime": "risk-on â pipeline: expansion (conf 0.981)",
+        "sizing": "$867 (35.0% of deployable)",
+        "horizon": "short-term (~8 trading days)",
+        "learned": null,
+        "outcome": null,
+        "dalioEnv": "growth-up",
+        "placedAt": "2026-06-18T03:05:39.570Z",
+        "cashAfter": 11389.95,
+        "rationale": [
+          "Fundamentals: Solid fundamentals; watch the weakest step below. (conviction 68)",
+          "Uptrend (RÂ²=0.86)",
+          "Sector cross-asset: bull",
+          "Regime grade C+ (risk-on regime)",
+          "Momentum A+ (+24.4% 3mo Â· 2.05Ã avg vol Â· Clean, well-supported up-momentum)",
+          "Trend healthy-uptrend (q54, mom 81)"
+        ],
+        "confidence": 44,
+        "conviction": 0.44,
+        "topDrivers": [
+          {
+            "lean": 1,
+            "favors": "long",
+            "signal": "momentumGrade"
+          },
+          {
+            "lean": 0.63,
+            "favors": "long",
+            "signal": "momentum"
+          },
+          {
+            "lean": 0.62,
+            "favors": "long",
+            "signal": "trendEngine"
+          },
+          {
+            "lean": 0.6,
+            "favors": "long",
+            "signal": "crossAsset"
+          },
+          {
+            "lean": 0.5,
+            "favors": "long",
+            "signal": "meanReversion"
+          },
+          {
+            "lean": 0.36,
+            "favors": "long",
+            "signal": "fundamentals"
+          }
+        ],
+        "decisionPath": [
+          "regime:risk-on (pipeline: expansion (conf 0.981))",
+          "fundamentals:+0.36",
+          "health:+0.31",
+          "trend:+0.32 Ã1.3 (regime)",
+          "momentum:+0.63 Ã1.3 (regime)",
+          "meanReversion:+0.50 Ã0.7 (regime)",
+          "crossAsset:+0.60 Ã1.1 (regime)",
+          "regimeGrade:0.00 Ã1.4 (regime)",
+          "momentumGrade:+1.00 Ã1.4 (regime)",
+          "trendEngine:+0.62",
+          "leverage:1x",
+          "instrument:shares"
+        ],
+        "couldHaveDoneBetter": null
+      },
+      "signalsThatHelped": [
+        "momentumGrade",
+        "momentum",
+        "trendEngine",
+        "crossAsset"
+      ],
+      "signalsThatHurt": [],
+      "couldHaveWorked": "Position still open — outcome pending."
+    },
+    {
+      "id": "LNVGY-2026-06-16-1781573221723-5",
+      "ticker": "LNVGY",
+      "name": "Lenovo Group Limited",
+      "sector": "Technology",
+      "direction": "long",
+      "instrument": "shares",
+      "optionType": null,
+      "leveragedEtf": null,
+      "style": "momentum-long",
+      "horizonType": "swing",
+      "horizonDays": 10,
+      "dalioEnv": "unclassified",
+      "longTermTrend": "unknown",
+      "soldStillStrong": false,
+      "exitMomentum": 0,
+      "rolledForMomentum": 0,
+      "entryDate": "2026-06-16",
+      "exitDate": null,
+      "entryPrice": 57.25,
+      "exitPrice": null,
+      "shares": 29.4226,
+      "notional": 1684.44,
+      "dollars": 1684.44,
+      "allocationPct": 1.7,
+      "leverage": 1,
+      "hedge": true,
+      "stopPrice": 43.42,
+      "targetPrice": 84.91,
+      "holdDays": 0,
+      "pnl": 108.86,
+      "returnPct": 6.46,
+      "won": true,
+      "exitReason": "open",
+      "conviction": 0.417,
+      "confidence": 0.417,
+      "regimeAtEntry": "unclassified",
+      "status": "open",
+      "topDrivers": [
+        {
+          "signal": "trend",
+          "lean": 1
+        },
+        {
+          "signal": "crossAsset",
+          "lean": 1
+        },
+        {
+          "signal": "momentum",
+          "lean": 0.69
+        },
+        {
+          "signal": "peerGrade",
+          "lean": 0.68
+        }
+      ],
+      "rationale": [
+        "Fundamentals: Mixed - strengths offset by real weaknesses; price discipline matters. (conviction 49)",
+        "Research grade B- (62/100 percentile)",
+        "Uptrend (RÂ²=0.79)",
+        "Sector cross-asset: bull",
+        "Peer grade A- (#33 of 130 in Technology Â· XLK +37.4% 3mo)",
+        "Regime grade B (Risk-on favors cyclicals/high-beta)",
+        "Momentum B (+133.1% 3mo Â· 0.80Ã avg vol)",
+        "Fed easing (-31bps)",
+        "Supply-chain peers +0.0% (12 peers in Consumer Electronics & Mobile)"
+      ],
+      "cashAfter": null,
+      "decisionReceipt": null,
+      "signalsThatHelped": [
+        "trend",
+        "crossAsset",
+        "momentum",
+        "peerGrade"
+      ],
+      "signalsThatHurt": [],
+      "couldHaveWorked": "Position still open — outcome pending."
     }
   ],
   "openPositions": [
-    {
-      "ticker": "000725.SZ",
-      "direction": "long",
-      "instrument": "shares",
-      "entryDate": "2026-06-16",
-      "entryPrice": 0.8749630944,
-      "conviction": 0.453
-    },
-    {
-      "ticker": "TOELY",
-      "direction": "long",
-      "instrument": "shares",
-      "entryDate": "2026-06-16",
-      "entryPrice": 217.649994,
-      "conviction": 0.451
-    },
-    {
-      "ticker": "UMC",
-      "direction": "long",
-      "instrument": "shares",
-      "entryDate": "2026-06-16",
-      "entryPrice": 23.08,
-      "conviction": 0.439
-    },
-    {
-      "ticker": "DELL",
-      "direction": "long",
-      "instrument": "shares",
-      "entryDate": "2026-06-16",
-      "entryPrice": 409.070007,
-      "conviction": 0.43
-    },
-    {
-      "ticker": "MU",
-      "direction": "long",
-      "instrument": "shares",
-      "entryDate": "2026-06-16",
-      "entryPrice": 1087.98999,
-      "conviction": 0.423
-    },
-    {
-      "ticker": "LNVGY",
-      "direction": "long",
-      "instrument": "shares",
-      "entryDate": "2026-06-16",
-      "entryPrice": 57.25,
-      "conviction": 0.417
-    },
-    {
-      "ticker": "MU",
-      "direction": "long",
-      "instrument": "shares",
-      "entryDate": "2026-06-18",
-      "entryPrice": 1043.189941,
-      "conviction": 0.449
-    },
-    {
-      "ticker": "ZR=F",
-      "direction": "long",
-      "instrument": "shares",
-      "entryDate": "2026-06-18",
-      "entryPrice": 12.305,
-      "conviction": 0.445
-    },
-    {
-      "ticker": "ARM",
-      "direction": "long",
-      "instrument": "shares",
-      "entryDate": "2026-06-18",
-      "entryPrice": 418.880005,
-      "conviction": 0.44
-    },
     {
       "ticker": "BZFD",
       "direction": "short",
@@ -4344,6 +4183,54 @@
       "conviction": 0.504
     },
     {
+      "ticker": "UMC",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-16",
+      "entryPrice": 23.08,
+      "conviction": 0.439
+    },
+    {
+      "ticker": "DELL",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-16",
+      "entryPrice": 409.070007,
+      "conviction": 0.43
+    },
+    {
+      "ticker": "000660.KS",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-14",
+      "entryPrice": 1416.4415000000001,
+      "conviction": 0.461
+    },
+    {
+      "ticker": "000725.SZ",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-16",
+      "entryPrice": 0.8749630944,
+      "conviction": 0.453
+    },
+    {
+      "ticker": "MU",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-16",
+      "entryPrice": 1087.98999,
+      "conviction": 0.423
+    },
+    {
+      "ticker": "ARM",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-18",
+      "entryPrice": 418.880005,
+      "conviction": 0.44
+    },
+    {
       "ticker": "BCAB",
       "direction": "short",
       "instrument": "shares",
@@ -4374,6 +4261,30 @@
       "entryDate": "2026-06-20",
       "entryPrice": 462.119995,
       "conviction": 0.545
+    },
+    {
+      "ticker": "MU",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-18",
+      "entryPrice": 1043.189941,
+      "conviction": 0.449
+    },
+    {
+      "ticker": "ZR=F",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-18",
+      "entryPrice": 12.305,
+      "conviction": 0.445
+    },
+    {
+      "ticker": "LNVGY",
+      "direction": "long",
+      "instrument": "shares",
+      "entryDate": "2026-06-16",
+      "entryPrice": 57.25,
+      "conviction": 0.417
     }
   ],
   "equityCurve": [
@@ -4384,7 +4295,7 @@
     },
     {
       "date": "2026-06-22",
-      "value": 101071.21
+      "value": 104479.98
     }
   ]
 }

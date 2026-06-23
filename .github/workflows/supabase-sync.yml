@@ -1,6 +1,6 @@
-name: Push portfolio → Supabase
+name: Push BOT → Supabase
 
-# Mirrors data/portfolio_data.json into Supabase on a schedule + whenever the
+# Mirrors data/bot_training_data.json into Supabase on a schedule + whenever the
 # file changes. Runs server-side — no app needed. Uses the service_role key.
 
 on:

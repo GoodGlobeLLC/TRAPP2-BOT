@@ -21,4 +21,4 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
-        run: python3 scripts/sync_port_to_supabase.py
+        run: python3 scripts/sync_bot_to_supabase.py

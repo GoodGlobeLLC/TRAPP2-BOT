@@ -1,13 +1,10 @@
-name: Push BOT → Supabase
-
-# Mirrors data/bot_training_data.json into Supabase on a schedule + whenever the
-# file changes. Runs server-side — no app needed. Uses the service_role key.
+name: Push bot trades → Supabase
 
 on:
   push:
     paths: [ 'data/bot_training_data.json' ]
   schedule:
-    - cron: '15 * * * *'        # hourly at :15
+    - cron: '20 * * * *'        # hourly at :20
   workflow_dispatch:
 
 jobs:
@@ -21,4 +18,5 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          SUPABASE_SERVICE_ROLE: ${{ secrets.SUPABASE_SERVICE_ROLE }}
         run: python3 pipeline/sync_bot_to_supabase.py

@@ -1,0 +1,104 @@
+# ============================================================
+#  >>> DESTINATION: GoodGlobeLLC/TRAPP2-BOT
+#  >>> FILE PATH:   .github/workflows/bot-runner.yml
+#
+#  Runs the autonomous bot DAILY after the US close, with NO app open. It scores
+#  the universe, manages open positions (stop/target/horizon), opens the best
+#  few new trades within risk limits, writes bot_training_data.json back to this
+#  repo, and then mirrors the trades to Supabase.
+#
+#  Pair this with pipeline/bot_runner.py (the engine) and, if you want the
+#  Supabase push in the same run, pipeline/sync_bot_to_supabase.py (the one you
+#  already deploy). The Supabase step below is optional and no-ops if that script
+#  or the secrets aren't present.
+#
+#  Secrets:
+#    SUPABASE_URL            (for the optional Supabase mirror)
+#    SUPABASE_SERVICE_ROLE   (service-role key; bypasses RLS for the write)
+#
+#  Safety knobs (set as repo Variables, or edit defaults in bot_runner.py):
+#    RUNNER_MAX_NEW_TRADES, RUNNER_MAX_POSITIONS, RUNNER_POSITION_PCT,
+#    RUNNER_CASH_RESERVE_PCT, RUNNER_MIN_SCORE, RUNNER_DRY_RUN
+# ============================================================
+
+name: Autonomous Bot Runner
+
+on:
+  schedule:
+    # 21:30 UTC Mon–Fri ≈ 16:30–17:30 ET, just after the US cash close, so the
+    # day's settled prices are in master.json. Cron is UTC; DST shifts ET ±1h.
+    - cron: '30 21 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Compute + log but do NOT write or trade'
+        type: boolean
+        required: false
+        default: false
+
+# One run at a time; let a run finish rather than cancelling mid-write.
+concurrency:
+  group: bot-runner
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run the bot
+        env:
+          # Knobs come from repo Variables if set, else the script defaults apply.
+          RUNNER_MAX_NEW_TRADES:   ${{ vars.RUNNER_MAX_NEW_TRADES }}
+          RUNNER_MAX_POSITIONS:    ${{ vars.RUNNER_MAX_POSITIONS }}
+          RUNNER_POSITION_PCT:     ${{ vars.RUNNER_POSITION_PCT }}
+          RUNNER_CASH_RESERVE_PCT: ${{ vars.RUNNER_CASH_RESERVE_PCT }}
+          RUNNER_MIN_SCORE:        ${{ vars.RUNNER_MIN_SCORE }}
+          RUNNER_DRY_RUN:          ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
+        run: python pipeline/bot_runner.py
+
+      - name: Commit bot_training_data.json (bot scope only, retry)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A bot_training_data.json
+          if git diff --staged --quiet; then
+            echo "No state change to commit"
+          else
+            git commit -m "Bot run $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+            for i in 1 2 3 4 5; do
+              if git push; then echo "Pushed on attempt $i"; break; fi
+              git fetch origin
+              git merge -X ours origin/${{ github.ref_name }} 2>/dev/null || true
+              if [ -f .git/MERGE_HEAD ]; then
+                git checkout --ours -- bot_training_data.json 2>/dev/null || true
+                git add -A bot_training_data.json 2>/dev/null || true
+                git commit --no-edit 2>/dev/null || true
+              fi
+              sleep 4
+            done
+          fi
+
+      - name: Mirror trades to Supabase (optional)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE: ${{ secrets.SUPABASE_SERVICE_ROLE }}
+        run: |
+          if [ -f pipeline/sync_bot_to_supabase.py ] && [ -n "$SUPABASE_URL" ]; then
+            python pipeline/sync_bot_to_supabase.py
+          else
+            echo "Supabase mirror skipped (no sync script or no SUPABASE_URL secret)."
+          fi

@@ -15,7 +15,10 @@ import json, os, sys, urllib.request, urllib.error
 from datetime import datetime, timezone
 
 URL = os.environ.get("SUPABASE_URL", "").rstrip("/")
-KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
+KEY = (os.environ.get("SUPABASE_SERVICE_KEY")
+       or os.environ.get("SUPABASE_SERVICE_ROLE")
+       or os.environ.get("SUPABASE_KEY")
+       or os.environ.get("SUPABASE_ANON_KEY") or "")
 TABLE = "bot_trades"
 DATA = "data/bot_training_data.json"
 
@@ -32,7 +35,7 @@ def _req(method, path, body=None, headers=None):
 
 def main():
     if not URL or not KEY:
-        print("✗ SUPABASE_URL / SUPABASE_SERVICE_KEY not set"); return 1
+        print("✗ Missing creds. Set SUPABASE_URL and one of SUPABASE_SERVICE_KEY / SUPABASE_SERVICE_ROLE as repo secrets."); return 1
     if not os.path.exists(DATA):
         print(f"No {DATA} — nothing to sync."); return 0
     d = json.load(open(DATA))

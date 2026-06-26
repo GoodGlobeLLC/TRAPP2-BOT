@@ -761,18 +761,36 @@ def fed_signal(sector, fed):
     return max(-1.0, min(1.0, round(easing * sens, 3)))
 
 
+# Per-signal BASE weights — copied verbatim from the in-app engine's add() calls
+# (app.js). The runner previously blended every signal at equal weight (1.0),
+# which made its decisions diverge from the app even with identical inputs.
+# These restore the app's relative signal importance for the 9 shared signals.
+BASE_WEIGHTS = {
+    "trend": 0.18, "momentum": 0.14, "meanReversion": 0.06,
+    "crossAsset": 0.10, "peerGrade": 0.12, "regimeGrade": 0.14,
+    "optionsIV": 0.07, "optionsMarket": 0.05, "fed": 0.08,
+}
+
+
 def blend_score(comps, weights, weight_mods):
-    """Weighted blend of signed components by learned weights × regime modifiers."""
+    """Weighted blend mirroring the app engine: base × learned × regime-mod.
+
+    base    = BASE_WEIGHTS (the app's per-signal importance)
+    learned = the bot's learnedWeights (1.0 = neutral; grows from feedback)
+    mod     = the regime tilt (weightMods). Matches app.js add() exactly.
+    """
     num, den = 0.0, 0.0
     for k, v in comps.items():
         if v is None:
             continue
-        w = weights.get(k, 1.0)
+        base = BASE_WEIGHTS.get(k, 0.10)          # app per-signal base weight
+        learned = weights.get(k, 1.0)             # learning layer (1.0 = neutral)
         try:
-            w = float(w)
+            learned = float(learned)
         except (TypeError, ValueError):
-            w = 1.0
-        w *= weight_mods.get(k, 1.0)       # regime tilts the signal's influence
+            learned = 1.0
+        mod = weight_mods.get(k, 1.0)             # regime tilts the signal's influence
+        w = base * learned * mod
         num += v * w
         den += abs(w)
     signed = (num / den) if den else 0.0

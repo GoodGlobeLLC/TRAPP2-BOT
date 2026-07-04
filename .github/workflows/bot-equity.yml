@@ -1,0 +1,45 @@
+name: Bot equity tape (30-min)
+
+# Values the bot's whole book (cash + live-priced positions) every 30 minutes and
+# appends a point to data/bot_equity_history.json — a Robinhood-style intraday
+# price history — then pushes the same point to the BOT Supabase project.
+# Runs through the US session (covers both EDT and EST); tweak the hours if you
+# want pre/post-market marks too.
+
+on:
+  schedule:
+    - cron: '0,30 13-21 * * 1-5'     # every :00 and :30, 13:00–21:59 UTC, weekdays
+  workflow_dispatch:
+
+concurrency:
+  group: bot-equity
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Value the book
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE: ${{ secrets.SUPABASE_SERVICE_ROLE }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: python3 pipeline/bot_equity_snapshot.py
+      - name: Commit the tape
+        run: |
+          git config user.name  "bot-equity[bot]"
+          git config user.email "bot-equity@users.noreply.github.com"
+          git add data/bot_equity_history.json || true
+          if ! git diff --cached --quiet; then
+            git commit -m "equity tape: $(date -u +%FT%TZ)"
+            for i in 1 2 3; do
+              git pull --rebase -X ours origin ${{ github.ref_name }} || true
+              git push && break || sleep 5
+            done
+          else
+            echo "no change"
+          fi

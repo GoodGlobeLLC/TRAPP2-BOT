@@ -55,7 +55,11 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-STATE_FILE = ROOT / "bot_training_data.json"
+# Canonical state lives in data/. The runner previously read the ROOT copy, which
+# was stale (bankroll reset to $100k, only a couple of trades) — so it ignored the
+# real book. Read data/ first; migrate from the legacy root file if data/ is absent.
+STATE_FILE = ROOT / "data" / "bot_training_data.json"
+_LEGACY_STATE = ROOT / "bot_training_data.json"
 
 RAW = "https://raw.githubusercontent.com/GoodGlobeLLC"
 UNIVERSE_SOURCES = [
@@ -133,7 +137,30 @@ def _envf(name, default):
         return float(default)
 
 MAX_NEW_TRADES = int(_envf("RUNNER_MAX_NEW_TRADES", 2))
-MAX_POSITIONS = int(_envf("RUNNER_MAX_POSITIONS", 15))
+MAX_POSITIONS = int(_envf("RUNNER_MAX_POSITIONS", 25))
+
+# ---- confidence, triggers, and horizon-aware exits -------------------------
+# The runner classifies every position as SWING (momentum, tight exits) or CORE
+# (long-term / value-like, ride it). Which one is decided by CONFIDENCE (signal
+# agreement + strength + breadth) and whether the blend leans on slow, fundamental
+# signals. Exit rules then differ by class — a long-term winner is TRIMMED, not
+# force-closed, and is never dumped on a fixed calendar.
+CORE_CONF      = _envf("RUNNER_CORE_CONF", 0.62)        # min confidence to hold as long-term/core
+TRIGGER_LEVEL  = _envf("RUNNER_TRIGGER_LEVEL", 0.33)    # an aligned signal this strong "fires"
+MIN_TRIGGERS   = int(_envf("RUNNER_MIN_TRIGGERS", 1))   # concrete triggers needed to open
+
+SWING_STOP     = _envf("RUNNER_SWING_STOP", 8) / 100.0      # -8%  swing stop
+SWING_TARGET   = _envf("RUNNER_SWING_TARGET", 16) / 100.0   # +16% swing target
+SWING_HORIZON  = int(_envf("RUNNER_SWING_HORIZON", 21))     # base swing horizon (days), conf-scaled
+
+CORE_HARD_STOP = _envf("RUNNER_CORE_STOP", 25) / 100.0      # -25% disaster stop for core
+CORE_TRAIL     = _envf("RUNNER_CORE_TRAIL", 18) / 100.0     # 18% trailing from peak (once in profit)
+CORE_EXIT_SCORE= _envf("RUNNER_CORE_EXIT_SCORE", 0.12)      # thesis-break: signal flips this far against
+CORE_TRIM_TIERS= [0.25, 0.50, 1.00]                         # +25/50/100% → trim tiers (long only)
+CORE_TRIM_FRAC = _envf("RUNNER_CORE_TRIM_FRAC", 25) / 100.0 # trim this fraction of shares per tier
+
+LONG_TERM_SIGNALS = ("fundamentals", "researchGrade", "health", "peerGrade", "regimeGrade", "fed", "crossAsset")
+SWING_SIGNALS     = ("trend", "momentum", "meanReversion", "optionsIV", "optionsMarket")
 POSITION_PCT = _envf("RUNNER_POSITION_PCT", 5) / 100.0
 CASH_RESERVE_PCT = _envf("RUNNER_CASH_RESERVE_PCT", 20) / 100.0
 MIN_SCORE = _envf("RUNNER_MIN_SCORE", 0.35)
@@ -165,13 +192,17 @@ def fetch_json(url, timeout=45):
 
 # ----------------------------- state -----------------------------------------
 def load_state():
-    if STATE_FILE.exists():
-        try:
-            d = json.loads(STATE_FILE.read_text())
-            if isinstance(d, dict):
-                return d
-        except Exception as e:
-            log(f"  ! state parse failed: {e}")
+    for path in (STATE_FILE, _LEGACY_STATE):
+        if path.exists():
+            try:
+                d = json.loads(path.read_text())
+                if isinstance(d, dict):
+                    if path is _LEGACY_STATE:
+                        log(f"  migrated bot state from legacy {path.name} "
+                            f"(bankroll ${d.get('bankroll', 0):,.0f}, {len(d.get('trades') or [])} trades)")
+                    return d
+            except Exception as e:
+                log(f"  ! state parse failed ({path.name}): {e}")
     # fresh
     return {
         "schema": "valuatio-bot-training/v1",
@@ -220,6 +251,28 @@ def load_universe():
                 "repo": repo,
                 "changepct": _f(r.get("changepct")),
                 "beta": _f(r.get("beta")),
+                # Fundamentals carried through for the ported reasoning-chain /
+                # health engine (same fields the app's stockbook rows expose).
+                "marketcap": _f(r.get("marketcap")),
+                "eps": _f(r.get("eps")),
+                "profitMargin": _f(r.get("profitMargin")),
+                "operatingMargin": _f(r.get("operatingMargin")),
+                "freeCashFlow": _f(r.get("freeCashFlow")),
+                "netIncome": _f(r.get("netIncome")),
+                "revenue": _f(r.get("revenue")),
+                "revenueGrowth": _f(r.get("revenueGrowth")),
+                "earningsGrowth": _f(r.get("earningsGrowth")),
+                "returnOnEquity": _f(r.get("returnOnEquity")),
+                "returnOnAssets": _f(r.get("returnOnAssets")),
+                "debtToEquity": _f(r.get("debtToEquity")),
+                "currentRatio": _f(r.get("currentRatio")),
+                "cash": _f(r.get("cash")),
+                "totalDebt": _f(r.get("totalDebt")),
+                "totalEquity": _f(r.get("totalEquity")),
+                "pe": _f(r.get("pe")),
+                "priceToBook": _f(r.get("priceToBook")),
+                "dividend_yield": _f(r.get("dividend_yield")),
+                "payoutRatio": _f(r.get("payoutRatio")),
             }
     log(f"universe: {len(rows)} priced tickers")
     return rows
@@ -766,6 +819,9 @@ def fed_signal(sector, fed):
 # which made its decisions diverge from the app even with identical inputs.
 # These restore the app's relative signal importance for the 9 shared signals.
 BASE_WEIGHTS = {
+    # Fundamental core (ported from the app's bot engine — was missing server-side).
+    "fundamentals": 0.26, "researchGrade": 0.16, "health": 0.12,
+    # Price / cross-sectional / macro signals.
     "trend": 0.18, "momentum": 0.14, "meanReversion": 0.06,
     "crossAsset": 0.10, "peerGrade": 0.12, "regimeGrade": 0.14,
     "optionsIV": 0.07, "optionsMarket": 0.05, "fed": 0.08,
@@ -810,9 +866,245 @@ def realized_pnl(pos, exit_price):
     return round(direction * (exit_price - entry) * shares * lev - fees, 2)
 
 
-def manage_open_positions(state, universe, today):
-    """Mark to market; close stop/target/horizon hits with frozen realized P&L."""
-    closed_now = []
+def _norm_fund(u):
+    """Map master.json fields to the engine's names + derive missing ratios.
+    Faithful to the app's normalizeEngineFields."""
+    def n(v):
+        try:
+            x = float(v)
+            return x if (x == x and x not in (float("inf"), float("-inf"))) else None
+        except (TypeError, ValueError):
+            return None
+    f = {
+        "marketCap": n(u.get("marketcap")) if n(u.get("marketcap")) is not None else n(u.get("marketCap")),
+        "eps": n(u.get("eps")),
+        "netMargin": n(u.get("profitMargin")),
+        "freeCashFlow": n(u.get("freeCashFlow")),
+        "roe": n(u.get("returnOnEquity")),
+        "debtToEquity": n(u.get("debtToEquity")),
+        "currentRatio": n(u.get("currentRatio")),
+        "cash": n(u.get("cash")),
+        "totalDebt": n(u.get("totalDebt")),
+        "totalEquity": n(u.get("totalEquity")),
+        "pe": n(u.get("pe")),
+        "priceToBook": n(u.get("priceToBook")),
+        "revenueGrowth": n(u.get("revenueGrowth")),
+        "payoutRatio": n(u.get("payoutRatio")),
+    }
+    if f["debtToEquity"] is None:
+        d, e = n(u.get("totalDebt")), n(u.get("totalEquity"))
+        if d is not None and e and e > 0:
+            f["debtToEquity"] = d / e
+    ps = n(u.get("priceToSales"))
+    if ps is None:
+        mc, rev = f["marketCap"], n(u.get("revenue"))
+        if mc is not None and rev and rev > 0:
+            ps = mc / rev
+    f["priceToSales"] = ps
+    # master.json emits dividend_yield as a PERCENT (0.49 = 0.49%) → decimal.
+    dy = n(u.get("dividend_yield"))
+    if dy is None:
+        dy = n(u.get("dividendYield"))
+    if dy is None:
+        f["dividendYield"] = None
+    elif dy == 0:
+        f["dividendYield"] = 0.0
+    else:
+        f["dividendYield"] = (dy / 100) if dy <= 40 else None
+    return f
+
+
+def _fund_engine(u):
+    """Port of financialReasoningChain (-> conviction) + computeCompanyHealth's
+    dimension composite (-> health), both 0-100. One pass over the same fundamental
+    step points powers both signals, exactly as the app does."""
+    f = _norm_fund(u)
+    steps = {}
+    mc = f["marketCap"]
+    if mc is None:
+        steps[1] = None
+    elif mc >= 1e12: steps[1] = 100
+    elif mc >= 200e9: steps[1] = 92
+    elif mc >= 10e9: steps[1] = 80
+    elif mc >= 2e9: steps[1] = 62
+    elif mc >= 1e9: steps[1] = 52
+    elif mc >= 300e6: steps[1] = 38
+    elif mc >= 50e6: steps[1] = 20
+    else: steps[1] = 10
+    over1b = mc is not None and mc >= 1e9
+
+    eps, nm, fcf, roe = f["eps"], f["netMargin"], f["freeCashFlow"], f["roe"]
+    if eps is not None or nm is not None or fcf is not None:
+        profitable = (eps is not None and eps > 0) or (nm is not None and nm > 0) or (fcf is not None and fcf > 0)
+        if profitable:
+            steps[2] = min(100.0, 55 + (min(30.0, nm * 150) if nm is not None else 0) + (10 if (roe is not None and roe > 0.15) else 0))
+        else:
+            steps[2] = max(0.0, 35 - (20 if (nm is not None and nm < -0.1) else 0))
+    else:
+        steps[2] = None
+
+    de, curr, cash, debt, eq = f["debtToEquity"], f["currentRatio"], f["cash"], f["totalDebt"], f["totalEquity"]
+    if de is not None or curr is not None or (cash is not None and debt is not None):
+        pts = 50.0
+        if de is not None: pts += 18 if de < 0.5 else 8 if de < 1 else -5 if de < 2 else -20
+        if curr is not None: pts += 12 if curr > 2 else 4 if curr > 1 else -18
+        if cash is not None and debt is not None and cash > debt: pts += 12
+        if eq is not None and eq < 0: pts -= 25
+        steps[3] = max(0.0, min(100.0, pts))
+    else:
+        steps[3] = None
+
+    pe, pb, ps, rg = f["pe"], f["priceToBook"], f["priceToSales"], f["revenueGrowth"]
+    if pe is not None or pb is not None or ps is not None:
+        pts = 50.0
+        quality = (roe is not None and roe > 0.15) or (rg is not None and rg > 0.15)
+        if pe is not None and pe > 0:
+            fair = 35 if quality else 20
+            if pe < fair * 0.6: pts += 18
+            elif pe < fair: pts += 6
+            elif pe < fair * 1.7: pts -= 6
+            else: pts -= 18
+        if ps is not None:
+            if ps < 2: pts += 8
+            elif ps > 12: pts -= 10
+        if pb is not None and pb < 1: pts += 10
+        steps[4] = max(0.0, min(100.0, pts))
+    else:
+        steps[4] = None
+
+    dy, payout = f["dividendYield"], f["payoutRatio"]
+    if dy is not None and dy > 0:
+        pts = 50 + min(25.0, dy * 500)
+        if payout is not None:
+            if payout > 0.9: pts -= 20
+            elif payout < 0.6: pts += 10
+        steps[5] = max(0.0, min(100.0, pts))
+    elif dy == 0:
+        steps[5] = 50.0
+    else:
+        steps[5] = None
+
+    steps[6] = max(0.0, min(100.0, 50 + rg * 150)) if rg is not None else None
+
+    cw = ({1: 0.12, 2: 0.22, 3: 0.20, 4: 0.22, 5: 0.10, 6: 0.14} if over1b
+          else {1: 0.10, 2: 0.24, 3: 0.28, 4: 0.18, 5: 0.04, 6: 0.16})
+    ssum = wsum = 0.0
+    for k, p in steps.items():
+        if p is not None:
+            ssum += p * cw[k]; wsum += cw[k]
+    conviction = (ssum / wsum) if wsum > 0 else None
+
+    # Health = 60% dimension composite + 40% chain, dims mapped to the same step
+    # points (scale/profit/strength/value/income/growth), stage-weighted.
+    is_growth = (rg or 0) > 0.15 and (dy or 0) < 0.01
+    is_div = (dy or 0) > 0.02
+    if is_growth:
+        hw = {1: 0.08, 2: 0.10, 4: 0.16, 3: 0.14, 6: 0.24, 5: 0.04}
+    elif is_div:
+        hw = {1: 0.08, 2: 0.18, 4: 0.13, 3: 0.18, 6: 0.08, 5: 0.17}
+    else:
+        hw = {1: 0.10, 2: 0.18, 4: 0.15, 3: 0.13, 6: 0.12, 5: 0.08}
+    hsum = hwsum = 0.0
+    for k, w in hw.items():
+        p = steps.get(k)
+        if p is not None:
+            hsum += p * w; hwsum += w
+    dim_comp = (hsum / hwsum) if hwsum > 0 else None
+    if dim_comp is not None and conviction is not None:
+        health = dim_comp * 0.6 + conviction * 0.4
+    elif conviction is not None:
+        health = conviction
+    else:
+        health = dim_comp
+    return {"conviction": conviction, "health": health}
+
+
+def score_symbol(tk, u, ctx):
+    """Full signal blend for one name — the SAME pipeline open_new uses, so a held
+    position is re-scored identically for thesis checks."""
+    closes = load_history(tk, u["repo"])
+    if not closes:
+        return None
+    comps = score_ticker(closes, ctx["weights"])
+    # Fundamental core (reasoning-chain conviction + health) + research grade.
+    fe = _fund_engine(u)
+    if fe.get("conviction") is not None:
+        comps["fundamentals"] = max(-1.0, min(1.0, (fe["conviction"] - 50) / 50))
+    if fe.get("health") is not None:
+        comps["health"] = max(-1.0, min(1.0, (fe["health"] - 50) / 50))
+    g = (ctx.get("grades") or {}).get(tk)
+    if g and g.get("gradeScore") is not None:
+        comps["researchGrade"] = max(-1.0, min(1.0, (g["gradeScore"] - 50) / 50))
+    pg = peer_grade_signal(tk, u.get("sector"), ctx["peer_ranks"])
+    if pg is not None:
+        comps["peerGrade"] = pg
+    rg = regime_grade_signal(u.get("sector"), u.get("beta"), ctx["mode"], ctx["quad"])
+    if rg is not None:
+        comps["regimeGrade"] = rg
+    ca = cross_asset_for_sector(u.get("sector"), ctx["xa"])
+    if ca is not None:
+        comps["crossAsset"] = ca
+    osig = extract_options_signal(tk)
+    if osig and osig.get("ivSignal") is not None and abs(osig["ivSignal"]) > 0.05:
+        comps["optionsIV"] = osig["ivSignal"]
+    if ctx.get("opt_market") and ctx["opt_market"].get("marketTrend") is not None \
+            and abs(ctx["opt_market"]["marketTrend"]) > 0.03:
+        comps["optionsMarket"] = ctx["opt_market"]["marketTrend"]
+    if ctx.get("fed"):
+        fs = fed_signal(u.get("sector"), ctx["fed"])
+        if fs is not None and abs(fs) > 0.02:
+            comps["fed"] = fs
+    return {"comps": comps, "signed": blend_score(comps, ctx["weights"], ctx["weight_mods"])}
+
+
+def compute_confidence(comps, signed):
+    """0..1 — how much the signals AGREE, how STRONG the blend is, how BROAD the
+    support. Distinct from raw score: a +0.4 driven by one signal is less certain
+    than a +0.4 with six aligned signals."""
+    active = [v for v in comps.values() if isinstance(v, (int, float)) and abs(v) > 0.05]
+    if not active:
+        return 0.0
+    same = sum(1 for v in active if (v > 0) == (signed >= 0))
+    agreement = same / len(active)
+    strength = min(1.0, abs(signed) / 0.6)
+    breadth = min(1.0, len(active) / 6.0)
+    return round(0.5 * agreement + 0.35 * strength + 0.15 * breadth, 3)
+
+
+def compute_triggers(comps, signed, level):
+    """The signals that actually FIRED to make this trade attractive: aligned with
+    the direction and at least `level` strong. This is what makes a trade real vs a
+    marginal blend — and it's stored so the reasoning is auditable."""
+    dir_pos = signed >= 0
+    fired = [{"signal": k, "value": round(v, 3)}
+             for k, v in comps.items()
+             if isinstance(v, (int, float)) and abs(v) >= level and (v > 0) == dir_pos]
+    fired.sort(key=lambda x: abs(x["value"]), reverse=True)
+    return fired
+
+
+def classify_horizon(comps, confidence):
+    """SWING vs CORE. CORE = high confidence AND the blend leans on slow, fundamental
+    / macro signals (peer grade, regime, Fed, cross-asset). Those get ridden and
+    trimmed; momentum names stay swing with tight exits."""
+    lt = sum(abs(comps.get(k, 0) or 0) for k in LONG_TERM_SIGNALS)
+    sw = sum(abs(comps.get(k, 0) or 0) for k in SWING_SIGNALS)
+    lean = lt / (lt + sw + 1e-9)
+    return ("core" if (confidence >= CORE_CONF and lean >= 0.45) else "swing"), round(lean, 3)
+
+
+def manage_open_positions(state, universe, today, ctx=None):
+    """Mark to market, then apply CONFIDENCE- and HORIZON-aware management:
+      • Every held name is re-scored and RE-CLASSIFIED each run (the bot reassesses
+        what it holds), so a position that has grown into a high-conviction, macro-
+        driven idea is treated as CORE even if it was opened as a swing.
+      • SWING: tight -8% stop / +16% target; horizon exit ONLY once the signal that
+        justified it has faded (no arbitrary calendar dump).
+      • CORE : no fixed horizon. Disaster stop at -25%; a trailing stop protects big
+        gains once in profit; a decisive signal flip closes on thesis-break. A long
+        winner is TRIMMED in tiers (+25/50/100%) rather than force-sold — held like a
+        value position."""
+    closed_now, trimmed_now = [], []
     for pos in trades_list(state):
         if pos.get("status") != "open":
             continue
@@ -821,28 +1113,83 @@ def manage_open_positions(state, universe, today):
             continue
         px = u["price"]
         pos["lastPrice"] = px
-        # unrealized mark (long-only)
-        shares = pos.get("shares") or ((pos.get("notional") or 0) / pos["entryPrice"] if pos.get("entryPrice") else 0)
         direction = -1 if pos.get("direction") == "short" else 1
-        pos["pnl"] = round(direction * (px - pos["entryPrice"]) * shares, 2)
+        entry = pos.get("entryPrice") or px
+        shares = pos.get("shares") or ((pos.get("notional") or 0) / entry if entry else 0)
+        pos["pnl"] = round(direction * (px - entry) * shares, 2)
+        ret = (direction * (px - entry) / entry) if entry else 0.0
 
+        # favorable peak, for the core trailing stop
+        peak = pos.get("peakPrice")
+        peak = entry if peak is None else peak
+        peak = max(peak, px) if direction == 1 else min(peak, px)
+        pos["peakPrice"] = round(peak, 4)
+        peak_ret = (direction * (peak - entry) / entry) if entry else 0.0
+
+        # Re-score + RE-CLASSIFY this holding (the bot reassesses what it owns).
+        signed_now = None
+        htype = pos.get("horizonType") or "swing"
+        if ctx is not None:
+            sc = score_symbol(pos["ticker"], u, ctx)
+            if sc:
+                signed_now = sc["signed"]
+                conf_now = compute_confidence(sc["comps"], signed_now)
+                htype, lean_now = classify_horizon(sc["comps"], conf_now)
+                pos["scoreNow"] = round(signed_now, 3)
+                pos["confidence"] = conf_now
+                pos["horizonType"] = htype
+                pos["longTermLean"] = lean_now
+
+        aligned_now = (signed_now * direction) if signed_now is not None else None
         exit_reason = None
-        stop, target = pos.get("stopPrice"), pos.get("targetPrice")
-        if stop and ((direction == 1 and px <= stop) or (direction == -1 and px >= stop)):
-            exit_reason = "stop-loss"
-        elif target and ((direction == 1 and px >= target) or (direction == -1 and px <= target)):
-            exit_reason = "target"
+
+        if htype == "core":
+            if ret <= -CORE_HARD_STOP:
+                exit_reason = "hard-stop"
+            elif aligned_now is not None and aligned_now <= -CORE_EXIT_SCORE:
+                exit_reason = "thesis-break"
+            elif peak_ret >= 0.10 and direction == 1 and px <= peak * (1 - CORE_TRAIL):
+                exit_reason = "trail-stop"
+            elif peak_ret >= 0.10 and direction == -1 and px >= peak * (1 + CORE_TRAIL):
+                exit_reason = "trail-stop"
+            else:
+                # TRIM winners in tiers instead of a hard target exit (long only).
+                tier = int(pos.get("trimTier") or 0)
+                if direction == 1 and tier < len(CORE_TRIM_TIERS) and ret >= CORE_TRIM_TIERS[tier]:
+                    trim_shares = round(shares * CORE_TRIM_FRAC, 4)
+                    if trim_shares > 0 and (shares - trim_shares) > 0:
+                        realized = round((px - entry) * trim_shares - abs(px * trim_shares) * FEE_BPS, 2)
+                        new_shares = round(shares - trim_shares, 4)
+                        pos["shares"] = new_shares
+                        pos["notional"] = round(new_shares * entry, 2)  # cost basis of remainder
+                        pos["trimTier"] = tier + 1
+                        pos.setdefault("trims", []).append(
+                            {"date": today, "shares": trim_shares, "price": px,
+                             "realized": realized, "tier": tier + 1, "atReturnPct": round(ret * 100, 2)})
+                        pos["realizedTrim"] = round((pos.get("realizedTrim") or 0) + realized, 2)
+                        state["bankroll"] = round(state.get("bankroll", STARTING_BANKROLL) + realized, 2)
+                        trimmed_now.append((pos["ticker"], trim_shares, realized, tier + 1))
+                # else: HOLD — ride it; no calendar exit
         else:
-            # horizon check
-            ed = pos.get("entryDate")
-            hd = pos.get("horizonDays") or 21
-            if ed:
-                try:
-                    age = (datetime.strptime(today, "%Y-%m-%d") - datetime.strptime(ed[:10], "%Y-%m-%d")).days
-                    if age >= hd:
-                        exit_reason = "horizon"
-                except ValueError:
-                    pass
+            stop, target = pos.get("stopPrice"), pos.get("targetPrice")
+            if stop and ((direction == 1 and px <= stop) or (direction == -1 and px >= stop)):
+                exit_reason = "stop-loss"
+            elif target and ((direction == 1 and px >= target) or (direction == -1 and px <= target)):
+                exit_reason = "target"
+            elif aligned_now is not None and aligned_now <= -CORE_EXIT_SCORE:
+                exit_reason = "thesis-break"
+            else:
+                # Horizon exit ONLY when the reason to hold (the signal) has faded.
+                ed = pos.get("entryDate")
+                hd = pos.get("horizonDays") or SWING_HORIZON
+                signal_gone = (aligned_now is None) or (aligned_now < MIN_SCORE)
+                if ed and hd and signal_gone:
+                    try:
+                        age = (datetime.strptime(today, "%Y-%m-%d") - datetime.strptime(ed[:10], "%Y-%m-%d")).days
+                        if age >= hd:
+                            exit_reason = "horizon"
+                    except ValueError:
+                        pass
 
         if exit_reason:
             r = realized_pnl(pos, px)
@@ -850,16 +1197,19 @@ def manage_open_positions(state, universe, today):
             pos["exitDate"] = today
             pos["exitPrice"] = px
             pos["exitReason"] = exit_reason
-            pos["realizedPL"] = r
-            pos["pnl"] = r
-            pos["won"] = r > 0
-            entry_cap = (shares or 0) * pos["entryPrice"]
+            total_r = round(r + (pos.get("realizedTrim") or 0), 2)  # include locked trim gains
+            pos["realizedPL"] = total_r
+            pos["pnl"] = total_r
+            pos["won"] = total_r > 0
+            entry_cap = (shares or 0) * entry
             pos["returnPct"] = round((r / entry_cap) * 100, 2) if entry_cap else 0
             pos["sharesAtExit"] = round(shares or 0, 4)
             state["bankroll"] = round(state.get("bankroll", STARTING_BANKROLL) + r, 2)
-            closed_now.append((pos["ticker"], exit_reason, r))
+            closed_now.append((pos["ticker"], exit_reason, total_r))
     for tk, why, r in closed_now:
         log(f"  closed {tk} ({why}) realized ${r:,.2f}")
+    for tk, sh, r, tier in trimmed_now:
+        log(f"  trimmed {tk} {sh:g} sh @tier{tier} -> locked ${r:,.2f}")
     return closed_now
 
 
@@ -876,6 +1226,9 @@ def open_new_trades(state, universe, today, regime, grades, peer_ranks, xa, quad
     weight_mods = regime.get("weightMods", {})
     mode = regime.get("mode", "choppy")
     min_score = max(MIN_SCORE, regime.get("longBar", 0.0) + MIN_SCORE * 0.0)
+    ctx = {"weights": weights, "weight_mods": weight_mods, "mode": mode,
+           "peer_ranks": peer_ranks, "xa": xa, "quad": quad,
+           "opt_market": opt_market, "fed": fed, "grades": grades}
 
     committed = sum((p.get("notional") or 0) for p in trades_list(state) if p.get("status") == "open")
     cash = bankroll - committed
@@ -890,42 +1243,22 @@ def open_new_trades(state, universe, today, regime, grades, peer_ranks, xa, quad
     for tk, u in universe.items():
         if tk in held:
             continue
-        closes = load_history(tk, u["repo"])
+        sc = score_symbol(tk, u, ctx)
         scanned += 1
-        if not closes:
+        if sc is None:
             continue
-        comps = score_ticker(closes, weights)               # trend/momentum/meanReversion
-        pg = peer_grade_signal(tk, u.get("sector"), peer_ranks)
-        if pg is not None:
-            comps["peerGrade"] = pg
-        rg = regime_grade_signal(u.get("sector"), u.get("beta"), mode, quad)
-        if rg is not None:
-            comps["regimeGrade"] = rg
-        ca = cross_asset_for_sector(u.get("sector"), xa)
-        if ca is not None:
-            comps["crossAsset"] = ca
-        # Per-name options IV signal (only for names with a chain in the repo).
-        osig = extract_options_signal(tk)
-        if osig and osig.get("ivSignal") is not None and abs(osig["ivSignal"]) > 0.05:
-            comps["optionsIV"] = osig["ivSignal"]
-        # Market-wide options tilt (uniform across the book).
-        if opt_market and opt_market.get("marketTrend") is not None and abs(opt_market["marketTrend"]) > 0.03:
-            comps["optionsMarket"] = opt_market["marketTrend"]
-        # Fed rate tailwind/headwind for rate-sensitive sectors.
-        if fed:
-            fs = fed_signal(u.get("sector"), fed)
-            if fs is not None and abs(fs) > 0.02:
-                comps["fed"] = fs
-        signed = blend_score(comps, weights, weight_mods)
-        if signed >= min_score:
+        comps, signed = sc["comps"], sc["signed"]
+        conf = compute_confidence(comps, signed)
+        trigs = compute_triggers(comps, signed, TRIGGER_LEVEL)
+        # Only take a trade that actually has concrete triggers firing for it.
+        if signed >= min_score and len(trigs) >= MIN_TRIGGERS:
             candidates.append({"ticker": tk, "score": signed, "direction": "long",
-                               "components": comps, "price": u["price"],
-                               "sector": u["sector"], "name": u["name"]})
-        elif ALLOW_SHORTS and signed <= SHORT_SCORE:
-            # Strongly-negative signal → short candidate (rank by |score|).
+                               "components": comps, "confidence": conf, "triggers": trigs,
+                               "price": u["price"], "sector": u["sector"], "name": u["name"]})
+        elif ALLOW_SHORTS and signed <= SHORT_SCORE and len(trigs) >= MIN_TRIGGERS:
             candidates.append({"ticker": tk, "score": abs(signed), "direction": "short",
-                               "components": comps, "price": u["price"],
-                               "sector": u["sector"], "name": u["name"]})
+                               "components": comps, "confidence": conf, "triggers": trigs,
+                               "price": u["price"], "sector": u["sector"], "name": u["name"]})
     candidates.sort(key=lambda c: c["score"], reverse=True)
     n_long = sum(1 for c in candidates if c["direction"] == "long")
     n_short = sum(1 for c in candidates if c["direction"] == "short")
@@ -935,9 +1268,12 @@ def open_new_trades(state, universe, today, regime, grades, peer_ranks, xa, quad
     opened = []
     slots = min(MAX_NEW_TRADES, MAX_POSITIONS - n_open)
     for c in candidates[:slots]:
-        size = bankroll * POSITION_PCT
-        if size > deployable:
-            size = deployable
+        conf = c.get("confidence", 0.0)
+        htype, lean = classify_horizon(c["components"], conf)
+        is_short = c.get("direction") == "short"
+        # Confidence-scaled sizing: 0.6x (low) → 1.4x (high), hard-capped at 1.6x base.
+        size = min(bankroll * POSITION_PCT * (0.6 + 0.8 * conf),
+                   deployable, bankroll * POSITION_PCT * 1.6)
         if size < bankroll * 0.01:
             break
         shares = round(size / c["price"], 4)
@@ -945,25 +1281,36 @@ def open_new_trades(state, universe, today, regime, grades, peer_ranks, xa, quad
             continue
         notional = round(shares * c["price"], 2)
         fees = round(notional * FEE_BPS, 2)
-        is_short = c.get("direction") == "short"
-        stop = round(c["price"] * (1.08 if is_short else 0.92), 4)     # short: stop above; long: below
-        target = round(c["price"] * (0.84 if is_short else 1.16), 4)   # short: target below; long: above
+        if htype == "core":
+            stop = round(c["price"] * ((1 + CORE_HARD_STOP) if is_short else (1 - CORE_HARD_STOP)), 4)
+            target = None                                   # ride it; managed by trim + thesis-break
+            horizon_days = None                             # no fixed-calendar exit
+            style = "core"
+        else:
+            stop = round(c["price"] * ((1 + SWING_STOP) if is_short else (1 - SWING_STOP)), 4)
+            target = round(c["price"] * ((1 - SWING_TARGET) if is_short else (1 + SWING_TARGET)), 4)
+            horizon_days = int(SWING_HORIZON * (1 + conf))  # more confidence → longer leash
+            style = "momentum"
+        trigs = c.get("triggers", [])
         trade = {
             "id": f"{c['ticker']}-{today}-runner-{int(datetime.now(timezone.utc).timestamp())}",
             "ticker": c["ticker"], "name": c["name"], "sector": c["sector"],
             "direction": "short" if is_short else "long", "instrument": "shares",
-            "style": "momentum", "horizonType": "swing", "horizonDays": 21,
+            "style": style, "horizonType": htype, "horizonDays": horizon_days,
             "entryDate": today, "exitDate": None,
-            "entryPrice": c["price"], "exitPrice": None,
+            "entryPrice": c["price"], "exitPrice": None, "peakPrice": c["price"],
             "shares": shares, "notional": notional, "dollars": notional,
-            "allocationPct": round(POSITION_PCT * 100, 2), "leverage": 1, "hedge": False,
-            "stopPrice": stop, "targetPrice": target,
+            "allocationPct": round(notional / bankroll * 100, 2), "leverage": 1, "hedge": False,
+            "stopPrice": stop, "targetPrice": target, "trimTier": 0, "trims": [],
             "fees": fees, "realizedPL": 0, "pnl": 0, "returnPct": 0, "won": False,
             "exitReason": "open", "status": "open",
-            "conviction": round(c["score"], 3), "confidence": round(c["score"], 3),
+            "conviction": round(c["score"] if not is_short else -c["score"], 3),
+            "confidence": round(conf, 3), "longTermLean": lean,
             "components": {k: round(v, 3) for k, v in c["components"].items()},
-            "rationale": [f"Runner score {c['score']:.2f}: " +
-                          ", ".join(f"{k} {v:+.2f}" for k, v in c["components"].items())],
+            "topDrivers": trigs,
+            "signalsThatHelped": [t["signal"] for t in trigs],
+            "rationale": [f"{htype.upper()} · conf {conf:.2f} · score {c['score']:.2f}. Triggers: " +
+                          (", ".join(f"{t['signal']} {t['value']:+.2f}" for t in trigs) or "none")],
             "cashAfter": round(cash - notional, 2),
             "placedBy": "runner",
         }
@@ -1079,7 +1426,11 @@ def main():
     log(f"regime: {regime['mode']}{regime.get('optNote','')} · {quad_note} · cross-asset: {', '.join(xa_have) or 'none'} · "
         f"peer-ranked sectors cover {len(peer_ranks)} tickers{opt_note}{fed_note}")
 
-    closed = manage_open_positions(state, universe, today)
+    weights = state.get("learnedWeights", {}) if isinstance(state.get("learnedWeights"), dict) else {}
+    ctx = {"weights": weights, "weight_mods": regime.get("weightMods", {}),
+           "mode": regime.get("mode", "choppy"), "peer_ranks": peer_ranks,
+           "xa": xa, "quad": quad, "opt_market": opt_market, "fed": fed, "grades": grades}
+    closed = manage_open_positions(state, universe, today, ctx)
     opened = open_new_trades(state, universe, today, regime, grades, peer_ranks, xa, quad, opt_market, fed)
     recompute(state, universe, today)
 
@@ -1093,6 +1444,7 @@ def main():
         # Still write the refreshed marks/equity point so the curve advances daily,
         # but only if something actually changed in the equity value.
         pass
+    STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
     STATE_FILE.write_text(json.dumps(state, separators=(",", ":")))
     log(f"wrote {STATE_FILE}")
 

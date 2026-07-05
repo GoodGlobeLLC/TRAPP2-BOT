@@ -97,7 +97,12 @@ def fetch_json(url, timeout=30):
         return None
 
 
+FX_URL = f"{RAW}/TRAPP2-1/main/data/fx/rates.json"
+
+
 def base_price_map():
+    """{ticker: {price(local), currency}} — currency from master.json so we can
+    convert foreign quotes (KRW/CNY/JPY/…) to USD."""
     px = {}
     for u in MASTER:
         d = fetch_json(u)
@@ -108,8 +113,43 @@ def base_price_map():
             t = (r.get("ticker") or r.get("symbol") or "").upper()
             p = _num(r.get("price")) or _num(r.get("fmpPrice")) or _num(r.get("close")) or _num(r.get("last"))
             if t and p is not None and t not in px:
-                px[t] = p
+                px[t] = {"price": p, "currency": (r.get("currency") or "USD")}
     return px
+
+
+def load_fx():
+    """USD-per-unit map from TRAPP2-1/data/fx/rates.json (same file the app uses)."""
+    d = fetch_json(FX_URL)
+    rates = (d.get("rates") if isinstance(d, dict) else {}) or {}
+    out = {}
+    for c, v in rates.items():
+        up = _num(v.get("usdPer")) if isinstance(v, dict) else None
+        if up:
+            out[c.upper()] = up
+    return out
+
+
+def make_price_of(base, live, fx):
+    """USD price for a ticker: live quote (or master) in its local currency,
+    converted with fx. GBX/GBp (London pence) handled. Returns None if the
+    currency has no loaded rate (so it's excluded rather than mis-valued)."""
+    def price_of(tic):
+        e = base.get(tic)
+        ccy = ((e["currency"] if e else "USD") or "USD").upper()
+        local = live.get(tic) if tic in live else (e["price"] if e else None)
+        if local is None:
+            return None
+        pence = 1.0
+        if ccy in ("GBX", "GBP", "GBP.", "ZAC", "ILA"):
+            if ccy in ("GBX",):
+                ccy, pence = "GBP", 0.01
+        if ccy in ("GBP",) and False:
+            pass
+        if ccy == "USD":
+            return local
+        r = fx.get(ccy)
+        return (local * pence * r) if r else None
+    return price_of
 
 
 def live_quotes(tickers):
@@ -186,9 +226,9 @@ def value_book(state, price_of):
         if p["nonlin"]:
             unreal += p["pnl"]; priced += 1; continue
         avg = p["cost"] / p["shares"] if p["shares"] else 0.0
-        px = price_of(tic)
-        if _is_foreign(tic) or not _sane_mark(px, avg):
-            excluded += 1              # can't value reliably (foreign FX / bad price)
+        px = price_of(tic)          # USD (FX-normalized)
+        if not _sane_mark(px, avg):
+            excluded += 1              # no FX rate / absurd mark ⇒ can't value reliably
             continue
         unreal += p["shares"] * (px - avg) * p["dir"]
         priced += 1
@@ -252,12 +292,11 @@ def main():
     tickers = sorted({(t.get("ticker") or "").upper() for t in (state.get("trades") or [])
                       if isinstance(t, dict) and t.get("status") == "open" and t.get("ticker")})
     base = base_price_map()
+    fx = load_fx()
     live = live_quotes(tickers) if tickers else {}
     source = "live+master" if live else "master"
-    print(f"Valuing {len(tickers)} open tickers · live quotes {len(live)} · master prices {len(base)}")
-
-    def price_of(tic):
-        return live.get(tic) if tic in live else base.get(tic)
+    print(f"Valuing {len(tickers)} open tickers · live {len(live)} · master {len(base)} · fx {len(fx)} ccy")
+    price_of = make_price_of(base, live, fx)
 
     value, realized, unreal, opens, priced, excluded = value_book(state, price_of)
     point = {

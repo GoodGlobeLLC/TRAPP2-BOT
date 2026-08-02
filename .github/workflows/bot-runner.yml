@@ -2,21 +2,42 @@
 #  >>> DESTINATION: GoodGlobeLLC/TRAPP2-BOT
 #  >>> FILE PATH:   .github/workflows/bot-runner.yml
 #
-#  Runs the autonomous bot DAILY after the US close, with NO app open. It scores
-#  the universe, manages open positions (stop/target/horizon), opens the best
-#  few new trades within risk limits, writes bot_training_data.json back to this
-#  repo, and then mirrors the trades to Supabase.
+#  Runs the autonomous bot after the US close with NO app open. It scores the
+#  universe, manages open positions (stop / target / horizon / trail), opens the
+#  best few new trades within risk limits, writes data/bot_training_data.json
+#  back to this repo, then mirrors the trades to Supabase.
 #
-#  Pair this with pipeline/bot_runner.py (the engine) and, if you want the
-#  Supabase push in the same run, pipeline/sync_bot_to_supabase.py (the one you
-#  already deploy). The Supabase step below is optional and no-ops if that script
-#  or the secrets aren't present.
+#  ############  THE BUG THIS FILE FIXES  ############
+#
+#  The previous version staged the REPO-ROOT copy:
+#
+#      git add -A bot_training_data.json          <-- WRONG PATH
+#
+#  but pipeline/bot_runner.py writes to  data/bot_training_data.json, and
+#  supabase-sync.yml triggers on  paths: [ 'data/bot_training_data.json' ].
+#
+#  Consequences, every single run:
+#    1. The staged root file never changed  → "No state change to commit"
+#       → THE BOT'S TRADES WERE DISCARDED. Every run started from the same
+#         stale root book and the real book was never persisted.
+#    2. No commit touched data/ → supabase-sync.yml never fired → the bulk
+#       bot_trades sync never ran. (Per-trade upsert at placement still worked,
+#       which is why exactly one trade had landed in the table.)
+#
+#  Writer path, committed path and watched path must all be the same string.
+#  They now all read  data/bot_training_data.json.
+#
+#  The stale repo-root copy is deleted on the first run so it can never be read
+#  again — bot_runner.py has a legacy-migration branch that would otherwise keep
+#  finding it.
+#  ###################################################
 #
 #  Secrets:
-#    SUPABASE_URL            (for the optional Supabase mirror)
-#    SUPABASE_SERVICE_ROLE   (service-role key; bypasses RLS for the write)
+#    SUPABASE_URL            the BOT project URL
+#    SUPABASE_SERVICE_ROLE   service-role key (bypasses RLS for the write)
+#    SUPABASE_SERVICE_KEY    accepted as an alias — set either one
 #
-#  Safety knobs (set as repo Variables, or edit defaults in bot_runner.py):
+#  Safety knobs (repo Variables, or the defaults in bot_runner.py):
 #    RUNNER_MAX_NEW_TRADES, RUNNER_MAX_POSITIONS, RUNNER_POSITION_PCT,
 #    RUNNER_CASH_RESERVE_PCT, RUNNER_MIN_SCORE, RUNNER_DRY_RUN
 # ============================================================
@@ -25,8 +46,8 @@ name: Autonomous Bot Runner
 
 on:
   schedule:
-    # 21:30 UTC Mon–Fri ≈ 16:30–17:30 ET, just after the US cash close, so the
-    # day's settled prices are in master.json. Cron is UTC; DST shifts ET ±1h.
+    # 21:30 UTC Mon-Fri ~= 16:30-17:30 ET, just after the US cash close, so the
+    # day's settled prices are in master.json. Cron is UTC; DST shifts ET +/-1h.
     - cron: '30 21 * * 1-5'
   workflow_dispatch:
     inputs:
@@ -57,9 +78,16 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Snapshot the book BEFORE the run (audit trail)
+        run: |
+          if [ -f data/bot_training_data.json ]; then
+            python3 -c 'import json; d=json.load(open("data/bot_training_data.json")); t=d.get("trades") or []; print("BEFORE  bankroll=%s  trades=%d  open=%d" % (d.get("bankroll"), len(t), sum(1 for x in t if x.get("status")=="open")))'
+          else
+            echo "BEFORE  no data/bot_training_data.json yet (first run)"
+          fi
+
       - name: Run the bot
         env:
-          # Knobs come from repo Variables if set, else the script defaults apply.
           RUNNER_MAX_NEW_TRADES:   ${{ vars.RUNNER_MAX_NEW_TRADES }}
           RUNNER_MAX_POSITIONS:    ${{ vars.RUNNER_MAX_POSITIONS }}
           RUNNER_POSITION_PCT:     ${{ vars.RUNNER_POSITION_PCT }}
@@ -68,37 +96,82 @@ jobs:
           RUNNER_DRY_RUN:          ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
         run: python pipeline/bot_runner.py
 
-      - name: Commit bot_training_data.json (bot scope only, retry)
+      - name: Verify the runner actually wrote its state file
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          test -f data/bot_training_data.json || {
+            echo "::error::pipeline/bot_runner.py did not produce data/bot_training_data.json"
+            exit 1
+          }
+          python3 -c 'import json,sys; d=json.load(open("data/bot_training_data.json")); t=d.get("trades") or []; print("AFTER   bankroll=%s  trades=%d  open=%d" % (d.get("bankroll"), len(t), sum(1 for x in t if x.get("status")=="open"))); sys.exit(0 if isinstance(d.get("bankroll"),(int,float)) else (print("::error::bankroll missing or not numeric - refusing to commit") or 1))'
+
+      - name: Commit data/bot_training_data.json (bot scope only, retry)
         if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A bot_training_data.json
+          # Retire the stale repo-root copy so nothing can read it again.
+          if [ -f bot_training_data.json ]; then
+            git rm -q --cached bot_training_data.json 2>/dev/null || true
+            rm -f bot_training_data.json
+            echo "Removed stale repo-root bot_training_data.json"
+          fi
+          # THE PATH THAT MATTERS: this is what supabase-sync.yml watches.
+          git add -A data/bot_training_data.json bot_training_data.json 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "No state change to commit"
           else
-            git commit -m "Bot run $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+            git commit -m "Bot run $(date -u +%Y-%m-%dT%H:%M:%SZ)"
             for i in 1 2 3 4 5; do
               if git push; then echo "Pushed on attempt $i"; break; fi
               git fetch origin
-              git merge -X ours origin/${{ github.ref_name }} 2>/dev/null || true
-              if [ -f .git/MERGE_HEAD ]; then
-                git checkout --ours -- bot_training_data.json 2>/dev/null || true
-                git add -A bot_training_data.json 2>/dev/null || true
+              git merge -X ours origin/${{ github.ref_name }} --no-edit 2>/dev/null || true
+              if [ -f .git/MERGE_HEAD ] || [ -d .git/rebase-merge ]; then
+                git checkout --ours -- data/bot_training_data.json 2>/dev/null || true
+                git add -A data/bot_training_data.json 2>/dev/null || true
                 git commit --no-edit 2>/dev/null || true
               fi
               sleep 4
             done
           fi
+          # NOTE: the commit message deliberately has NO [skip ci]. supabase-sync.yml
+          # keys off a push touching data/bot_training_data.json; [skip ci] would
+          # suppress it and reintroduce the "bulk sync never fires" bug by a
+          # different route.
 
-      - name: Mirror trades to Supabase (optional)
+      - name: Mirror trades to Supabase
         if: ${{ github.event.inputs.dry_run != 'true' }}
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE: ${{ secrets.SUPABASE_SERVICE_ROLE }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: |
           if [ -f pipeline/sync_bot_to_supabase.py ] && [ -n "$SUPABASE_URL" ]; then
             python pipeline/sync_bot_to_supabase.py
           else
-            echo "Supabase mirror skipped (no sync script or no SUPABASE_URL secret)."
+            echo "::warning::Supabase mirror skipped (no sync script or no SUPABASE_URL secret)."
+          fi
+
+      - name: Mark the book to market right away
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE: ${{ secrets.SUPABASE_SERVICE_ROLE }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        # A post-close equity point immediately after the run means the app's
+        # Bets chart shows the day's real closing value instead of waiting for
+        # the next scheduled bot-equity tick.
+        run: |
+          if [ -f pipeline/bot_equity_snapshot.py ]; then
+            python3 pipeline/bot_equity_snapshot.py || true
+            git add data/bot_equity_history.json 2>/dev/null || true
+            if ! git diff --staged --quiet; then
+              git commit -m "equity tape (post-run): $(date -u +%FT%TZ)"
+              for i in 1 2 3; do
+                git push && break
+                git fetch origin
+                git merge -X ours origin/${{ github.ref_name }} --no-edit 2>/dev/null || true
+                sleep 4
+              done
+            fi
           fi
